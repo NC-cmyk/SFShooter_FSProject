@@ -30,7 +30,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
+
+        if(Input.GetButton("Shoot") && !isShooting){
+            StartCoroutine(shoot());
+        }
         
         movement();
     }
@@ -54,4 +58,21 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
+    IEnumerator shoot(){
+        isShooting = true;
+
+        RaycastHit hit;
+        if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance)){
+            IDamage damage = hit.collider.GetComponent<IDamage>();
+
+            if(damage != null){
+                damage.takeDamage(shootDamage);
+            }
+        }
+
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
+    }
+    
 }
