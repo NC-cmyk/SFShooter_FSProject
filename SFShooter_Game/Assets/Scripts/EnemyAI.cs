@@ -10,19 +10,16 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [SerializeField] int HP;
 
-    [SerializeField] GameObject player; // will be removed once game manager is implemented
-
     // Start is called before the first frame update
     void Start()
     {
-        // add code to let game manager know to add to enemy count
-        player = GameObject.FindGameObjectWithTag("Player");
+        GameManager.instance.GameGoalUpdate(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
+        agent.SetDestination(GameManager.instance.player.transform.position);
     }
 
     public void takeDamage(int amount)
@@ -32,7 +29,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if(HP <= 0)
         {
-            // update game manager goal
+            GameManager.instance.GameGoalUpdate(-1);
             Destroy(gameObject);
         }
     }
