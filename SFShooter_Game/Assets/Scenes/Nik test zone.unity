@@ -601,7 +601,7 @@ MonoBehaviour:
   model: {fileID: 403591062}
   agent: {fileID: 403591066}
   HP: 3
-  player: {fileID: 0}
+  player: {fileID: 862520097}
 --- !u!195 &403591066
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -786,6 +786,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+--- !u!1 &862520097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8185174367710278505, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+  m_PrefabInstance: {fileID: 862520096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &892081545
 GameObject:
   m_ObjectHideFlags: 0

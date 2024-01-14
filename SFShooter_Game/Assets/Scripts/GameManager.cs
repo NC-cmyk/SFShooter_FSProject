@@ -14,14 +14,14 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     public bool isPaused;
-    // Start is called before the first frame update
+    int enemyCount;
+    //Awake used to initialize the game manager first 
     void Awake()
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetButtonDown("Cancel") && activeMenu == null)
@@ -48,5 +48,15 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
+    }
+    public void GameGoalUpdate(int amount)
+    {
+        enemyCount += amount;
+        if(enemyCount <= 0)
+        {
+            PausedState();
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+        }
     }
 }
