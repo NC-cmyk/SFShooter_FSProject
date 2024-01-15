@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SFShooter_Game",
+    "\\SFShooter_Game\\Assets",
+    "\\SFShooter_Game\\Assets\\Material",
+    "\\SFShooter_Game\\Assets\\Prefabs",
+    "\\SFShooter_Game\\Assets\\Scenes",
+    "\\SFShooter_Game\\Assets\\Scripts",
+    "\\SFShooter_Game\\Packages"
+  ],
+  "SelectedNode": "\\SFShooter_Game\\Assets\\Scripts\\GameManager.cs",
+  "PreviewInSolutionExplorer": false
+}
