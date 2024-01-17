@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [SerializeField] int HP;
 
+    bool playerInRange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +39,26 @@ public class EnemyAI : MonoBehaviour, IDamage
     IEnumerator flashRed()
     {
         // may be removed once animations are implemented
+        Color ogColor = model.material.color;
+        
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        model.material.color = Color.white;
+        model.material.color = ogColor;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
     }
 }
