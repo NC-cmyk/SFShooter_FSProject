@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
-    [SerializeField] Renderer model;
+    public Renderer model;  // change back to SerializeField when getters/setters are added
     [SerializeField] NavMeshAgent agent;
 
     [SerializeField] int HP;

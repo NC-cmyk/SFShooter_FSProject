@@ -43,11 +43,6 @@ public class MeleeEnemyAI : EnemyAI
             if (dmg != null && hit.collider.CompareTag("Player"))
             {
                 dmg.takeDamage(attackDmg);
-                Debug.Log("hit");
-            }
-            else
-            {
-                Debug.Log("miss");
             }
         }
         yield return new WaitForSeconds(attackRate);
