@@ -10,16 +10,16 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [SerializeField] int HP;
 
-    bool playerInRange;
+    protected bool playerInRange;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         GameManager.instance.GameGoalUpdate(1);
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         agent.SetDestination(GameManager.instance.player.transform.position);
     }
