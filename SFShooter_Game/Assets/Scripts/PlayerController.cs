@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         shieldHP = shieldHPmax;
-        HP = HPmax;
+        HPmax = HP;
         respawn();
     }
 
