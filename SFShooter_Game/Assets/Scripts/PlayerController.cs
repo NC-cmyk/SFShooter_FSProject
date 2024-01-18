@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         shieldHP = shieldHPmax;
         HP = HPmax;
+        respawn();
     }
 
     // Update is called once per frame
@@ -39,7 +40,8 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
 
-        if(Input.GetButton("Shoot") && !isShooting){
+        if(Input.GetButton("Shoot") && !isShooting && !GameManager.instance.isPaused)
+        {
             StartCoroutine(shoot());
         }
         
@@ -122,7 +124,7 @@ public class PlayerController : MonoBehaviour, IDamage
         shieldHP = shieldHPmax;
 
         // update UI
-
+        updatePlayerUI();
         controller.enabled = false;
         // use the spawn position to move the player
         transform.position = GameManager.instance.playerSpawnPosition.transform.position;

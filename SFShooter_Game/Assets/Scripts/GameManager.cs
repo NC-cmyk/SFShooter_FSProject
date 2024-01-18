@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject loseMenu;
 
+    public PlayerController playerScript;
     public GameObject player;
     public Image playerHPBar;
     public GameObject playerSpawnPosition;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
-
+        playerScript = player.GetComponent<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
     }
 
