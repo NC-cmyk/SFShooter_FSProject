@@ -139,8 +139,9 @@ public class PlayerController : MonoBehaviour, IDamage
 
     IEnumerator flashDamage(){
         // show damage flash
-        
+        GameManager.instance.playerDamageFlash.SetActive(true);
         yield return new WaitForSeconds(.1f);
+        GameManager.instance.playerDamageFlash.SetActive(false);
     }
     
 }

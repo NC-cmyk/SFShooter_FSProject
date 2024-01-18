@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public PlayerController playerScript;
     public GameObject player;
     public Image playerHPBar;
+    public GameObject playerDamageFlash;
     public GameObject playerSpawnPosition;
 
     public bool isPaused;
