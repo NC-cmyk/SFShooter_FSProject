@@ -112,9 +112,32 @@ public class PlayerController : MonoBehaviour, IDamage
 
         if(HP <= 0){
             // This is where the player dies, Game over screen
-
+            GameManager.instance.youLose();
         }
 
+    }
+
+    public void respawn(){
+        HP = HPmax;
+        shieldHP = shieldHPmax;
+
+        // update UI
+
+        controller.enabled = false;
+        // use the spawn position to move the player
+        transform.position = GameManager.instance.playerSpawnPosition.transform.position;
+        controller.enabled = true;
+    }
+
+    public void updatePlayerUI(){
+        // update hp bar from GameManager
+
+    }
+
+    IEnumerator flashDamage(){
+        // show damage flash
+        
+        yield return new WaitForSeconds(.1f);
     }
     
 }

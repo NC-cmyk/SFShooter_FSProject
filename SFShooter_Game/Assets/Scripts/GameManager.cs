@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject loseMenu;
 
     public GameObject player;
+    public Image playerHPBar;
+    public GameObject playerSpawnPosition;
 
     public bool isPaused;
     int enemyCount;
@@ -20,6 +23,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
+
+        playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
     }
 
     void Update()
@@ -58,5 +63,10 @@ public class GameManager : MonoBehaviour
             activeMenu = winMenu;
             activeMenu.SetActive(true);
         }
+    }
+    public void youLose(){
+        PausedState();
+        activeMenu = loseMenu;
+        activeMenu.SetActive(true);
     }
 }
