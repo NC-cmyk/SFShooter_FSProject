@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
     }
 
-    void Update()
+    void Update() 
     {
         if(Input.GetButtonDown("Cancel") && activeMenu == null)
         {
