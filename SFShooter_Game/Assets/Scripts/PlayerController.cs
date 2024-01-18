@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] CharacterController controller;
     
 
-    [SerializeField] int HPmax;
+    [SerializeField] int HP;
     [SerializeField] int shieldHPmax;
     [SerializeField] int shieldTimer;
     [SerializeField] float playerSpeed;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 playerVelocity;
     Vector3 move;
     int shieldHP;
-    int HP;
+    int HPmax;
     bool groundedPlayer;
     int jumpMax = 2;
     int jumpCount;
@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
     public void takeDamage(int amount){
+        updatePlayerUI();
         if(shieldHP <= 0){
             HP -= amount;
         }
@@ -133,7 +134,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void updatePlayerUI(){
         // update hp bar from GameManager
-
+        GameManager.instance.playerHPBar.fillAmount = (float)HP / HPmax;
     }
 
     IEnumerator flashDamage(){

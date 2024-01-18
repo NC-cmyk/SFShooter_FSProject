@@ -23,6 +23,7 @@ public class ButtonFunctions : MonoBehaviour
     public void respawnplayer()
     {
         GameManager.instance.playerScript.respawn();
+        GameManager.instance.UnpausedState(); 
     }
 }
 
