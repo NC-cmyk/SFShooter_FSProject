@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         HP -= amount;
         StartCoroutine(flashRed());
 
-        if(HP <= 0)
+        if (HP <= 0)
         {
             GameManager.instance.GameGoalUpdate(-1);
             Destroy(gameObject);
