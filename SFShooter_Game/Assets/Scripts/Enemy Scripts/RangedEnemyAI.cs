@@ -10,6 +10,7 @@ public class RangedEnemyAI : EnemyAI
 
     [Header("--- Ranged Enemy Stats ---")]
     [Range(0.1f, 1)] [SerializeField] float shootRate;
+    [Range(10, 45)] [SerializeField] int shootFOV; // fov for shooting/attacking
 
     bool isShooting;
 
@@ -22,13 +23,31 @@ public class RangedEnemyAI : EnemyAI
     // Update is called once per frame
     protected override void Update()
     {
+        base.Update(); // just animations
+
         if (playerInRange)
         {
-            base.Update();
-
-            if (!isShooting)
-                StartCoroutine(shoot());
+            if (canSeePlayer()) { }
         }
+    }
+
+    protected override bool canSeePlayer()
+    {
+        bool canSee = base.canSeePlayer();
+
+        if (canSee)
+        {
+            // enemy should rotate to face player even if player is within stopping distance
+            if (getAgent().remainingDistance < getAgent().stoppingDistance)
+                faceTarget();
+
+            if (angleToPlayer < shootFOV && !isShooting)
+            {
+                StartCoroutine(shoot());
+            }
+        }
+
+        return canSee;
     }
 
     IEnumerator shoot()

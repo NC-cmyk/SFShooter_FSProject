@@ -7,7 +7,9 @@ public class MeleeEnemyAI : EnemyAI
     [Header("--- Melee Enemy Stats ---")]
     [Range(1, 3)] [SerializeField] int attackDmg;
     [Range(1, 3)] [SerializeField] float attackRange;
-    [Range(0.1f, 1)] [SerializeField] int attackRate; // to be removed when animations are added
+    [Range(1, 2)] [SerializeField] int attackRate; // to be removed when animations are added
+    [Range(3, 5)] [SerializeField] int attackFOV; // field of vision for attacking
+    [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
 
     bool isAttacking;
 
@@ -20,15 +22,31 @@ public class MeleeEnemyAI : EnemyAI
     // Update is called once per frame
     protected override void Update()
     {
+        base.Update();
+
         if (playerInRange)
         {
-            base.Update();
-
-            if (!isAttacking)
-                StartCoroutine(attack());
-
-            Debug.DrawRay(transform.position, transform.forward * attackRange);
+            if (canSeePlayer()) { }
         }
+    }
+
+    protected override bool canSeePlayer()
+    {
+        bool canSee = base.canSeePlayer();
+
+        if (canSee)
+        {
+            // enemy should rotate to face player
+            if (getAgent().remainingDistance < sightDistance)
+                faceTarget();
+
+            if (angleToPlayer < attackFOV && !isAttacking)
+                StartCoroutine(attack());
+        }
+
+        Debug.DrawRay(getHeadPos().position, transform.forward * attackRange);
+
+        return canSee;
     }
 
     IEnumerator attack()
@@ -36,7 +54,7 @@ public class MeleeEnemyAI : EnemyAI
         isAttacking = true;
         RaycastHit hit;
 
-        if(Physics.Raycast(transform.position, transform.forward, out hit, attackRange))
+        if(Physics.Raycast(getHeadPos().position, transform.forward, out hit, attackRange))
         {
             IDamage dmg = hit.collider.GetComponent<IDamage>();
 

@@ -13,6 +13,7 @@ public class ExplodingEnemyAI : EnemyAI
     [Header("--- Exploding Enemy Stats ---")]
     [Range(3, 10)] [SerializeField] int explodeDmg;
     [Range(3, 5)] [SerializeField] int explodeTimer;
+    [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
 
     bool isExploding;
 
@@ -25,15 +26,33 @@ public class ExplodingEnemyAI : EnemyAI
     // Update is called once per frame
     protected override void Update()
     {
+        base.Update();
+
         if (playerInRange)
         {
-            base.Update();
+            if (canSeePlayer()) { }
+        }
+    }
 
-            if(explodeTrigger.GetComponent<ExplodeTrigger>().inRange && !isExploding)
+    protected override bool canSeePlayer()
+    {
+        bool canSee = base.canSeePlayer();
+
+        if (canSee)
+        {
+            // enemy should rotate to face player
+            if (getAgent().remainingDistance < sightDistance)
+                faceTarget();
+
+            if (explodeTrigger.GetComponent<ExplodeTrigger>().getInRange() && !isExploding)
             {
+                // enemy doesnt really need an explodeFOV
+                // as long as it can see the player and player was within range
                 StartCoroutine(explode());
             }
         }
+
+        return canSee;
     }
 
     IEnumerator explode()
@@ -42,8 +61,8 @@ public class ExplodingEnemyAI : EnemyAI
         StartCoroutine(flashWarning());
         yield return new WaitForSeconds(explodeTimer);
 
-        if(explodeTrigger.GetComponent<ExplodeTrigger>().dmg != null)
-            explodeTrigger.GetComponent<ExplodeTrigger>().dmg.takeDamage(explodeDmg);
+        if(explodeTrigger.GetComponent<ExplodeTrigger>().getDmg() != null)
+            explodeTrigger.GetComponent<ExplodeTrigger>().getDmg().takeDamage(explodeDmg);
 
         explosion.SetActive(true);
         yield return new WaitForSeconds(0.2f);
@@ -52,13 +71,13 @@ public class ExplodingEnemyAI : EnemyAI
 
     IEnumerator flashWarning()
     {
-        Color ogColor = model.material.color;
+        Color ogColor = getModel().material.color;
 
         while (isExploding)
         {
-            model.material.color = Color.yellow;
+            getModel().material.color = Color.yellow;
             yield return new WaitForSeconds(0.5f);
-            model.material.color = ogColor;
+            getModel().material.color = ogColor;
             yield return new WaitForSeconds(0.5f);
         }
     }

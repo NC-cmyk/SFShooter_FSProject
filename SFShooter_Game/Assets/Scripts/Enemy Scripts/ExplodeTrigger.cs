@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ExplodeTrigger : MonoBehaviour
 {
-    public IDamage dmg;
-    public bool inRange; // player is in range
+    IDamage dmg;
+    bool inRange; // player is in range
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,4 +25,8 @@ public class ExplodeTrigger : MonoBehaviour
         dmg = null;
         inRange = false;
     }
+
+    public IDamage getDmg() { return dmg; }
+
+    public bool getInRange() { return inRange; }
 }
