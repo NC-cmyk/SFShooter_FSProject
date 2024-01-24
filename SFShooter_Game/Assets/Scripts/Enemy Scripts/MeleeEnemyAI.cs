@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MeleeEnemyAI : EnemyAI
 {
-    [SerializeField] int attackDmg;
-    [SerializeField] float attackRange;
-    [SerializeField] int attackRate; // to be removed when animations are added
+    [Header("--- Melee Enemy Stats ---")]
+    [Range(1, 3)] [SerializeField] int attackDmg;
+    [Range(1, 3)] [SerializeField] float attackRange;
+    [Range(0.1f, 1)] [SerializeField] int attackRate; // to be removed when animations are added
 
     bool isAttacking;
 
@@ -25,9 +26,9 @@ public class MeleeEnemyAI : EnemyAI
 
             if (!isAttacking)
                 StartCoroutine(attack());
-        }
 
-        Debug.DrawRay(transform.position, transform.forward * attackRange);
+            Debug.DrawRay(transform.position, transform.forward * attackRange);
+        }
     }
 
     IEnumerator attack()

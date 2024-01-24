@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class RangedEnemyAI : EnemyAI
 {
+    [Header("--- Ranged Enemy Components ---")]
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
-    [SerializeField] float shootRate;
+
+    [Header("--- Ranged Enemy Stats ---")]
+    [Range(0.1f, 1)] [SerializeField] float shootRate;
 
     bool isShooting;
 

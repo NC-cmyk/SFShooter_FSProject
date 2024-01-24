@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Header("--- Component ---")]
     [SerializeField] Rigidbody rb;
 
+    [Header("--- Stats ---")]
     [SerializeField] int dmgAmount;
     [SerializeField] int speed;
     [SerializeField] int destroyTime;

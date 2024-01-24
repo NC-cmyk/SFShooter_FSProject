@@ -6,10 +6,13 @@ using UnityEngine.AI;
 
 public class ExplodingEnemyAI : EnemyAI
 {
-    [SerializeField] int explodeDmg;
-    [SerializeField] int explodeTimer;
+    [Header("--- Exploding Enemy Components ---")]
     [SerializeField] Collider explodeTrigger;
     [SerializeField] GameObject explosion;
+
+    [Header("--- Exploding Enemy Stats ---")]
+    [Range(3, 10)] [SerializeField] int explodeDmg;
+    [Range(3, 5)] [SerializeField] int explodeTimer;
 
     bool isExploding;
 

@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
+    [Header("--- Components ---")]
     public Renderer model;  // change back to SerializeField when getters/setters are added
     [SerializeField] NavMeshAgent agent;
 
+    [Header("--- General Stats ---")]
     [SerializeField] int HP;
 
     protected bool playerInRange;
