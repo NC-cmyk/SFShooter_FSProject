@@ -28,9 +28,13 @@ public class ExplodingEnemyAI : EnemyAI
     {
         base.Update();
 
-        if (playerInRange)
+        if (playerInRange && !canSeePlayer())
         {
-            if (canSeePlayer()) { }
+            StartCoroutine(roam());
+        }
+        else if (!playerInRange)
+        {
+            StartCoroutine(roam());
         }
     }
 
@@ -40,6 +44,8 @@ public class ExplodingEnemyAI : EnemyAI
 
         if (canSee)
         {
+            StopCoroutine(roam());
+
             // enemy should rotate to face player
             if (getAgent().remainingDistance < sightDistance)
                 faceTarget();

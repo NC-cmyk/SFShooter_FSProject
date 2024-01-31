@@ -16,15 +16,22 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(20, 180)] [SerializeField] int fov; // field of view
     [Range(1, 10)] [SerializeField] int rotateSpeed;
     [Range(1, 10)] [SerializeField] int animTransSpeed;
+    [Range(5, 20)] [SerializeField] int roamDistance;
+    [Range(1, 5)] [SerializeField] int roamPauseTimer;
 
     protected bool playerInRange;
     protected Vector3 playerDir; // player direction
     protected float angleToPlayer;
 
+    bool destChosen; // destination chosen
+    Vector3 startingPos; // starting position
+    float stoppingDistOrig; // stopping distance original
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        // GameManager.instance.GameGoalUpdate(1);
+        startingPos = transform.position;
+        stoppingDistOrig = agent.stoppingDistance;
     }
 
     // Update is called once per frame
@@ -33,6 +40,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         // updates the movement animation for enemies depending on their current speed
         float animSpeed = agent.velocity.normalized.magnitude;
         animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), animSpeed, Time.deltaTime * animTransSpeed));
+
+        // movement will be in the child Update() functions
     }
 
     protected virtual bool canSeePlayer()
@@ -52,6 +61,8 @@ public class EnemyAI : MonoBehaviour, IDamage
                 // therefore they should begin following the player as long as they are within sight
                 agent.SetDestination(GameManager.instance.player.transform.position);
 
+                agent.stoppingDistance = stoppingDistOrig;
+
                 // rotation and attacking code will be within child scripts
 
                 return true;
@@ -68,6 +79,25 @@ public class EnemyAI : MonoBehaviour, IDamage
         
         // updates rotation smoothly instead of making the enemy snap its rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
+    }
+
+    protected IEnumerator roam()
+    {
+        if (agent.remainingDistance < 0.05f && !destChosen)
+        {
+            destChosen = true;
+            agent.stoppingDistance = 0;
+            yield return new WaitForSeconds(roamPauseTimer);
+
+            Vector3 randomPos = Random.insideUnitSphere * roamDistance;
+            randomPos += startingPos;
+
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randomPos, out hit, roamDistance, 1);
+            agent.SetDestination(hit.position);
+
+            destChosen = false;
+        }
     }
 
     public void takeDamage(int amount)

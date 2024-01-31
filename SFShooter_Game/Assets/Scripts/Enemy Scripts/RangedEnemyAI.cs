@@ -25,9 +25,13 @@ public class RangedEnemyAI : EnemyAI
     {
         base.Update(); // just animations
 
-        if (playerInRange)
+        if (playerInRange && !canSeePlayer())
         {
-            if (canSeePlayer()) { }
+            StartCoroutine(roam());
+        }
+        else if (!playerInRange)
+        {
+            StartCoroutine(roam());
         }
     }
 
@@ -37,6 +41,8 @@ public class RangedEnemyAI : EnemyAI
 
         if (canSee)
         {
+            StopCoroutine(roam());
+
             // enemy should rotate to face player even if player is within stopping distance
             if (getAgent().remainingDistance < getAgent().stoppingDistance)
                 faceTarget();

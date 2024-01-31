@@ -484,6 +484,8 @@ MonoBehaviour:
   fov: 70
   rotateSpeed: 8
   animTransSpeed: 5
+  roamDistance: 10
+  roamPauseTimer: 2
   attackDmg: 1
   attackRange: 2.5
   attackRate: 1

@@ -58,6 +58,8 @@ MonoBehaviour:
   fov: 70
   rotateSpeed: 7
   animTransSpeed: 5
+  roamDistance: 15
+  roamPauseTimer: 0
   shootPos: {fileID: 4657209602085654692}
   bullet: {fileID: 1696085562031869504, guid: bc6bbc29f6939304ba424bcd4be7e09d, type: 3}
   shootRate: 0.5
