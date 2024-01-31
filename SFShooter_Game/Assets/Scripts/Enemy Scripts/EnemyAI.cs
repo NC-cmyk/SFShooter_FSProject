@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("--- General Stats ---")]
     [SerializeField] int HP;
-    [Range(20, 90)] [SerializeField] int fov; // field of view
+    [Range(20, 180)] [SerializeField] int fov; // field of view
     [Range(1, 10)] [SerializeField] int rotateSpeed;
     [Range(1, 10)] [SerializeField] int animTransSpeed;
 
@@ -24,7 +24,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        GameManager.instance.GameGoalUpdate(1);
+        // GameManager.instance.GameGoalUpdate(1);
     }
 
     // Update is called once per frame
@@ -74,11 +74,15 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         HP -= amount;
         agent.SetDestination(GameManager.instance.player.transform.position);
+        faceTarget();
         StartCoroutine(flashRed());
 
         if (HP <= 0)
         {
-            GameManager.instance.GameGoalUpdate(-1);
+            if(gameObject.tag == "Spawner Enemy")
+            {
+                CombatManager.instance.updateEnemyCount(-1);
+            }
             Destroy(gameObject);
         }
     }
