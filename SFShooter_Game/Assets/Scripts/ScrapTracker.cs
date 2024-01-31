@@ -19,7 +19,6 @@ public class ScrapTracker : MonoBehaviour
         totalScrap++;
         CheckGoals();
     }
-
     private void CheckGoals()
     {
         // Check if the total scrap count equals the required amount for escape
