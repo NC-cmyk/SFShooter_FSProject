@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void PausedState()
     {
         isPaused = !isPaused;
