@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour, IDamage
     
 
     [SerializeField] int HP;
-    [SerializeField] int shieldHPmax;
+    [SerializeField] int shieldHP;
     [SerializeField] int shieldTimer;
     [SerializeField] float playerSpeed;
     [SerializeField] float jumpHeight;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     Vector3 playerVelocity;
     Vector3 move;
-    int shieldHP;
+    int shieldHPmax;
     int HPmax;
     bool groundedPlayer;
     int jumpMax = 2;
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        shieldHP = shieldHPmax;
+        shieldHPmax = shieldHP;
         HPmax = HP;
         respawn();
     }
