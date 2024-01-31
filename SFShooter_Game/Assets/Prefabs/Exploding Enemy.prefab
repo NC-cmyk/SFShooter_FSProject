@@ -464,7 +464,7 @@ MonoBehaviour:
   agent: {fileID: 2589184310848179050}
   animator: {fileID: 5292767899717435565}
   headPos: {fileID: 2172522274052699752}
-  HP: 3
+  HP: 6
   fov: 70
   rotateSpeed: 8
   animTransSpeed: 5
@@ -472,7 +472,7 @@ MonoBehaviour:
   roamPauseTimer: 3
   explodeTrigger: {fileID: 8607289843962090594}
   explosion: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
-  explodeDmg: 3
+  explodeDmg: 4
   explodeTimer: 3
   sightDistance: 8
 --- !u!95 &5292767899717435565
@@ -506,7 +506,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.8
-  m_Speed: 7.5
+  m_Speed: 8.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240
@@ -558,7 +558,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2801088340411543064
 GameObject:

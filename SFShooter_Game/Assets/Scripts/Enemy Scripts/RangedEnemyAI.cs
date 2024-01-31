@@ -8,6 +8,7 @@ public class RangedEnemyAI : EnemyAI
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
 
+    [Header("RANGED ENEMY DAMAGE IN BULLET PREFAB")]
     [Header("--- Ranged Enemy Stats ---")]
     [Range(0.1f, 1)] [SerializeField] float shootRate;
     [Range(10, 45)] [SerializeField] int shootFOV; // fov for shooting/attacking

@@ -142,6 +142,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
+    protected int getHP() { return HP; }
     protected Renderer getModel() { return model; }
     protected NavMeshAgent getAgent() { return agent; }
     protected Transform getHeadPos() { return headPos; }

@@ -72,7 +72,7 @@ public class ExplodingEnemyAI : EnemyAI
 
         Instantiate(explosion, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.2f);
-        this.GetComponent<IDamage>().takeDamage(explodeDmg);
+        this.GetComponent<IDamage>().takeDamage(getHP());
     }
 
     IEnumerator flashWarning()
