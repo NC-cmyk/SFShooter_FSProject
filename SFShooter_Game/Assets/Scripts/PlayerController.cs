@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
     public void takeDamage(int amount){
-        if(shieldHP <= 0){
+        if(shieldHP <= 0 || amount < 0){
             HP -= amount;
         }
         else{

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4857136977169943263}
   - component: {fileID: 5549300146569393621}
   - component: {fileID: 8611768422428651037}
+  - component: {fileID: 4796817678414769241}
   - component: {fileID: 2271819600050185691}
   m_Layer: 0
   m_Name: Scrap
@@ -84,6 +85,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4796817678414769241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969587680436141998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560d8e27d2b765242bc2a9f201caf99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &2271819600050185691
 BoxCollider:
   m_ObjectHideFlags: 0
