@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     public Image playerHPBar;
     public GameObject playerDamageFlash;
     public GameObject playerSpawnPosition;
+    public ScrapTracker scrapTracker; 
 
     public bool isPaused;
     int enemyCount;
+    int totalScrap;
     //Awake used to initialize the game manager first 
     void Awake()
     {
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
+        scrapTracker = ScrapTracker.instance;
     }
 
     void Update() 
@@ -37,7 +40,6 @@ public class GameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
         }
-       CollectedScrap();
         
         if (playerScript != null)
         {
@@ -80,14 +82,11 @@ public class GameManager : MonoBehaviour
 
     void CollectedScrap()
     {
-        // Access the ScrapTracker instance
-        ScrapTracker scrapTracker = ScrapTracker.instance;
-
         // Check if the instance is not null
         if (scrapTracker != null)
         {
             // Use scrapTracker to access its methods or properties
-            int totalScrap = scrapTracker.TotalScrap;
+             totalScrap = scrapTracker.TotalScrap;
             // ... (other actions)
         }
         else
