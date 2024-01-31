@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
+    [Header("CHECK SCRIPT FOR PREFAB NOTES")]
     [Header("-- Spawner Components --")]
     [SerializeField] GameObject[] enemies; // spawners only really used to spawn enemies
     [SerializeField] Transform[] spawnPositions;
@@ -16,6 +17,16 @@ public class spawner : MonoBehaviour
     int spawnCount;
     bool isSpawning;
     bool startSpawning;
+
+    /* === PREFAB NOTES ===
+     * should automatically come with the 3 enemy types, spawns them randomly
+     * if you only want specific enemy types, just remove the ones not wanted
+     * 
+     * spawner prefab comes with 4 spawn positions default and these can be moved and rotated to suit environment
+     * if you want more or less spawn positions, just add or remove
+     * 
+     * spawner prefab has a sphere collider for its trigger, the size and position of the trigger can be resized if desired
+     */
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +42,9 @@ public class spawner : MonoBehaviour
             CombatManager.instance.updateEnemyCount(numToSpawn);
             StartCoroutine(spawn());
         }
+
+        // the attached objective would have a component that when true would allow the collectible to be collected
+        // so if spawnerComplete from combat manager is true then objective = true -> do something that gives access to collectible
     }
 
     IEnumerator spawn()
@@ -58,6 +72,7 @@ public class spawner : MonoBehaviour
         if (other.CompareTag("Player") && CombatManager.instance.activeSpawner == null)
         {
             CombatManager.instance.activeSpawner = gameObject;
+            CombatManager.instance.spawnerComplete = false;
             startSpawning = true;
         }
     }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
-
     public GameObject activeSpawner;
+    public bool spawnerComplete;
 
     int enemyCount;
 
@@ -28,7 +28,8 @@ public class CombatManager : MonoBehaviour
 
         if(activeSpawner != null && enemyCount < 1)
         {
-
+            activeSpawner = null;
+            spawnerComplete = true;
         }
     }
 }

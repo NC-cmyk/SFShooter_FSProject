@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 1226006874740124176}
   m_Layer: 6
   m_Name: Exploding Enemy
-  m_TagString: Untagged
+  m_TagString: Spawner Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
