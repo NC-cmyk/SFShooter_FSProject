@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
             activeMenu.SetActive(isPaused);
         }
        CollectedScrap();
+        
+        if (playerScript != null)
+        {
+            playerScript.updatePlayerUI();
+        }
     }
 
     public void PausedState()
