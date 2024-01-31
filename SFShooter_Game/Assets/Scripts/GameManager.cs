@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
             activeMenu = pauseMenu;
             activeMenu.SetActive(isPaused);
         }
+       CollectedScrap();
     }
 
     public void PausedState()
@@ -71,4 +72,23 @@ public class GameManager : MonoBehaviour
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
     }
+
+    void CollectedScrap()
+    {
+        // Access the ScrapTracker instance
+        ScrapTracker scrapTracker = ScrapTracker.instance;
+
+        // Check if the instance is not null
+        if (scrapTracker != null)
+        {
+            // Use scrapTracker to access its methods or properties
+            int totalScrap = scrapTracker.TotalScrap;
+            // ... (other actions)
+        }
+        else
+        {
+            Debug.LogError("ScrapTracker instance not found!");
+        }
+    }
 }
+

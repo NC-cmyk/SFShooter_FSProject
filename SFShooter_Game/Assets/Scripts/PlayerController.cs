@@ -143,5 +143,16 @@ public class PlayerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(.1f);
         GameManager.instance.playerDamageFlash.SetActive(false);
     }
-    
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Scrap"))
+        {
+            ScrapTracker.instance.CollectScrap();
+
+            // might want to disable or destroy the collected scrap GameObject
+            other.gameObject.SetActive(false);
+        }
+    }
 }
+
