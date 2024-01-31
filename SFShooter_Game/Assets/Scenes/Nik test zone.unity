@@ -1857,6 +1857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 185187020223341304, guid: d92ce4a1addcb9a4699139d9107c6c96, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 393215719631732210, guid: d92ce4a1addcb9a4699139d9107c6c96, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.279602

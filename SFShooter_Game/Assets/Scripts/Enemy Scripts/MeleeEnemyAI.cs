@@ -40,7 +40,7 @@ public class MeleeEnemyAI : EnemyAI
             if (getAgent().remainingDistance < sightDistance)
                 faceTarget();
 
-            if (angleToPlayer < attackFOV && !isAttacking)
+            if (angleToPlayer < attackFOV && !getAnimator().GetBool("isAttacking") && getAgent().remainingDistance < getAgent().stoppingDistance + 1)
                 StartCoroutine(attack());
         }
 
@@ -51,7 +51,7 @@ public class MeleeEnemyAI : EnemyAI
 
     IEnumerator attack()
     {
-        isAttacking = true;
+        getAnimator().SetBool("isAttacking", true);
         RaycastHit hit;
 
         if(Physics.Raycast(getHeadPos().position, transform.forward, out hit, attackRange))
@@ -63,8 +63,9 @@ public class MeleeEnemyAI : EnemyAI
                 dmg.takeDamage(attackDmg);
             }
         }
+
         yield return new WaitForSeconds(attackRate);
 
-        isAttacking = false;
+        getAnimator().SetBool("isAttacking", false);
     }
 }

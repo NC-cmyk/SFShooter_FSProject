@@ -64,7 +64,7 @@ public class ExplodingEnemyAI : EnemyAI
         if(explodeTrigger.GetComponent<ExplodeTrigger>().getDmg() != null)
             explodeTrigger.GetComponent<ExplodeTrigger>().getDmg().takeDamage(explodeDmg);
 
-        explosion.SetActive(true);
+        Instantiate(explosion, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.2f);
         this.GetComponent<IDamage>().takeDamage(explodeDmg);
     }
