@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 931159549}
   m_Layer: 0
   m_Name: Scrap
-  m_TagString: Untagged
+  m_TagString: Scrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1002,6 +1002,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2662812250682498961, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+      propertyPath: m_Height
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662812250682498961, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+      propertyPath: m_Radius
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
       propertyPath: HP
       value: 5
@@ -1009,6 +1017,10 @@ PrefabInstance:
     - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
       propertyPath: HPmax
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+      propertyPath: shieldHP
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
       propertyPath: jumpTimer
@@ -1025,6 +1037,10 @@ PrefabInstance:
     - target: {fileID: 8185174367710278505, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890386000715425614, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

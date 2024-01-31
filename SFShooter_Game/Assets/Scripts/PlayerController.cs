@@ -102,7 +102,6 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
     public void takeDamage(int amount){
-        updatePlayerUI();
         if(shieldHP <= 0){
             HP -= amount;
         }
@@ -110,7 +109,6 @@ public class PlayerController : MonoBehaviour, IDamage
             shieldHP -= amount;
             StopCoroutine(shieldCharger());
             StartCoroutine(shieldCharger());
-            shieldTimer = 0;
         }
 
         if(HP <= 0){
@@ -118,6 +116,7 @@ public class PlayerController : MonoBehaviour, IDamage
             GameManager.instance.youLose();
         }
 
+        updatePlayerUI();
     }
 
     public void respawn(){

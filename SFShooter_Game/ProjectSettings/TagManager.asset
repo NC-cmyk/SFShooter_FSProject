@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player Spawn Pos
   - Spawner Enemy
+  - Scrap
   layers:
   - Default
   - TransparentFX
