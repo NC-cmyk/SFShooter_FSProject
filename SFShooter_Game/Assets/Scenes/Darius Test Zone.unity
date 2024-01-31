@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 241597771}
   - component: {fileID: 241597770}
   m_Layer: 5
-  m_Name: Player HP Bar
+  m_Name: ShieldHP Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 1377395049}
   - component: {fileID: 1377395048}
   m_Layer: 5
-  m_Name: Player HP (1)
+  m_Name: Shield HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
