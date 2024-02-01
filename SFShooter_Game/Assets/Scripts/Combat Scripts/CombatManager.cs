@@ -16,12 +16,6 @@ public class CombatManager : MonoBehaviour
         instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void updateEnemyCount(int num)
     {
         enemyCount += num;
