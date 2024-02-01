@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Scrap : MonoBehaviour
 {
-    bool collectable;
     // Start is called before the first frame update
     void Start()
     {
-        collectable = false;
+        
         // add to the scrap needed 
     }
 
@@ -16,19 +15,16 @@ public class Scrap : MonoBehaviour
     void Update()
     {
         // make collectable when all enemies are dead
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(collectable){
-            if(other.CompareTag("Player")){
-                ScrapTracker.instance.CollectScrap();
-            }
+        if(other.CompareTag("Player")){
+            Debug.Log("Scrap collected");
+            ScrapTracker.instance.CollectScrap();
+            Destroy(gameObject);
         }
-        else{
-            // display reason you can't collect
-            
-        }
-
     }
+
 }

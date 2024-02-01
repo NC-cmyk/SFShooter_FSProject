@@ -18,6 +18,8 @@ public class spawner : MonoBehaviour
     bool isSpawning;
     bool startSpawning;
 
+    public bool Complete;
+
     /* === PREFAB NOTES ===
      * should automatically come with the 3 enemy types, spawns them randomly
      * if you only want specific enemy types, just remove the ones not wanted
@@ -44,6 +46,10 @@ public class spawner : MonoBehaviour
         }
 
         // the attached objective would have a component that when true would allow the collectible to be collected
+        if(startSpawning && CombatManager.instance.activeSpawner == null){
+            objective.SetActive(false);
+            Debug.Log("box is shut down");
+        }
         // so if spawnerComplete from combat manager is true then objective = true -> do something that gives access to collectible
     }
 
