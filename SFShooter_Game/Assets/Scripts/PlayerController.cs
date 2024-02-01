@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)][SerializeField] float shootSoundVol;
     [SerializeField] AudioClip playerWinSound;
     [Range(0, 1)][SerializeField] float winSoundVol;
+    [SerializeField] AudioClip playerJumpSound;
+    [Range(0, 1)][SerializeField] float jumpSoundVol;
 
     Vector3 playerVelocity;
     Vector3 move;
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         if(Input.GetButtonDown("Jump") && jumpCount < jumpMax){
             playerVelocity.y = jumpHeight;
+            audSource.PlayOneShot(playerJumpSound, jumpSoundVol);
             jumpCount++;
 
             if(jumpCount == 2){
