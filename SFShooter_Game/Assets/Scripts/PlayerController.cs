@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour, IDamage
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance)){
             IDamage damage = hit.collider.GetComponent<IDamage>();
 
-            if(damage != null){
+            if(hit.transform != transform && damage != null){
                 damage.takeDamage(shootDamage);
             }
         }
