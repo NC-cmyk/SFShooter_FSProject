@@ -25,13 +25,11 @@ public class CombatManager : MonoBehaviour
     public void updateEnemyCount(int num)
     {
         enemyCount += num;
-        Debug.Log(enemyCount);
 
         if(activeSpawner != null && enemyCount < 1)
         {
             activeSpawner = null;
             spawnerComplete = true;
-            Debug.Log("Spawner has been reset");
         }
     }
 }

@@ -41,7 +41,6 @@ public class spawner : MonoBehaviour
     {
         if (startSpawning && spawnCount < numToSpawn && !isSpawning)
         {
-            CombatManager.instance.updateEnemyCount(numToSpawn);
             StartCoroutine(spawn());
         }
 
@@ -75,10 +74,11 @@ public class spawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && CombatManager.instance.activeSpawner == null)
+        if (other.CompareTag("Player") && CombatManager.instance.activeSpawner == null && !startSpawning)
         {
             CombatManager.instance.activeSpawner = gameObject;
             CombatManager.instance.spawnerComplete = false;
+            CombatManager.instance.updateEnemyCount(numToSpawn);
             startSpawning = true;
         }
     }
