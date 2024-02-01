@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float gravity;
 
     [Header("----- Gun Stats-----")]
-    [SerializeField] int shootDamage;
-    [SerializeField] float shootRate;
+    [SerializeField] public int shootDamage;
+    [SerializeField] public float shootRate;
     [SerializeField] int shootDistance;
 
     Vector3 playerVelocity;
