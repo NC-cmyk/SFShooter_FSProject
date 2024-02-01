@@ -189,12 +189,13 @@ MonoBehaviour:
   shieldHP: 2
   shieldTimer: 3
   playerSpeed: 7
+  sprintModifier: 1.505
   jumpHeight: 15
   jumpTimer: 5
   gravity: -25
   shootDamage: 1
-  shootRate: 0.2
-  shootDistance: 15
+  shootRate: 0.5
+  shootDistance: 25
 --- !u!33 &7387118874165750527
 MeshFilter:
   m_ObjectHideFlags: 0

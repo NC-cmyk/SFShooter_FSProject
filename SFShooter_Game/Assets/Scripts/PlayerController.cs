@@ -6,15 +6,19 @@ public class PlayerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController controller;
     
-
+    [Header("----- Player Stats -----")]
     [SerializeField] int HP;
     [SerializeField] int shieldHP;
     [SerializeField] int shieldTimer;
+
+    [Header("----- Movement -----")]
     [SerializeField] float playerSpeed;
+    [Range(1, 2)] [SerializeField] float sprintModifier;
     [SerializeField] float jumpHeight;
     [SerializeField] float jumpTimer;
     [SerializeField] float gravity;
 
+    [Header("----- Gun Stats-----")]
     [SerializeField] int shootDamage;
     [SerializeField] float shootRate;
     [SerializeField] int shootDistance;
@@ -27,6 +31,7 @@ public class PlayerController : MonoBehaviour, IDamage
     int jumpMax = 2;
     int jumpCount;
     bool isShooting;
+    float sprint;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,9 +60,16 @@ public class PlayerController : MonoBehaviour, IDamage
             jumpCount = 0;
         }
 
+        if(Input.GetButton("Sprint")){
+            sprint = sprintModifier;
+        }
+        else{
+            sprint = 1;
+        }
+
         move = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
 
-        controller.Move(move * playerSpeed * Time.deltaTime);
+        controller.Move(move * playerSpeed * sprint * Time.deltaTime);
 
         if(Input.GetButtonDown("Jump") && jumpCount < jumpMax){
             playerVelocity.y = jumpHeight;
@@ -143,16 +155,5 @@ public class PlayerController : MonoBehaviour, IDamage
         yield return new WaitForSeconds(.1f);
         GameManager.instance.playerDamageFlash.SetActive(false);
     }
-
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("Scrap"))
-    //     {
-    //         ScrapTracker.instance.CollectScrap();
-
-    //         // might want to disable or destroy the collected scrap GameObject
-    //         other.gameObject.SetActive(false);
-    //     }
-    // }
 }
 
