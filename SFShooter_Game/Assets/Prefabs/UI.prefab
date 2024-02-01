@@ -1233,6 +1233,7 @@ MonoBehaviour:
   playerHPBar: {fileID: 1782038356246103882}
   playerDamageFlash: {fileID: 336699837331945693}
   playerSpawnPosition: {fileID: 0}
+  scrapTracker: {fileID: 0}
   isPaused: 0
 --- !u!114 &5309015601268610091
 MonoBehaviour:
@@ -2172,6 +2173,56 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &5550562346722779341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3154555055307229565}
+  - component: {fileID: 688697393121730773}
+  m_Layer: 5
+  m_Name: Combat Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3154555055307229565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550562346722779341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6620131770995757409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &688697393121730773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550562346722779341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa89c6e1d9886b47b187eef62a474f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSpawner: {fileID: 0}
+  spawnerComplete: 0
 --- !u!1 &5754488494162779815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3352,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8722507977207698386}
+  - {fileID: 3154555055307229565}
   - {fileID: 350413955845638430}
   - {fileID: 7151972660762715205}
   - {fileID: 7458753623207640142}

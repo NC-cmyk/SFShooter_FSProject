@@ -143,15 +143,15 @@ public class PlayerController : MonoBehaviour, IDamage
         GameManager.instance.playerDamageFlash.SetActive(false);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Scrap"))
-        {
-            ScrapTracker.instance.CollectScrap();
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Scrap"))
+    //     {
+    //         ScrapTracker.instance.CollectScrap();
 
-            // might want to disable or destroy the collected scrap GameObject
-            other.gameObject.SetActive(false);
-        }
-    }
+    //         // might want to disable or destroy the collected scrap GameObject
+    //         other.gameObject.SetActive(false);
+    //     }
+    // }
 }
 
