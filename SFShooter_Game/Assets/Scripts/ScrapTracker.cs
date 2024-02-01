@@ -4,9 +4,9 @@ public class ScrapTracker : MonoBehaviour
 {
     public static ScrapTracker instance;
 
-    private int totalScrap;
-    public int requiredScrapCount; 
-
+    public int totalScrap;
+    public int requiredScrapCount;
+    
     public int TotalScrap => totalScrap;
 
     private void Awake()
