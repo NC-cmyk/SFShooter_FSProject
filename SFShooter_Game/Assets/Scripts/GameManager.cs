@@ -66,15 +66,11 @@ public class GameManager : MonoBehaviour
         activeMenu.SetActive(false);
         activeMenu = null;
     }
-    public void GameGoalUpdate(int amount)
+    public void GameGoalComplete()
     {
-        enemyCount += amount;
-        if(enemyCount <= 0)
-        {
-            PausedState();
-            activeMenu = winMenu;
-            activeMenu.SetActive(true);
-        }
+        PausedState();
+        activeMenu = winMenu;
+        activeMenu.SetActive(true);
     }
     public void youLose(){
         PausedState();
