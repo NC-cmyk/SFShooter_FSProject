@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController controller;
+    [SerializeField] AudioSource audSource;
     
     [Header("----- Player Stats -----")]
     [SerializeField] int HP;
@@ -23,6 +24,18 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] public float shootRate;
     [SerializeField] int shootDistance;
 
+    [Header("----- Audio Clips -----")]
+    [SerializeField] AudioClip playerHurtSound;
+    [Range(0, 1)][SerializeField] float hurtSoundVol;
+    [SerializeField] AudioClip playerDeathSound;
+    [Range(0, 1)][SerializeField] float deathSoundVol;
+    [SerializeField] AudioClip playerShootSound;
+    [Range(0, 1)][SerializeField] float shootSoundVol;
+    [SerializeField] AudioClip playerWinSound;
+    [Range(0, 1)][SerializeField] float winSoundVol;
+    [SerializeField] AudioClip[] footsteps;
+    [Range(0, 1)][SerializeField] float stepSoundVol;
+
     Vector3 playerVelocity;
     Vector3 move;
     int shieldHPmax;
@@ -32,6 +45,7 @@ public class PlayerController : MonoBehaviour, IDamage
     int jumpCount;
     bool isShooting;
     float sprint;
+    bool playingSteps;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +61,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
         if(Input.GetButton("Shoot") && !isShooting && !GameManager.instance.isPaused)
         {
+            audSource.PlayOneShot(playerShootSound, shootSoundVol);
             StartCoroutine(shoot());
         }
         
@@ -59,7 +74,8 @@ public class PlayerController : MonoBehaviour, IDamage
         if(groundedPlayer){
             jumpCount = 0;
         }
-
+        if(!playingSteps && groundedPlayer && move.normalized.magnitude > 0.3f)
+            StartCoroutine(playSteps());
         if(Input.GetButton("Sprint")){
             sprint = sprintModifier;
         }
@@ -82,6 +98,14 @@ public class PlayerController : MonoBehaviour, IDamage
 
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    IEnumerator playSteps()
+    {
+        playingSteps = true;
+        audSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
+        yield return new WaitForSeconds(0.5f);
+        playingSteps = false;
     }
 
     IEnumerator shoot(){
@@ -114,7 +138,8 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
     public void takeDamage(int amount){
-        if(shieldHP <= 0 || amount < 0){
+        audSource.PlayOneShot(playerHurtSound, hurtSoundVol);
+        if (shieldHP <= 0 || amount < 0){
             HP -= amount;
         }
         else{
@@ -124,6 +149,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
 
         if(HP <= 0){
+            audSource.PlayOneShot(playerDeathSound, deathSoundVol);
             // This is where the player dies, Game over screen
             GameManager.instance.youLose();
         }
