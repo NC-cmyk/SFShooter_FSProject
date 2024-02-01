@@ -15,6 +15,11 @@ public class ExplodingEnemyAI : EnemyAI
     [Range(3, 5)] [SerializeField] int explodeTimer;
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
 
+    [Header("----- Audio Clips -----")]
+    [SerializeField] AudioSource eEnemyAudSource;
+    [SerializeField] AudioClip eEnemyAttackSound;
+    [Range(0, 1)][SerializeField] float attackSoundVol;
+
     bool isExploding;
 
     // Start is called before the first frame update
@@ -71,6 +76,7 @@ public class ExplodingEnemyAI : EnemyAI
             explodeTrigger.GetComponent<ExplodeTrigger>().getDmg().takeDamage(explodeDmg);
 
         Instantiate(explosion, transform.position, transform.rotation);
+        eEnemyAudSource.PlayOneShot(eEnemyAttackSound, attackSoundVol);
         yield return new WaitForSeconds(0.2f);
         this.GetComponent<IDamage>().takeDamage(getHP());
     }

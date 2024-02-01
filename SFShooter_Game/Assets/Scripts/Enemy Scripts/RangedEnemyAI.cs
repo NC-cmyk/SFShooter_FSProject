@@ -13,6 +13,10 @@ public class RangedEnemyAI : EnemyAI
     [Range(0.1f, 1)] [SerializeField] float shootRate;
     [Range(10, 45)] [SerializeField] int shootFOV; // fov for shooting/attacking
 
+    [Header("----- Audio Clips -----")]
+    [SerializeField] AudioSource rEnemyAudSource;
+    [SerializeField] AudioClip rEnemyAttackSound;
+    [Range(0, 1)][SerializeField] float attackSoundVol;
     bool isShooting;
 
     // Start is called before the first frame update
@@ -59,6 +63,7 @@ public class RangedEnemyAI : EnemyAI
 
     IEnumerator shoot()
     {
+        rEnemyAudSource.PlayOneShot(rEnemyAttackSound, attackSoundVol);
         isShooting = true;
         Instantiate(bullet, shootPos.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);

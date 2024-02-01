@@ -1120,7 +1120,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 079087f3a36ef95488b3c10700288a10, type: 3}
     - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
       propertyPath: footsteps.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
       propertyPath: footsteps.Array.data[0]

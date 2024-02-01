@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)][SerializeField] float shootSoundVol;
     [SerializeField] AudioClip playerWinSound;
     [Range(0, 1)][SerializeField] float winSoundVol;
-    [SerializeField] AudioClip[] footsteps;
-    [Range(0, 1)][SerializeField] float stepSoundVol;
 
     Vector3 playerVelocity;
     Vector3 move;
@@ -73,8 +71,7 @@ public class PlayerController : MonoBehaviour, IDamage
         if(groundedPlayer){
             jumpCount = 0;
         }
-        if(!playingSteps && groundedPlayer && move.normalized.magnitude > 0.3f)
-            StartCoroutine(playSteps());
+
         if(Input.GetButton("Sprint")){
             sprint = sprintModifier;
         }
@@ -97,14 +94,6 @@ public class PlayerController : MonoBehaviour, IDamage
 
         playerVelocity.y += gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-    }
-
-    IEnumerator playSteps()
-    {
-        playingSteps = true;
-        audSource.PlayOneShot(footsteps[Random.Range(0, footsteps.Length)]);
-        yield return new WaitForSeconds(0.5f);
-        playingSteps = false;
     }
 
     IEnumerator shoot(){

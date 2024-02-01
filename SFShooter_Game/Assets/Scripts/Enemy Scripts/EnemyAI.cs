@@ -116,14 +116,18 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            audSource.PlayOneShot(deathSound, deathSoundVol);
-            
+            playDeathSound();
             if (gameObject.tag == "Spawner Enemy")
             {
                 CombatManager.instance.updateEnemyCount(-1);
             }
             Destroy(gameObject);
         }
+    }
+    IEnumerator playDeathSound()
+    {
+        audSource.PlayOneShot(deathSound, deathSoundVol);
+        yield return new WaitForSeconds(deathSound.length);
     }
 
     IEnumerator flashRed()
