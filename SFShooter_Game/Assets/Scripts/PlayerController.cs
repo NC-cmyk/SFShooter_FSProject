@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour, IDamage
 
         if(Input.GetButton("Shoot") && !isShooting && !GameManager.instance.isPaused)
         {
-            audSource.PlayOneShot(playerShootSound, shootSoundVol);
             StartCoroutine(shoot());
         }
         
@@ -110,7 +109,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     IEnumerator shoot(){
         isShooting = true;
-
+        audSource.PlayOneShot(playerShootSound, shootSoundVol);
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance)){
             IDamage damage = hit.collider.GetComponent<IDamage>();
@@ -137,7 +136,8 @@ public class PlayerController : MonoBehaviour, IDamage
         shieldHP = shieldHPmax;
     }
 
-    public void takeDamage(int amount){
+    public void takeDamage(int amount)
+    {
         audSource.PlayOneShot(playerHurtSound, hurtSoundVol);
         if (shieldHP <= 0 || amount < 0){
             HP -= amount;

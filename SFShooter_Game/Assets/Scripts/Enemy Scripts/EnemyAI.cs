@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
     [SerializeField] Transform headPos; // head position for fov
+    [SerializeField] AudioSource audSource;
 
     [Header("--- General Stats ---")]
     [SerializeField] int HP;
@@ -18,6 +19,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(1, 10)] [SerializeField] int animTransSpeed;
     [Range(5, 20)] [SerializeField] int roamDistance;
     [Range(1, 5)] [SerializeField] int roamPauseTimer;
+
+    [Header("----- Audio Clips -----")]
+    [SerializeField] AudioClip hurtSound;
+    [Range(0, 1)][SerializeField] float hurtSoundVol;
+    [SerializeField] AudioClip deathSound;
+    [Range(0, 1)][SerializeField] float deathSoundVol;
 
     protected bool playerInRange;
     protected Vector3 playerDir; // player direction
@@ -102,13 +109,16 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     public void takeDamage(int amount)
     {
+        audSource.PlayOneShot(hurtSound, hurtSoundVol);
         HP -= amount;
         agent.SetDestination(GameManager.instance.player.transform.position);
         StartCoroutine(flashRed());
 
         if (HP <= 0)
         {
-            if(gameObject.tag == "Spawner Enemy")
+            audSource.PlayOneShot(deathSound, deathSoundVol);
+            
+            if (gameObject.tag == "Spawner Enemy")
             {
                 CombatManager.instance.updateEnemyCount(-1);
             }

@@ -11,6 +11,11 @@ public class MeleeEnemyAI : EnemyAI
     [Range(3, 5)] [SerializeField] int attackFOV; // field of vision for attacking
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
 
+    [Header("----- Audio Clips -----")]
+    [SerializeField] AudioSource mEnemyAudSource;
+    [SerializeField] AudioClip mEnemyAttackSound;
+    [Range(0, 1)][SerializeField] float attackSoundVol;
+
     bool isAttacking;
 
     // Start is called before the first frame update
@@ -58,6 +63,7 @@ public class MeleeEnemyAI : EnemyAI
     IEnumerator attack()
     {
         getAnimator().SetBool("isAttacking", true);
+        mEnemyAudSource.PlayOneShot(mEnemyAttackSound, attackSoundVol);
         RaycastHit hit;
 
         if(Physics.Raycast(getHeadPos().position, transform.forward, out hit, attackRange))
