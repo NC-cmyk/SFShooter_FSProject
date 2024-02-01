@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     public Image playerHPBar;
     public GameObject playerDamageFlash;
     public GameObject playerSpawnPosition;
-    public ScrapTracker scrapTracker; 
+    public ScrapTracker scrapTracker;
+    public Image shieldHPBar;
 
     public bool isPaused;
     int enemyCount;
     int totalScrap;
+    
     //Awake used to initialize the game manager first 
     void Awake()
     {

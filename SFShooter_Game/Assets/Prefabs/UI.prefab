@@ -1309,6 +1309,7 @@ MonoBehaviour:
   playerDamageFlash: {fileID: 336699837331945693}
   playerSpawnPosition: {fileID: 0}
   scrapTracker: {fileID: 0}
+  shieldHPBar: {fileID: 7409784680066109835}
   isPaused: 0
 --- !u!114 &5309015601268610091
 MonoBehaviour:

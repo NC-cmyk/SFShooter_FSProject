@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour, IDamage
     public void updatePlayerUI(){
         // update hp bar from GameManager
         GameManager.instance.playerHPBar.fillAmount = (float)HP / HPmax;
+        GameManager.instance.shieldHPBar.fillAmount = (float)shieldHP / shieldHPmax;
     }
 
     IEnumerator flashDamage(){
