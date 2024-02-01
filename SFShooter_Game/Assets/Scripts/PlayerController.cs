@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController controller;
-    [SerializeField] AudioSource audSource;
+    [SerializeField] public AudioSource audSource;
     
     [Header("----- Player Stats -----")]
     [SerializeField] int HP;
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [Range(0, 1)][SerializeField] float deathSoundVol;
     [SerializeField] AudioClip playerShootSound;
     [Range(0, 1)][SerializeField] float shootSoundVol;
-    [SerializeField] AudioClip playerWinSound;
-    [Range(0, 1)][SerializeField] float winSoundVol;
+    [SerializeField] public AudioClip playerWinSound;
+    [Range(0, 1)][SerializeField] public float winSoundVol;
     [SerializeField] AudioClip playerJumpSound;
     [Range(0, 1)][SerializeField] float jumpSoundVol;
 
@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     IEnumerator shoot(){
         isShooting = true;
+
         audSource.PlayOneShot(playerShootSound, shootSoundVol);
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance)){

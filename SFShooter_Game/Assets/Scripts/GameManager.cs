@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameGoalComplete()
     {
+        playerScript.audSource.PlayOneShot(playerScript.playerWinSound, playerScript.winSoundVol);
         PausedState();
         activeMenu = winMenu;
         activeMenu.SetActive(true);
