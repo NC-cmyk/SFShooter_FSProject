@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScrapTracker : MonoBehaviour
 {
+    [SerializeField] TMP_Text scrapTrackText;
+
     public static ScrapTracker instance;
 
     public int totalScrap;
@@ -12,6 +16,11 @@ public class ScrapTracker : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        scrapTrackText.text = totalScrap + "/" + requiredScrapCount + " Scrap Collected";
     }
 
     public void CollectScrap()

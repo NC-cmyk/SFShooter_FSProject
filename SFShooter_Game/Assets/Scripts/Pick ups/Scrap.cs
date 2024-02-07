@@ -9,6 +9,7 @@ public class Scrap : MonoBehaviour
     {
         
         // add to the scrap needed 
+        ScrapTracker.instance.requiredScrapCount += 1;
     }
 
     // Update is called once per frame
