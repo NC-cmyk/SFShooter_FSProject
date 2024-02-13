@@ -975,17 +975,25 @@ MonoBehaviour:
   agent: {fileID: 1067439137}
   animator: {fileID: 0}
   headPos: {fileID: 0}
+  audSource: {fileID: 0}
   HP: 2
   fov: 0
   rotateSpeed: 0
   animTransSpeed: 0
   roamDistance: 0
   roamPauseTimer: 0
+  hurtSound: {fileID: 0}
+  hurtSoundVol: 0
+  deathSound: {fileID: 0}
+  deathSoundVol: 0
   explodeTrigger: {fileID: 995092461}
   explosion: {fileID: 1515964989}
   explodeDmg: 3
   explodeTimer: 3
   sightDistance: 0
+  eEnemyAudSource: {fileID: 0}
+  eEnemyAttackSound: {fileID: 0}
+  attackSoundVol: 0
 --- !u!4 &1067439139
 Transform:
   m_ObjectHideFlags: 0
@@ -1759,16 +1767,24 @@ MonoBehaviour:
   agent: {fileID: 3991413542592139531}
   animator: {fileID: 0}
   headPos: {fileID: 0}
+  audSource: {fileID: 0}
   HP: 4
   fov: 0
   rotateSpeed: 0
   animTransSpeed: 0
   roamDistance: 0
   roamPauseTimer: 0
+  hurtSound: {fileID: 0}
+  hurtSoundVol: 0
+  deathSound: {fileID: 0}
+  deathSoundVol: 0
   shootPos: {fileID: 5171134907660229303}
   bullet: {fileID: 1696085562031869504, guid: bc6bbc29f6939304ba424bcd4be7e09d, type: 3}
   shootRate: 1
   shootFOV: 0
+  rEnemyAudSource: {fileID: 0}
+  rEnemyAttackSound: {fileID: 0}
+  attackSoundVol: 0
 --- !u!4 &1388844240578154352
 Transform:
   m_ObjectHideFlags: 0
@@ -1894,95 +1910,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &4629695001142321605
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1509020094577391217, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 1509020094577391217, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973545954688004483, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973545954688004483, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5629136840654031381, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_Name
-      value: Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 7223070035962393679, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7223070035962393679, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847262874781496082, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7876336281681736093, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 7876336281681736093, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 22.84
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
 --- !u!65 &4706185593465473630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2206,17 +2133,25 @@ MonoBehaviour:
   agent: {fileID: 1598141345605942674}
   animator: {fileID: 0}
   headPos: {fileID: 0}
+  audSource: {fileID: 0}
   HP: 6
   fov: 0
   rotateSpeed: 0
   animTransSpeed: 0
   roamDistance: 0
   roamPauseTimer: 0
+  hurtSound: {fileID: 0}
+  hurtSoundVol: 0
+  deathSound: {fileID: 0}
+  deathSoundVol: 0
   attackDmg: 1
   attackRange: 1.75
   attackRate: 1
   attackFOV: 0
   sightDistance: 0
+  mEnemyAudSource: {fileID: 0}
+  mEnemyAttackSound: {fileID: 0}
+  attackSoundVol: 0
 --- !u!1 &9015210775902201382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,4 +2182,3 @@ SceneRoots:
   - {fileID: 1067439139}
   - {fileID: 1388844240578154352}
   - {fileID: 2550810200333764530}
-  - {fileID: 4629695001142321605}
