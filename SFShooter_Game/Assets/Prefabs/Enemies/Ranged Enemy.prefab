@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7541541124411862835}
   m_Layer: 6
   m_Name: Ranged Enemy
-  m_TagString: Spawner Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   bullet: {fileID: 1696085562031869504, guid: bc6bbc29f6939304ba424bcd4be7e09d, type: 3}
   shootRate: 0.5
   shootFOV: 10
+  stunTime: 0
   rEnemyAudSource: {fileID: -7541541124411862835}
   rEnemyAttackSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
   attackSoundVol: 0.1

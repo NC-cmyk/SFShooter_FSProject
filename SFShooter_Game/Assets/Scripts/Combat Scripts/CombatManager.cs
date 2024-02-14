@@ -4,26 +4,17 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    public static CombatManager instance;
-    public GameObject activeSpawner;
-    public bool spawnerComplete;
+    // REPURPOSE FOR OTHER TRACKING
+    // POTENTIALLY BOSS TRACKING?
 
+    public static CombatManager instance;
+    GameObject activeSpawner;
+    bool spawnerComplete;
     int enemyCount;
 
     // Start is called before the first frame update
     void Awake()
     {
         instance = this;
-    }
-
-    public void updateEnemyCount(int num)
-    {
-        enemyCount += num;
-
-        if(activeSpawner != null && enemyCount < 1)
-        {
-            activeSpawner = null;
-            spawnerComplete = true;
-        }
     }
 }

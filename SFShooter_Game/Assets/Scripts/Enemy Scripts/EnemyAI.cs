@@ -107,7 +107,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         }
     }
 
-    public void takeDamage(int amount)
+    public virtual void takeDamage(int amount)
     {
         audSource.PlayOneShot(hurtSound, hurtSoundVol);
         HP -= amount;
@@ -117,10 +117,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             playDeathSound();
-            if (gameObject.tag == "Spawner Enemy")
-            {
-                CombatManager.instance.updateEnemyCount(-1);
-            }
             Destroy(gameObject);
         }
     }
