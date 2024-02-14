@@ -31,4 +31,9 @@ public class KillSwitch : MonoBehaviour, IDamage
             hit = true;
         }
     }
+
+    public bool getHit()
+    {
+        return hit;
+    }
 }

@@ -5,24 +5,24 @@ using UnityEngine;
 public class SpawnerTracker : MonoBehaviour
 {
     [Header("--- Spawner Tracker Components ---")]
-    [SerializeField] Transform trackerObject;
+    [SerializeField] Transform trackerTransform;
     [SerializeField] GameObject container; // container that holds the scrap
 
     int enemyCount;
     bool countAssigned;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         countAssigned = false;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (countAssigned)
         {
-            enemyCount = trackerObject.childCount;
+            enemyCount = trackerTransform.childCount;
             if(enemyCount <= 0)
             {
                 container.SetActive(false);
@@ -37,5 +37,10 @@ public class SpawnerTracker : MonoBehaviour
             countAssigned = true;
             enemyCount = amount;
         }
+    }
+
+    protected Transform getTrackerTransform()
+    {
+        return trackerTransform;
     }
 }

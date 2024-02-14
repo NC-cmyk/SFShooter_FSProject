@@ -20,18 +20,24 @@ public class RangedEnemyAI : EnemyAI
     [Range(0, 1)][SerializeField] float attackSoundVol;
 
     bool isShooting;
+    bool isShutdown;
 
     // ranged enemy doesn't need the movement based code since they'll be stationary
     protected override void Update()
     {
-        if (playerInRange && !canSeePlayer()) { }
+        if (isShutdown && !getAnimator().GetBool("isShutdown"))
+        {
+            StopAllCoroutines();
+            StartCoroutine(shutdown());
+        }
+        else if (playerInRange && !isShutdown && !canSeePlayer()) { }
     }
 
     protected override bool canSeePlayer()
     {
         bool canSee = base.canSeePlayer();
 
-        if (canSee && !getAnimator().GetBool("isStunned"))
+        if (canSee && !getAnimator().GetBool("isStunned") && !isShutdown)
         {
             faceTarget();
 
@@ -67,5 +73,19 @@ public class RangedEnemyAI : EnemyAI
         {
             StartCoroutine(stun());
         }
+    }
+
+    IEnumerator shutdown()
+    {
+        getAnimator().SetBool("isShutdown", true);
+
+        yield return new WaitForSeconds(3);
+
+        Destroy(gameObject);
+    }
+
+    public void setShutdown(bool shutdown)
+    {
+        isShutdown = shutdown;
     }
 }

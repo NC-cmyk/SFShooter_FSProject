@@ -13,13 +13,16 @@ public class Spawner : MonoBehaviour
     [Header("-- Spawner Stats --")]
     [Range(1, 50)] [SerializeField] int numToSpawn;
     [Range(0, 10)] [SerializeField] int timeBetweenSpawns;
+    [SerializeField] bool randomSpawn;
 
     int spawnCount;
     bool isSpawning;
     bool startSpawning;
 
+    int spawnIndex;
+
     /* === PREFAB NOTES ===
-     * should automatically come with the 3 enemy types, spawns them randomly
+     * should automatically come with 2 enemy types (melee and exploding), spawns them randomly
      * if you only want specific enemy types, just remove the ones not wanted
      * 
      * spawner prefab comes with 4 spawn positions default and these can be moved and rotated to suit environment
@@ -32,10 +35,12 @@ public class Spawner : MonoBehaviour
      * this is due to them needing a kill switch
      */
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if (!randomSpawn)
+        {
+            spawnIndex = 0;
+        }
     }
 
     // Update is called once per frame
@@ -44,14 +49,11 @@ public class Spawner : MonoBehaviour
         if (startSpawning && spawnCount < numToSpawn && !isSpawning)
         {
             StartCoroutine(spawn());
+            if(spawnCount == numToSpawn)
+            {
+                spawnerTrkr.GetComponent<SpawnerTracker>().updateEnemyCount(spawnCount);
+            }
         }
-
-        // the attached objective would have a component that when true would allow the collectible to be collected
-        //if(startSpawning && CombatManager.instance.activeSpawner == null){
-        //    objective.SetActive(false);
-        //    Debug.Log("box is shut down");
-        //}
-        // so if spawnerComplete from combat manager is true then objective = true -> do something that gives access to collectible
     }
 
     IEnumerator spawn()
@@ -67,8 +69,28 @@ public class Spawner : MonoBehaviour
 
         GameObject enemyToSpawn = enemies[enemyNdx];
 
-        int arrayPos = Random.Range(0, spawnPositions.Length);
-        Instantiate(enemyToSpawn, spawnPositions[arrayPos].transform.position, spawnPositions[arrayPos].transform.rotation, spawnerTrkr.transform);
+        if (randomSpawn)
+        {
+            // choose a random position to spawn
+            int arrayPos = Random.Range(0, spawnPositions.Length);
+            Instantiate(enemyToSpawn, spawnPositions[arrayPos].transform.position, spawnPositions[arrayPos].transform.rotation, spawnerTrkr.transform);
+        }
+        else
+        {
+            // spawn enemies in order of the spawn positions, this is the default
+            Instantiate(enemyToSpawn, spawnPositions[spawnIndex].transform.position, spawnPositions[spawnIndex].transform.rotation, spawnerTrkr.transform);
+
+            if(spawnIndex + 1 != spawnPositions.Length)
+            {
+                // increase index if possible
+                spawnIndex++;
+            }
+            else
+            {
+                // go back to 0 if not
+                spawnIndex = 0;
+            }
+        }
 
         spawnCount++;
 
@@ -81,10 +103,6 @@ public class Spawner : MonoBehaviour
     {
         if (other.CompareTag("Player") && !startSpawning)
         {
-            // && CombatManager.instance.activeSpawner == null
-            //CombatManager.instance.activeSpawner = gameObject;
-            //CombatManager.instance.spawnerComplete = false;
-            spawnerTrkr.GetComponent<SpawnerTracker>().updateEnemyCount(spawnCount);
             startSpawning = true;
         }
     }

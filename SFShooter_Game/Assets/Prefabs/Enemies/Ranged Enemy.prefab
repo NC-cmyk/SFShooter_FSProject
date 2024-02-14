@@ -56,8 +56,8 @@ MonoBehaviour:
   animator: {fileID: 5583500838884208670}
   headPos: {fileID: 2042072826157271796}
   audSource: {fileID: -7541541124411862835}
-  HP: 5
-  fov: 70
+  HP: 1
+  fov: 90
   rotateSpeed: 7
   animTransSpeed: 5
   roamDistance: 15
@@ -68,9 +68,9 @@ MonoBehaviour:
   deathSoundVol: 0.5
   shootPos: {fileID: 4657209602085654692}
   bullet: {fileID: 1696085562031869504, guid: bc6bbc29f6939304ba424bcd4be7e09d, type: 3}
-  shootRate: 0.5
+  shootRate: 0.75
   shootFOV: 10
-  stunTime: 0
+  stunTime: 10
   rEnemyAudSource: {fileID: -7541541124411862835}
   rEnemyAttackSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
   attackSoundVol: 0.1
@@ -105,11 +105,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.25
-  m_Speed: 5
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 600
-  m_StoppingDistance: 12
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -157,7 +157,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 25
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &-7541541124411862835
 AudioSource:
