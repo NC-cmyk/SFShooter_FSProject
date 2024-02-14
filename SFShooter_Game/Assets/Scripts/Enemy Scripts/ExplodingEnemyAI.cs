@@ -12,8 +12,9 @@ public class ExplodingEnemyAI : EnemyAI
 
     [Header("--- Exploding Enemy Stats ---")]
     [Range(3, 10)] [SerializeField] int explodeDmg;
-    [Range(3, 5)] [SerializeField] int explodeTimer;
+    [Range(1, 5)] [SerializeField] int explodeTimer;
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
+    [Range(20, 50)] [SerializeField] int explosionKB; // knockback
 
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioSource eEnemyAudSource;
@@ -69,16 +70,28 @@ public class ExplodingEnemyAI : EnemyAI
     IEnumerator explode()
     {
         isExploding = true;
+        getAgent().speed = 0;
         StartCoroutine(flashWarning());
         yield return new WaitForSeconds(explodeTimer);
 
-        if(explodeTrigger.GetComponent<ExplodeTrigger>().getDmg() != null)
-            explodeTrigger.GetComponent<ExplodeTrigger>().getDmg().takeDamage(explodeDmg);
+        IDamage dmg = explodeTrigger.GetComponent<ExplodeTrigger>().getDmg();
+        IPhysics phys = explodeTrigger.GetComponent<ExplodeTrigger>().getPhys();
+
+        if (dmg != null)
+            dmg.takeDamage(explodeDmg);
+
+        if (phys != null)
+        {
+            Vector3 direction = explodeTrigger.GetComponent<ExplodeTrigger>().playerCollider.transform.position - transform.position;
+            direction.y = 0;
+
+            phys.takePhysics(direction.normalized * explosionKB);
+        }
 
         Instantiate(explosion, transform.position, transform.rotation);
         eEnemyAudSource.PlayOneShot(eEnemyAttackSound, attackSoundVol);
-        yield return new WaitForSeconds(0.2f);
-        this.GetComponent<IDamage>().takeDamage(getHP());
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<IDamage>().takeDamage(getHP());
     }
 
     IEnumerator flashWarning()
@@ -88,9 +101,9 @@ public class ExplodingEnemyAI : EnemyAI
         while (isExploding)
         {
             getModel().material.color = Color.yellow;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             getModel().material.color = ogColor;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

@@ -463,6 +463,7 @@ Transform:
   - {fileID: 6767084289921796713}
   - {fileID: 9066937116518158229}
   - {fileID: 94708728574049422}
+  - {fileID: 5613988604198247423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6484781976875662193
@@ -482,24 +483,21 @@ MonoBehaviour:
   animator: {fileID: 1018124777784349444}
   headPos: {fileID: 2165316098943202912}
   audSource: {fileID: 3145265203358708852}
-  HP: 10
+  HP: 5
   fov: 70
-  rotateSpeed: 8
+  rotateSpeed: 10
   animTransSpeed: 5
-  roamDistance: 10
+  roamDistance: 15
   roamPauseTimer: 2
   hurtSound: {fileID: 8300000, guid: e1ca11dc736d94a45940df60425389ed, type: 3}
   hurtSoundVol: 0.5
   deathSound: {fileID: 8300000, guid: 0095526b2e3eb21408f6f1b989ff492b, type: 3}
   deathSoundVol: 0.5
-  attackDmg: 2
   attackRange: 2.5
-  attackRate: 1
+  attackRate: 3
   attackFOV: 3
   sightDistance: 8
-  mEnemyAudSource: {fileID: 3145265203358708852}
-  mEnemyAttackSound: {fileID: 8300000, guid: 609464804a94e564aa50c5d7d336fe62, type: 3}
-  attackSoundVol: 0.5
+  chargeHitbox: {fileID: 5581574367080942114}
 --- !u!95 &1018124777784349444
 Animator:
   serializedVersion: 5
@@ -530,9 +528,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 2091844730632455156}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.5
-  m_Speed: 15
-  m_Acceleration: 8
+  m_Radius: 1.8
+  m_Speed: 4
+  m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 600
   m_StoppingDistance: 4
@@ -1745,6 +1743,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3323697395800499833}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+--- !u!1 &8170543472293734989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5613988604198247423}
+  - component: {fileID: 4832946978632544134}
+  - component: {fileID: 5581574367080942114}
+  m_Layer: 6
+  m_Name: Attack Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5613988604198247423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170543472293734989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 2.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3323697395800499833}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4832946978632544134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170543472293734989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99f1b817c020f74dbdefbfed0a076e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  knockbackDistance: 45
+  mEnemyAudSource: {fileID: 3145265203358708852}
+  mEnemyAttackSound: {fileID: 8300000, guid: 609464804a94e564aa50c5d7d336fe62, type: 3}
+  attackSoundVol: 0.5
+  hit: 0
+--- !u!65 &5581574367080942114
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170543472293734989}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8202844896531857654
 GameObject:
   m_ObjectHideFlags: 0

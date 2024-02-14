@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IDamage
+public class PlayerController : MonoBehaviour, IDamage, IPhysics
 {
     [SerializeField] CharacterController controller;
     [SerializeField] public AudioSource audSource;
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float jumpHeight;
     [SerializeField] float jumpTimer;
     [SerializeField] float gravity;
+    [SerializeField] int knockbackResolve;
 
     [Header("----- Gun Stats-----")]
     [SerializeField] public int shootDamage;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     Vector3 playerVelocity;
     Vector3 move;
+    Vector3 knockback;
     int shieldHPmax;
     int HPmax;
     bool groundedPlayer;
@@ -68,6 +70,8 @@ public class PlayerController : MonoBehaviour, IDamage
     }
 
     public void movement(){
+        knockback = Vector3.Lerp(knockback, Vector3.zero, Time.deltaTime * knockbackResolve);
+
         groundedPlayer = controller.isGrounded;
 
         if(groundedPlayer){
@@ -96,7 +100,7 @@ public class PlayerController : MonoBehaviour, IDamage
         }
 
         playerVelocity.y += gravity * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        controller.Move((playerVelocity + knockback) * Time.deltaTime);
     }
 
     IEnumerator shoot(){
@@ -148,6 +152,11 @@ public class PlayerController : MonoBehaviour, IDamage
         }
 
         updatePlayerUI();
+    }
+
+    public void takePhysics(Vector3 amount)
+    {
+        knockback = amount;
     }
 
     public void respawn(){

@@ -479,8 +479,9 @@ MonoBehaviour:
   explodeTrigger: {fileID: 8607289843962090594}
   explosion: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   explodeDmg: 4
-  explodeTimer: 3
+  explodeTimer: 1
   sightDistance: 8
+  explosionKB: 20
   eEnemyAudSource: {fileID: -7150301645641341337}
   eEnemyAttackSound: {fileID: 8300000, guid: 56a2b50ae5480db44a8e48310e48b051, type: 3}
   attackSoundVol: 0.5
@@ -1316,6 +1317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c8f0f667928724998770a49c8381b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCollider: {fileID: 0}
 --- !u!135 &8607289843962090594
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1335,7 +1337,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3.5
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0.25}
 --- !u!1 &7554629553279657938
 GameObject:
