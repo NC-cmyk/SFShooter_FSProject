@@ -70,6 +70,11 @@ public class ExplodingEnemyAI : EnemyAI
     IEnumerator explode()
     {
         isExploding = true;
+        getAgent().acceleration = 25;
+        getAgent().speed = 25;
+        getAgent().stoppingDistance = 0;
+        yield return new WaitForSeconds(2.5f);
+
         getAgent().speed = 0;
         StartCoroutine(flashWarning());
         yield return new WaitForSeconds(explodeTimer);

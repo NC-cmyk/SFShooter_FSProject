@@ -16,6 +16,7 @@ public class MeleeEnemyAI : EnemyAI
 
     float startAccel; // starting acceleration
     float startSpeed;
+    float startAngSpeed; // starting angular speed
 
     // Start is called before the first frame update
     protected override void Start()
@@ -23,6 +24,7 @@ public class MeleeEnemyAI : EnemyAI
         base.Start();
         startAccel = getAgent().acceleration;
         startSpeed = getAgent().speed;
+        startAngSpeed = getAgent().angularSpeed;
     }
 
     // Update is called once per frame
@@ -72,6 +74,7 @@ public class MeleeEnemyAI : EnemyAI
 
         getAgent().acceleration = 20;
         getAgent().speed = 15;
+        getAgent().angularSpeed = 0;
 
         yield return new WaitForSeconds(attackRate);
 
@@ -79,6 +82,7 @@ public class MeleeEnemyAI : EnemyAI
         chargeHitbox.enabled = !chargeHitbox.enabled;
         getAgent().acceleration = startAccel;
         getAgent().speed = startSpeed;
+        getAgent().angularSpeed = startAngSpeed;
         getAnimator().SetBool("isAttacking", false);
     }
 

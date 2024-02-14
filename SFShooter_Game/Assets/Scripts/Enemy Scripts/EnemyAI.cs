@@ -62,8 +62,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         RaycastHit hit;
         if(Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            Debug.Log(angleToPlayer);
-
             if(hit.collider.CompareTag("Player") && angleToPlayer < fov)
             {
                 // passing this check means the player is within vision cone
@@ -92,10 +90,10 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     protected IEnumerator roam()
     {
+        agent.stoppingDistance = 0;
         if (agent.remainingDistance < 0.05f && !destChosen)
         {
             destChosen = true;
-            agent.stoppingDistance = 0;
             yield return new WaitForSeconds(roamPauseTimer);
 
             Vector3 randomPos = Random.insideUnitSphere * roamDistance;
