@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject loseMenu;
 
+    public string[] sceneNames;
+
     public PlayerController playerScript;
     public GameObject player;
     public Image playerHPBar;
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         playerScript = player.GetComponent<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         scrapTracker = ScrapTracker.instance;
+
+        sceneNames = new string[] { "Introduction Level", "Level 1", "Level 2", "Level 3", "Level 4" };
     }
 
     void Update() 

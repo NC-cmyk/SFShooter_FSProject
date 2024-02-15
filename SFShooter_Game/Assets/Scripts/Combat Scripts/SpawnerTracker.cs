@@ -7,9 +7,11 @@ public class SpawnerTracker : MonoBehaviour
     [Header("--- Spawner Tracker Components ---")]
     [SerializeField] Transform trackerTransform;
     [SerializeField] GameObject container; // container that holds the scrap
+    [SerializeField] GameObject scrap;
 
     int enemyCount;
     bool countAssigned;
+    bool scrapCollected;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -27,6 +29,11 @@ public class SpawnerTracker : MonoBehaviour
             {
                 container.SetActive(false);
             }
+
+            if(scrap == null)
+            {
+                scrapCollected = true;
+            }
         }
     }
 
@@ -42,5 +49,10 @@ public class SpawnerTracker : MonoBehaviour
     protected Transform getTrackerTransform()
     {
         return trackerTransform;
+    }
+
+    public bool getScrapCollected()
+    {
+        return scrapCollected;
     }
 }
