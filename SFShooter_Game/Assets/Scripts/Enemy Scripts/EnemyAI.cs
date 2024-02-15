@@ -34,6 +34,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     Vector3 startingPos; // starting position
     float stoppingDistOrig; // stopping distance original
 
+    GameObject boss;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -116,6 +118,11 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
+            if(boss != null)
+            {
+                boss.GetComponent<BossAI>().updateMinionCount(-1);
+            }
+
             playDeathSound();
             Destroy(gameObject);
         }
@@ -150,6 +157,11 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             playerInRange = false;
         }
+    }
+
+    public void setBoss(GameObject newBoss)
+    {
+        boss = newBoss;
     }
 
     protected int getHP() { return HP; }
