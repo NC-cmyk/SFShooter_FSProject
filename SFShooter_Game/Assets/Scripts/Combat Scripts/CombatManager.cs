@@ -8,9 +8,6 @@ public class CombatManager : MonoBehaviour
     // POTENTIALLY BOSS TRACKING?
 
     public static CombatManager instance;
-    GameObject activeSpawner;
-    bool spawnerComplete;
-    int enemyCount;
 
     // Start is called before the first frame update
     void Awake()

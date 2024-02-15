@@ -30,6 +30,8 @@ public class ScrapTracker : MonoBehaviour
     }
     private void CheckGoals()
     {
+        // update when boss is added, hopefully
+
         // Check if the total scrap count equals the required amount for escape
         if (totalScrap >= requiredScrapCount)
         {

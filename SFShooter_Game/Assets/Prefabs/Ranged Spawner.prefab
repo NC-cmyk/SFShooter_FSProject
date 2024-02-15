@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackerTransform: {fileID: 1918791041497399553}
   container: {fileID: 464940264933073890}
+  scrap: {fileID: 3859618383246305550}
   killSwitch: {fileID: 1210871067523714061}
 --- !u!1 &1471025017829451513
 GameObject:
