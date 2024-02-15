@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour
         {
             bossHP.SetActive(true);
         }
+        else if(!bossActive && bossHP.activeSelf){
+            bossHP.SetActive(false);
+        }
     }
 
     public void PausedState()

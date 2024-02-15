@@ -6,19 +6,26 @@ using UnityEngine.AI;
 public class BossAI : EnemyAI
 {
     [Header("--- Boss Components ---")]
+    [SerializeField] GameObject bullet;
     [SerializeField] Transform[] summonPositions;
     [SerializeField] Transform[] bulletPositions;
     [SerializeField] GameObject[] enemyList;
-    [SerializeField] GameObject bullet;
 
     [Header("--- Boss Stats ---")]
     [Range(5, 10)] [SerializeField] int summonCooldown;
     [Range(3, 10)] [SerializeField] int attackRate;
     [Range(10, 45)] [SerializeField] int attackFOV;
 
+    [Header("--- Audio Clips ---")]
+    [SerializeField] AudioClip shootSound;
+    [Range(0, 1)] [SerializeField] float soundVolume;
+
     float startSpeed;
     int minionCount;
     int maxHP;
+
+    bool isSummoning;
+    bool isAttacking;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -43,11 +50,17 @@ public class BossAI : EnemyAI
 
         if (canSee)
         {
-            faceTarget();
+            if(!isAttacking)
+                faceTarget();
 
-            if(angleToPlayer < attackFOV && !getAnimator().GetBool("isSummoning") && minionCount == 0)
+            if(angleToPlayer < attackFOV && !isSummoning && !isAttacking && minionCount == 0)
             {
                 StartCoroutine(summon());
+            }
+            
+            if(angleToPlayer < attackFOV && !isAttacking && !getAnimator().GetBool("isSummoning"))
+            {
+                StartCoroutine(attack());
             }
         }
 
@@ -56,8 +69,10 @@ public class BossAI : EnemyAI
 
     IEnumerator summon()
     {
+        isSummoning = true;
+        getAnimator().SetBool("isSummoning", isSummoning);
         getAgent().speed = 0;
-        getAnimator().SetBool("isSummoning", true);
+        yield return new WaitForSeconds(1);
 
         int enemyNdx = Random.Range(0, 2);
 
@@ -68,17 +83,33 @@ public class BossAI : EnemyAI
         {
             Instantiate(enemy, summonPositions[i].transform.position, summonPositions[i].transform.rotation);
             minionCount++;
-            yield return new WaitForSeconds(1);
         }
 
         getAnimator().SetBool("isSummoning", false);
         getAgent().speed = startSpeed;
+
         yield return new WaitForSeconds(summonCooldown);
+        isSummoning = false;
     }
 
     IEnumerator attack()
     {
-        yield return null;
+        isAttacking = true;
+        getAnimator().SetBool("isAttacking", isAttacking);
+        getAgent().speed = 0;
+        yield return new WaitForSeconds(1);
+
+        for (int i = 0; i < bulletPositions.Length; i++)
+        {
+            Instantiate(bullet, bulletPositions[i].transform.position, bulletPositions[i].transform.rotation);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        getAnimator().SetBool("isAttacking", false);
+        getAgent().speed = startSpeed;
+
+        yield return new WaitForSeconds(attackRate);
+        isAttacking = false;
     }
 
     public override void takeDamage(int amount)
@@ -87,6 +118,12 @@ public class BossAI : EnemyAI
         setHP(getHP() - amount);
 
         GameManager.instance.bossHPBar.fillAmount = (float)getHP() / maxHP;
+
+        if(getHP() <= 0)
+        {
+            GameManager.instance.bossActive = false;
+            Destroy(gameObject);
+        }
     }
 
     public void updateMinionCount(int amount)
