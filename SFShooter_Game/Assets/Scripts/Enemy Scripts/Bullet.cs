@@ -14,14 +14,14 @@ public class Bullet : MonoBehaviour
     [Range(1, 20)] [SerializeField] int knockbackDist;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         // bullet go towards player
         rb.velocity = (GameManager.instance.player.transform.position - transform.position).normalized * speed;
         Destroy(gameObject, destroyTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger)
             return;
@@ -42,4 +42,8 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    protected Rigidbody getRB() { return rb; }
+    protected int getSpeed() { return speed; }
+    protected int getDestroyTime() { return destroyTime; }
 }

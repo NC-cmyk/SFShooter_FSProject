@@ -11,16 +11,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject loseMenu;
+    [SerializeField] GameObject bossHP;
 
     public string[] sceneNames;
 
     public PlayerController playerScript;
     public GameObject player;
     public Image playerHPBar;
+    public Image shieldHPBar;
     public GameObject playerDamageFlash;
     public GameObject playerSpawnPosition;
+
     public ScrapTracker scrapTracker;
-    public Image shieldHPBar;
+    
+    public GameObject boss;
+    public BossAI bossScript;
+    public Image bossHPBar;
+    public bool bossActive;
 
     public bool isPaused;
     
@@ -28,12 +35,17 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        sceneNames = new string[] { "Introduction Level", "Level 1", "Level 2", "Level 3", "Level 4" };
+
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
+
         scrapTracker = ScrapTracker.instance;
 
-        sceneNames = new string[] { "Introduction Level", "Level 1", "Level 2", "Level 3", "Level 4" };
+        boss = GameObject.FindGameObjectWithTag("Boss");
+        bossScript = boss.GetComponent<BossAI>();
     }
 
     void Update() 
@@ -48,6 +60,11 @@ public class GameManager : MonoBehaviour
         if (playerScript != null)
         {
             playerScript.updatePlayerUI();
+        }
+
+        if(bossActive && !bossHP.activeSelf)
+        {
+            bossHP.SetActive(true);
         }
     }
 

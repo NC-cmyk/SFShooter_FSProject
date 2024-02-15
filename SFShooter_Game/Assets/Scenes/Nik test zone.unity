@@ -2129,10 +2129,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 8534717822646723481, guid: 0670e078873ebaf4a9bcf4f175c8ca04, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2734,37 +2730,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1995141833
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1995141834}
-  m_Layer: 0
-  m_Name: Minions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1995141834
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995141833}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8704317633026911}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2064869585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,7 +3078,7 @@ GameObject:
   - component: {fileID: 8704317633026912}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3502,7 +3467,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1995141834}
   - {fileID: 824345640}
   - {fileID: 688920173}
   - {fileID: 8704317633026881}
@@ -3718,7 +3682,7 @@ MonoBehaviour:
   roamDistance: 5
   roamPauseTimer: 1
   hurtSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
-  hurtSoundVol: 0.5
+  hurtSoundVol: 0.25
   deathSound: {fileID: 8300000, guid: 0095526b2e3eb21408f6f1b989ff492b, type: 3}
   deathSoundVol: 0.5
   summonPositions:
@@ -3732,7 +3696,6 @@ MonoBehaviour:
   - {fileID: 2091844730632455156, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
   - {fileID: 2794674092905077148, guid: c42ec38f6175f9540a7f090725cfbbf2, type: 3}
   bullet: {fileID: 0}
-  minionParent: {fileID: 1995141834}
   summonCooldown: 5
   attackRate: 3
   attackFOV: 25

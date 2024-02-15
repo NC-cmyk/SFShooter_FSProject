@@ -18,12 +18,15 @@ public class BossAI : EnemyAI
 
     float startSpeed;
     int minionCount;
+    int maxHP;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         startSpeed = getAgent().speed;
+        maxHP = getHP();
+        GameManager.instance.bossActive = true;
     }
 
     // Update is called once per frame
@@ -59,7 +62,7 @@ public class BossAI : EnemyAI
         int enemyNdx = Random.Range(0, 2);
 
         GameObject enemy = enemyList[enemyNdx];
-        enemy.GetComponent<EnemyAI>().setBoss(gameObject);
+        enemy.tag = "Minion";
 
         for(int i = 0; i < 2; i++)
         {
@@ -76,6 +79,14 @@ public class BossAI : EnemyAI
     IEnumerator attack()
     {
         yield return null;
+    }
+
+    public override void takeDamage(int amount)
+    {
+        getAudSource().PlayOneShot(getHurtSound(), getHurtVolume());
+        setHP(getHP() - amount);
+
+        GameManager.instance.bossHPBar.fillAmount = (float)getHP() / maxHP;
     }
 
     public void updateMinionCount(int amount)
