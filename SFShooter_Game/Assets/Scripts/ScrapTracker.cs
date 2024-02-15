@@ -34,7 +34,7 @@ public class ScrapTracker : MonoBehaviour
         if (totalScrap >= requiredScrapCount)
         {
             // Trigger escape event or subgoal completion
-            GameManager.instance.GameGoalComplete();  
+            //GameManager.instance.GameGoalComplete();  
         }
     }
 }

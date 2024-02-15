@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour
     public Image shieldHPBar;
 
     public bool isPaused;
-    int enemyCount;
-    int totalScrap;
     
     //Awake used to initialize the game manager first 
     void Awake()
@@ -77,21 +75,6 @@ public class GameManager : MonoBehaviour
         PausedState();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
-    }
-
-    void CollectedScrap()
-    {
-        // Check if the instance is not null
-        if (scrapTracker != null)
-        {
-            // Use scrapTracker to access its methods or properties
-             totalScrap = scrapTracker.TotalScrap;
-            // ... (other actions)
-        }
-        else
-        {
-            Debug.LogError("ScrapTracker instance not found!");
-        }
     }
 }
 
