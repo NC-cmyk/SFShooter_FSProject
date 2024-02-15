@@ -252,8 +252,8 @@ MonoBehaviour:
   - {fileID: 1555629604729739476}
   - {fileID: 7250917926439305680}
   spawnerTrkr: {fileID: 7571247451908227112}
-  numToSpawn: 5
-  timeBetweenSpawns: 1
+  numToSpawn: 4
+  timeBetweenSpawns: 0
   randomSpawn: 0
 --- !u!135 &8681865767380784844
 SphereCollider:

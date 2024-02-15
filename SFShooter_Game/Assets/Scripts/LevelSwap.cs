@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelSwap : MonoBehaviour
 {
+    /* === IMPORTANT ===
+     * Levels need to be built or else swapping can't occur
+     */
+
     [Header("--- Level Chooser ---")]
     [Range(0, 4)] [SerializeField] int levelToLoad;
 

@@ -6,7 +6,6 @@ public class MeleeEnemyAI : EnemyAI
 {
     [Header("MELEE ENEMY DAMAGE IN MELEE HITBOX GAMEOBJECT")]
     [Header("--- Melee Enemy Stats ---")]
-    [Range(1, 3)] [SerializeField] float attackRange;
     [Range(3, 8)] [SerializeField] int attackRate;
     [Range(3, 5)] [SerializeField] int attackFOV; // field of vision for attacking
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
