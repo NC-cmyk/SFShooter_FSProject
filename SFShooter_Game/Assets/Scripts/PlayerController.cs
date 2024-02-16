@@ -136,6 +136,8 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     public void takeDamage(int amount)
     {
         audSource.PlayOneShot(playerHurtSound, hurtSoundVol);
+        StartCoroutine(flashDamage());
+
         if (shieldHP <= 0 || amount < 0){
             HP -= amount;
         }

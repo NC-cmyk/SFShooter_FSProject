@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 3145265203358708852}
   m_Layer: 6
   m_Name: Melee Enemy
-  m_TagString: Untagged
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,7 +493,6 @@ MonoBehaviour:
   hurtSoundVol: 0.5
   deathSound: {fileID: 8300000, guid: 0095526b2e3eb21408f6f1b989ff492b, type: 3}
   deathSoundVol: 0.5
-  attackRange: 2.5
   attackRate: 3
   attackFOV: 3
   sightDistance: 8
