@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     bool destChosen; // destination chosen
     Vector3 startingPos; // starting position
-    float stoppingDistOrig; // stopping distance original
+    protected float stoppingDistOrig; // stopping distance original
 
     // Start is called before the first frame update
     protected virtual void Start()

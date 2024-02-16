@@ -9,6 +9,7 @@ public class MeleeEnemyAI : EnemyAI
     [Range(3, 8)] [SerializeField] int attackRate;
     [Range(3, 5)] [SerializeField] int attackFOV; // field of vision for attacking
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
+    [Range(10, 15)] [SerializeField] int chargeDistance; // minimum amount of distance for enemy to start charging
 
     [Header("--- Melee Enemy Components ---")]
     [SerializeField] BoxCollider chargeHitbox;
@@ -16,6 +17,7 @@ public class MeleeEnemyAI : EnemyAI
     float startAccel; // starting acceleration
     float startSpeed;
     float startAngSpeed; // starting angular speed
+    bool isAttacking;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -31,14 +33,13 @@ public class MeleeEnemyAI : EnemyAI
     {
         base.Update();
 
+
         if (playerInRange && !canSeePlayer())
         {
-            stopAttacking();
             StartCoroutine(roam());
         }
         else if (!playerInRange)
         {
-            stopAttacking();
             StartCoroutine(roam());
         }
     }
@@ -47,7 +48,7 @@ public class MeleeEnemyAI : EnemyAI
     {
         bool canSee = base.canSeePlayer();
 
-        if (canSee && !getAnimator().GetBool("isAttacking"))
+        if (!isAttacking && canSee)
         {
             //&& !getAnimator().GetBool("isAttacking")
             StopCoroutine(roam());
@@ -56,7 +57,7 @@ public class MeleeEnemyAI : EnemyAI
             if (getAgent().remainingDistance < sightDistance)
                 faceTarget();
 
-            if (angleToPlayer < attackFOV)
+            if (angleToPlayer < attackFOV && getAgent().remainingDistance < chargeDistance)
                 StartCoroutine(attack());
         }
 
@@ -65,24 +66,33 @@ public class MeleeEnemyAI : EnemyAI
 
     IEnumerator attack()
     {
-        yield return new WaitForSeconds(1.0f);
+        isAttacking = true;
         getAnimator().SetBool("isAttacking", true);
+        yield return new WaitForSeconds(0.3f);
 
         // when attacking, make hitbox active
         chargeHitbox.enabled = !chargeHitbox.enabled;
 
+        getAgent().stoppingDistance = 0;
         getAgent().acceleration = 20;
         getAgent().speed = 15;
         getAgent().angularSpeed = 0;
 
-        yield return new WaitForSeconds(attackRate);
+        //Vector3 destination = playerDir + transform.position;
+
+        yield return new WaitForSeconds(1);
 
         chargeHitbox.GetComponent<MeleeHitbox>().hit = false;
         chargeHitbox.enabled = !chargeHitbox.enabled;
+
+        getAgent().stoppingDistance = stoppingDistOrig;
         getAgent().acceleration = startAccel;
         getAgent().speed = startSpeed;
         getAgent().angularSpeed = startAngSpeed;
         getAnimator().SetBool("isAttacking", false);
+
+        yield return new WaitForSeconds(attackRate);
+        isAttacking = false;
     }
 
     void stopAttacking()
