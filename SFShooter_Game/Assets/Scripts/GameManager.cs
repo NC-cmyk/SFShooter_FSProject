@@ -23,11 +23,13 @@ public class GameManager : MonoBehaviour
     public GameObject playerSpawnPosition;
 
     public ScrapTracker scrapTracker;
+
     
     public GameObject boss;
     public BossAI bossScript;
     public Image bossHPBar;
     public bool bossActive;
+
 
     public bool isPaused;
     
