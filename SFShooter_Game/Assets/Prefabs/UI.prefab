@@ -1052,6 +1052,74 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2551362560479666159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 350413955845638430}
+  - component: {fileID: 222983637596255620}
+  - component: {fileID: 4486803940768003718}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350413955845638430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551362560479666159}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -400.00003, y: -142.83263, z: 0}
+  m_LocalScale: {x: 0.68669534, y: 0.68669534, z: 0.68669534}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6620131770995757409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &222983637596255620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551362560479666159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &4486803940768003718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551362560479666159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &2938875770680410640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,10 +1303,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1969515184618122294}
   winMenu: {fileID: 2117045143725836549}
   loseMenu: {fileID: 6530471351152430418}
-<<<<<<< HEAD
-=======
   bossHP: {fileID: 6271243589539603315}
->>>>>>> 5bba8c93bd8508428b81940b88e13caa034a9710
   sceneNames: []
   playerScript: {fileID: 0}
   player: {fileID: 0}
@@ -1247,15 +1312,10 @@ MonoBehaviour:
   playerDamageFlash: {fileID: 336699837331945693}
   playerSpawnPosition: {fileID: 0}
   scrapTracker: {fileID: 0}
-<<<<<<< HEAD
-  shieldHPBar: {fileID: 7409784680066109835}
-  optionsMenuPanel: {fileID: 0}
-=======
   boss: {fileID: 0}
   bossScript: {fileID: 0}
   bossHPBar: {fileID: 5038967337929986850}
   bossActive: 0
->>>>>>> 5bba8c93bd8508428b81940b88e13caa034a9710
   isPaused: 0
 --- !u!114 &5309015601268610091
 MonoBehaviour:
@@ -3871,6 +3931,7 @@ RectTransform:
   m_Children:
   - {fileID: 8722507977207698386}
   - {fileID: 3154555055307229565}
+  - {fileID: 350413955845638430}
   - {fileID: 7151972660762715205}
   - {fileID: 7458753623207640142}
   - {fileID: 5231073434871522945}
