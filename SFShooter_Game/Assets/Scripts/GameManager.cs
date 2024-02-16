@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerSpawnPosition;
     public ScrapTracker scrapTracker;
     public Image shieldHPBar;
+    
 
     public bool isPaused;
     
