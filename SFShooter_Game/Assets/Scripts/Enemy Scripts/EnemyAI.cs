@@ -46,8 +46,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (gameObject.tag == "Minion" && !GameManager.instance.bossActive)
         {
-            StopAllCoroutines();
-            takeDamage(HP);
+            Destroy(gameObject);
         }
 
         // updates the movement animation for enemies depending on their current speed
