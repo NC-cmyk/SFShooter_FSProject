@@ -426,8 +426,8 @@ GameObject:
   - component: {fileID: 7034945928028769270}
   - component: {fileID: 3145265203358708852}
   m_Layer: 6
-  m_Name: Melee Enemy
-  m_TagString: Untagged
+  m_Name: Melee Enemy (Minion)
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,7 +484,7 @@ MonoBehaviour:
   headPos: {fileID: 2165316098943202912}
   audSource: {fileID: 3145265203358708852}
   HP: 4
-  fov: 70
+  fov: 180
   rotateSpeed: 10
   animTransSpeed: 5
   roamDistance: 15

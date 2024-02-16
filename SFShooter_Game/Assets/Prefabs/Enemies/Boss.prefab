@@ -729,8 +729,8 @@ MonoBehaviour:
   - {fileID: 8902462747544745585}
   - {fileID: 7990946151995326758}
   enemyList:
-  - {fileID: 2091844730632455156, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-  - {fileID: 2794674092905077148, guid: c42ec38f6175f9540a7f090725cfbbf2, type: 3}
+  - {fileID: 2091844730632455156, guid: e4d09699057da004cb793a2be17f3586, type: 3}
+  - {fileID: 2794674092905077148, guid: aacf2d5840391a2479ae45eab2f647f9, type: 3}
   summonCooldown: 10
   attackRate: 3
   attackFOV: 30

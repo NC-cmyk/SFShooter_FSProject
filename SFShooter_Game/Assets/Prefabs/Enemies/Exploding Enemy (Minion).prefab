@@ -425,8 +425,8 @@ GameObject:
   - component: {fileID: 1226006874740124176}
   - component: {fileID: -7150301645641341337}
   m_Layer: 6
-  m_Name: Exploding Enemy
-  m_TagString: Untagged
+  m_Name: Exploding Enemy (Minion)
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   headPos: {fileID: 2172522274052699752}
   audSource: {fileID: -7150301645641341337}
   HP: 3
-  fov: 70
+  fov: 180
   rotateSpeed: 8
   animTransSpeed: 5
   roamDistance: 12

@@ -77,7 +77,6 @@ public class BossAI : EnemyAI
         int enemyNdx = Random.Range(0, 2);
 
         GameObject enemy = enemyList[enemyNdx];
-        enemy.tag = "Minion";
 
         for(int i = 0; i < summonPositions.Length; i++)
         {
