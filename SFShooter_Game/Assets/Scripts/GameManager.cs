@@ -43,9 +43,6 @@ public class GameManager : MonoBehaviour
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
         scrapTracker = ScrapTracker.instance;
-
-        boss = GameObject.FindGameObjectWithTag("Boss");
-        bossScript = boss.GetComponent<BossAI>();
     }
 
     void Update() 
@@ -65,6 +62,8 @@ public class GameManager : MonoBehaviour
         if(bossActive && !bossHP.activeSelf)
         {
             bossHP.SetActive(true);
+            boss = GameObject.FindGameObjectWithTag("Boss");
+            bossScript = boss.GetComponent<BossAI>();
         }
         else if(!bossActive && bossHP.activeSelf){
             bossHP.SetActive(false);

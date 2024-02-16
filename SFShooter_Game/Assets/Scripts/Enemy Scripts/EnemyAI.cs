@@ -44,6 +44,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     protected virtual void Update()
     {
+        if (gameObject.tag == "Minion" && !GameManager.instance.bossActive)
+        {
+            StopAllCoroutines();
+            takeDamage(HP);
+        }
+
         // updates the movement animation for enemies depending on their current speed
         float animSpeed = agent.velocity.normalized.magnitude;
         animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), animSpeed, Time.deltaTime * animTransSpeed));

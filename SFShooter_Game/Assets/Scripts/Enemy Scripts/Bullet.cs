@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] Rigidbody rb;
 
     [Header("--- Stats ---")]
-    [Range(1, 3)] [SerializeField] int dmgAmount;
+    [Range(1, 5)] [SerializeField] int dmgAmount;
     [Range(10, 80)] [SerializeField] int speed;
     [Range(3, 5)] [SerializeField] int destroyTime;
     [Range(1, 20)] [SerializeField] int knockbackDist;

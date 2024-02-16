@@ -13,7 +13,7 @@ public class BossAI : EnemyAI
 
     [Header("--- Boss Stats ---")]
     [Range(5, 10)] [SerializeField] int summonCooldown;
-    [Range(3, 10)] [SerializeField] int attackRate;
+    [Range(1, 10)] [SerializeField] int attackRate;
     [Range(10, 45)] [SerializeField] int attackFOV;
 
     [Header("--- Audio Clips ---")]
@@ -79,7 +79,7 @@ public class BossAI : EnemyAI
         GameObject enemy = enemyList[enemyNdx];
         enemy.tag = "Minion";
 
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < summonPositions.Length; i++)
         {
             Instantiate(enemy, summonPositions[i].transform.position, summonPositions[i].transform.rotation);
             minionCount++;
@@ -101,6 +101,7 @@ public class BossAI : EnemyAI
 
         for (int i = 0; i < bulletPositions.Length; i++)
         {
+            getAudSource().PlayOneShot(shootSound, soundVolume);
             Instantiate(bullet, bulletPositions[i].transform.position, bulletPositions[i].transform.rotation);
             yield return new WaitForSeconds(0.2f);
         }
