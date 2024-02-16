@@ -1159,7 +1159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2091844730632455156, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1200,10 +1200,6 @@ PrefabInstance:
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6484781976875662193, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: fov
-      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2984,6 +2980,7 @@ MonoBehaviour:
   attackRate: 1
   attackFOV: 0
   sightDistance: 0
+  chargeDistance: 0
   chargeHitbox: {fileID: 0}
 --- !u!1 &9015210775902201382
 GameObject:

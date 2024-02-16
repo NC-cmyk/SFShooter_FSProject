@@ -7260,6 +7260,10 @@ PrefabInstance:
       value: MenuController
       objectReference: {fileID: 0}
     - target: {fileID: 8628579995756757776, guid: df51588e1dc469d4aa7cdb5f3fee5bbc, type: 3}
+      propertyPath: _newGameLevel
+      value: Introduction Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628579995756757776, guid: df51588e1dc469d4aa7cdb5f3fee5bbc, type: 3}
       propertyPath: noSavedGameDialog
       value: 
       objectReference: {fileID: 1155714180}
