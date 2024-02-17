@@ -484,7 +484,7 @@ MonoBehaviour:
   headPos: {fileID: 2165316098943202912}
   audSource: {fileID: 3145265203358708852}
   HP: 4
-  fov: 70
+  fov: 150
   rotateSpeed: 10
   animTransSpeed: 5
   roamDistance: 15
@@ -496,6 +496,7 @@ MonoBehaviour:
   attackRate: 3
   attackFOV: 3
   sightDistance: 8
+  chargeDistance: 15
   chargeHitbox: {fileID: 5581574367080942114}
 --- !u!95 &1018124777784349444
 Animator:

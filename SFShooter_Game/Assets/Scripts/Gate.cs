@@ -36,9 +36,24 @@ public class Gate : MonoBehaviour
         int scrap = 0;
         int listSize = spawnerTrackers.Length;
 
+        bool collected = false;
+        SpawnerTracker spawnerTrackr;
+        RangedSpawnerTracker rangSpawnrTrackr;
+
         for(int i = 0; i < listSize; i++)
         {
-            bool collected = spawnerTrackers[i].GetComponent<SpawnerTracker>().getScrapCollected();
+            spawnerTrackr = spawnerTrackers[i].GetComponent<SpawnerTracker>();
+            rangSpawnrTrackr = spawnerTrackers[i].GetComponent<RangedSpawnerTracker>();
+
+            if (spawnerTrackr != null)
+            {
+                collected = spawnerTrackr.getScrapCollected();
+            }
+            else if(rangSpawnrTrackr != null)
+            {
+                collected = rangSpawnrTrackr.getScrapCollected();
+            }
+
             if (collected)
             {
                 scrap++;
