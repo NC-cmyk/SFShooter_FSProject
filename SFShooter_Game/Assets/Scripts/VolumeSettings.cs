@@ -15,7 +15,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private float defaultVolume = 1.0f;
 
 
-    private bool isGameObjectActive = false;
+    
 
 
     public void Start()
