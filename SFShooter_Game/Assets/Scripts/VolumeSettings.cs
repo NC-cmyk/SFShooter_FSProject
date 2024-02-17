@@ -13,9 +13,9 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private TMP_Text volumeTextvalue;
     [SerializeField] private TMP_Text volumeSFXTextvalue;
     [SerializeField] private float defaultVolume = 1.0f;
+   
 
 
-    
 
 
     public void Start()
@@ -30,7 +30,7 @@ public class VolumeSettings : MonoBehaviour
             SetMusicVolume();
             SetSFXVolume();
         }
-        
+       
     }
 
     public void SetMusicVolume()
