@@ -23,21 +23,14 @@ public class VolumeSettings : MonoBehaviour
         if (PlayerPrefs.HasKey("musicVolume"))
         {
             LoadVolume();
+            StartCoroutine(ConfirmationLoadBox());
         }
         else
         {
             SetMusicVolume();
             SetSFXVolume();
         }
-        if (gameObject.activeSelf)
-        {
-            isGameObjectActive = true;
-            StartCoroutine(CofirmationLoadBox());
-        }
-        else
-        {
-            isGameObjectActive = false;
-        }
+        
     }
 
     public void SetMusicVolume()
@@ -64,7 +57,7 @@ public class VolumeSettings : MonoBehaviour
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
         PlayerPrefs.SetFloat("musicVolume", AudioListener.volume);
         PlayerPrefs.SetFloat("SFXVolume", AudioListener.volume);
-        StartCoroutine(CofirmationLoadBox());
+        StartCoroutine(ConfirmationLoadBox());
         SetMusicVolume();
         SetSFXVolume();
     }
@@ -81,14 +74,10 @@ public class VolumeSettings : MonoBehaviour
         }
     }
 
-    public IEnumerator CofirmationLoadBox()
+    public IEnumerator ConfirmationLoadBox()
     {
-        if (isGameObjectActive)
-        {
-            confirmationPrompt.SetActive(true);
-            yield return new WaitForSeconds(2);
-            confirmationPrompt.SetActive(false);
-        }
-
+       confirmationPrompt.SetActive(true);
+       yield return new WaitForSeconds(2);
+       confirmationPrompt.SetActive(false);
     }
 }       
