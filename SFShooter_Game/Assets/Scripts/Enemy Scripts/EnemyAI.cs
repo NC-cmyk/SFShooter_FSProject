@@ -33,6 +33,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool destChosen; // destination chosen
     Vector3 startingPos; // starting position
     protected float stoppingDistOrig; // stopping distance original
+    protected bool gettingDestroyed; // prevent agent from setting destination
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -46,6 +47,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (gameObject.tag == "Minion" && !GameManager.instance.bossActive)
         {
+            gettingDestroyed = true;
             Destroy(gameObject);
         }
 

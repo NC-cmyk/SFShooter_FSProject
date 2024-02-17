@@ -34,13 +34,16 @@ public class ExplodingEnemyAI : EnemyAI
     {
         base.Update();
 
-        if (playerInRange && !canSeePlayer())
+        if (!gettingDestroyed)
         {
-            StartCoroutine(roam());
-        }
-        else if (!playerInRange)
-        {
-            StartCoroutine(roam());
+            if (playerInRange && !canSeePlayer())
+            {
+                StartCoroutine(roam());
+            }
+            else if (!playerInRange)
+            {
+                StartCoroutine(roam());
+            }
         }
     }
 
