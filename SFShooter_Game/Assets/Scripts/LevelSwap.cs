@@ -11,12 +11,20 @@ public class LevelSwap : MonoBehaviour
 
     [Header("--- Level Chooser ---")]
     [Range(0, 4)] [SerializeField] int levelToLoad;
+    [SerializeField] bool winCondition;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(loadScene());
+            if (winCondition)
+            {
+                YouWonTheGame();
+            }
+            else
+            {
+                StartCoroutine(loadScene());
+            }
         }
     }
 
@@ -32,5 +40,10 @@ public class LevelSwap : MonoBehaviour
         GameManager.instance.playerScript.respawn();
         // However doing this would require the player needing a way to retain their upgrades
         // If upgrades are still getting implemented
+    }
+    void YouWonTheGame()
+    {
+        StopAllCoroutines();
+        GameManager.instance.GameGoalComplete();
     }
 }

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: 0
+  winCondition: 0
 --- !u!65 &6973605027712683424
 BoxCollider:
   m_ObjectHideFlags: 0
