@@ -1157,6 +1157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Melee Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2091844730632455156, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.750001
@@ -1196,6 +1200,14 @@ PrefabInstance:
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484781976875662193, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
+      propertyPath: walkSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a5909813acf2bf4bb431daeff3004e5, type: 3}
+    - target: {fileID: 6484781976875662193, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
+      propertyPath: walkVolume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

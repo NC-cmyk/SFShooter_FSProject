@@ -129,7 +129,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 GameManager.instance.bossScript.updateMinionCount(-1);
             }
 
-            playDeathSound();
+            StartCoroutine(playDeathSound());
         }
     }
     IEnumerator playDeathSound()

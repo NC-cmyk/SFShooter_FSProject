@@ -54,7 +54,10 @@ public class RangedEnemyAI : EnemyAI
     {
         rEnemyAudSource.PlayOneShot(rEnemyAttackSound, attackSoundVol);
         isShooting = true;
+
+        getAnimator().SetTrigger("Attack");
         Instantiate(bullet, shootPos.position, transform.rotation);
+
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
@@ -71,6 +74,7 @@ public class RangedEnemyAI : EnemyAI
         // ranged enemy shouldnt actually take damage
         if (!getAnimator().GetBool("isStunned"))
         {
+            StartCoroutine(flashStun());
             StartCoroutine(stun());
         }
     }
@@ -82,6 +86,15 @@ public class RangedEnemyAI : EnemyAI
         yield return new WaitForSeconds(1.2f);
 
         Destroy(gameObject);
+    }
+
+    IEnumerator flashStun()
+    {
+        Color ogColor = getModel().material.color;
+
+        getModel().material.color = Color.yellow;
+        yield return new WaitForSeconds(0.2f);
+        getModel().material.color = ogColor;
     }
 
     public void setShutdown(bool shutdown)

@@ -485,7 +485,7 @@ MonoBehaviour:
   headPos: {fileID: 2165316098943202912}
   audSource: {fileID: 3145265203358708852}
   HP: 4
-  fov: 150
+  fov: 180
   rotateSpeed: 10
   animTransSpeed: 5
   roamDistance: 15
