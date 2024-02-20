@@ -9,10 +9,11 @@ public class MeleeEnemyAI : EnemyAI
     [Range(3, 8)] [SerializeField] int attackRate;
     [Range(3, 5)] [SerializeField] int attackFOV; // field of vision for attacking
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
-    [Range(10, 15)] [SerializeField] int chargeDistance; // minimum amount of distance for enemy to start charging
+    [Range(15, 25)] [SerializeField] int chargeDistance; // minimum amount of distance for enemy to start charging
 
     [Header("--- Melee Enemy Components ---")]
     [SerializeField] BoxCollider chargeHitbox;
+    [SerializeField] ParticleSystem chargeSmoke;
 
     float startAccel; // starting acceleration
     float startSpeed;
@@ -66,9 +67,42 @@ public class MeleeEnemyAI : EnemyAI
         return canSee;
     }
 
+    public override void takeDamage(int amount)
+    {
+        if (!isAttacking)
+        {
+            getAnimator().SetTrigger("Hit");
+        }
+
+        base.takeDamage(amount);
+
+        if (getHP() < 1 && !getAnimator().GetBool("isDead"))
+        {
+            StartCoroutine(die());
+        }
+    }
+
+    IEnumerator die()
+    {
+        getAnimator().ResetTrigger("Hit");
+        getAnimator().SetBool("isDead", true);
+
+        // prevent enemy from moving
+        gettingDestroyed = true;
+        stopAttacking();
+        getAgent().angularSpeed = 0;
+        getAgent().speed = 0;
+        StopCoroutine(roam());
+
+        yield return new WaitForSeconds(2);
+
+        Destroy(gameObject);
+    }
+
     IEnumerator attack()
     {
         isAttacking = true;
+        chargeSmoke.Play();
         getAnimator().SetBool("isAttacking", true);
         yield return new WaitForSeconds(0.3f);
 
@@ -101,8 +135,5 @@ public class MeleeEnemyAI : EnemyAI
     {
         StopCoroutine(attack());
         chargeHitbox.enabled = false;
-        getAgent().acceleration = startAccel;
-        getAgent().speed = startSpeed;
-        getAnimator().SetBool("isAttacking", false);
     }
 }

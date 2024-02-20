@@ -45,6 +45,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     protected virtual void Update()
     {
+        // destroys minion if the boss dies and theyre still alive
         if (gameObject.tag == "Minion" && !GameManager.instance.bossActive)
         {
             gettingDestroyed = true;
@@ -129,7 +130,6 @@ public class EnemyAI : MonoBehaviour, IDamage
             }
 
             playDeathSound();
-            Destroy(gameObject);
         }
     }
     IEnumerator playDeathSound()

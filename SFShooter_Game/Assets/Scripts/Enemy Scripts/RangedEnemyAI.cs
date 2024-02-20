@@ -79,7 +79,7 @@ public class RangedEnemyAI : EnemyAI
     {
         getAnimator().SetBool("isShutdown", true);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.2f);
 
         Destroy(gameObject);
     }
