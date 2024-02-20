@@ -21,12 +21,15 @@ public class ExplodingEnemyAI : EnemyAI
     [SerializeField] AudioClip eEnemyAttackSound;
     [Range(0, 1)][SerializeField] float attackSoundVol;
 
+    float startSpeed;
     bool isExploding;
+    bool isHit;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        startSpeed = getAgent().speed;
     }
 
     // Update is called once per frame
@@ -70,6 +73,25 @@ public class ExplodingEnemyAI : EnemyAI
         return canSee;
     }
 
+    public override void takeDamage(int amount)
+    {
+        if (!isHit && !isExploding)
+        {
+            StartCoroutine(hit());
+        }
+
+        base.takeDamage(amount);
+
+        if (getHP() < 1 && !getAnimator().GetBool("isDead") && !isExploding)
+        {
+            StartCoroutine(die());
+        }
+        else if(getHP() < 1 && !getAnimator().GetBool("isDead"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator explode()
     {
         isExploding = true;
@@ -98,8 +120,8 @@ public class ExplodingEnemyAI : EnemyAI
 
         Instantiate(explosion, transform.position, transform.rotation);
         eEnemyAudSource.PlayOneShot(eEnemyAttackSound, attackSoundVol);
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<IDamage>().takeDamage(getHP());
+        yield return new WaitForSeconds(0.3f);
+        takeDamage(getHP());
     }
 
     IEnumerator flashWarning()
@@ -113,5 +135,35 @@ public class ExplodingEnemyAI : EnemyAI
             getModel().material.color = ogColor;
             yield return new WaitForSeconds(0.2f);
         }
+    }
+
+    IEnumerator hit()
+    {
+        isHit = true;
+        getAgent().speed = 0;
+        getAnimator().SetTrigger("Hit");
+
+        yield return new WaitForSeconds(0.15f);
+
+        getAgent().speed = startSpeed;
+        isHit = false;
+    }
+
+    IEnumerator die()
+    {
+        getAnimator().ResetTrigger("Hit");
+        getAnimator().SetBool("isDead", true);
+
+        // prevent enemy from moving
+        gettingDestroyed = true;
+        //getAgent().angularSpeed = 0;
+        //getAgent().speed = 0;
+        //getAgent().acceleration = 0;
+        //StopCoroutine(roam());
+        getAgent().isStopped = true;
+
+        yield return new WaitForSeconds(1.2f);
+
+        Destroy(gameObject);
     }
 }
