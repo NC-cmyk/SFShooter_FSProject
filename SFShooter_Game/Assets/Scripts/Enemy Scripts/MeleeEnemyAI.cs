@@ -88,6 +88,7 @@ public class MeleeEnemyAI : EnemyAI
         getAnimator().SetBool("isDead", true);
 
         // prevent enemy from moving
+        // does allow sliding for if they die while charging though
         gettingDestroyed = true;
         stopAttacking();
         getAgent().angularSpeed = 0;
@@ -113,8 +114,6 @@ public class MeleeEnemyAI : EnemyAI
         getAgent().acceleration = 20;
         getAgent().speed = 15;
         getAgent().angularSpeed = 0;
-
-        //Vector3 destination = playerDir + transform.position;
 
         yield return new WaitForSeconds(1);
 

@@ -252,6 +252,7 @@ MonoBehaviour:
   - {fileID: 1555629604729739476}
   - {fileID: 7250917926439305680}
   spawnerTrkr: {fileID: 7571247451908227112}
+  spawnSmoke: {fileID: 6813416509558619124, guid: 3b7f2c753d435d647a80f1f047a113e3, type: 3}
   numToSpawn: 4
   timeBetweenSpawns: 0
   randomSpawn: 0

@@ -156,10 +156,6 @@ public class ExplodingEnemyAI : EnemyAI
 
         // prevent enemy from moving
         gettingDestroyed = true;
-        //getAgent().angularSpeed = 0;
-        //getAgent().speed = 0;
-        //getAgent().acceleration = 0;
-        //StopCoroutine(roam());
         getAgent().isStopped = true;
 
         yield return new WaitForSeconds(1.2f);

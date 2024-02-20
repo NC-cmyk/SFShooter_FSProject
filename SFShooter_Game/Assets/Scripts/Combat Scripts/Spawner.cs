@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject[] enemies; // spawners only really used to spawn enemies
     [SerializeField] Transform[] spawnPositions;
     [SerializeField] GameObject spawnerTrkr; // spawner tracker
+    [SerializeField] GameObject spawnSmoke;
 
     [Header("-- Spawner Stats --")]
     [Range(1, 50)] [SerializeField] int numToSpawn;
@@ -73,11 +74,13 @@ public class Spawner : MonoBehaviour
         {
             // choose a random position to spawn
             int arrayPos = Random.Range(0, spawnPositions.Length);
+            Instantiate(spawnSmoke, spawnPositions[arrayPos].transform.position, spawnPositions[arrayPos].transform.rotation);
             Instantiate(enemyToSpawn, spawnPositions[arrayPos].transform.position, spawnPositions[arrayPos].transform.rotation, spawnerTrkr.transform);
         }
         else
         {
             // spawn enemies in order of the spawn positions, this is the default
+            Instantiate(spawnSmoke, spawnPositions[spawnIndex].transform.position, spawnPositions[spawnIndex].transform.rotation);
             Instantiate(enemyToSpawn, spawnPositions[spawnIndex].transform.position, spawnPositions[spawnIndex].transform.rotation, spawnerTrkr.transform);
 
             if(spawnIndex + 1 != spawnPositions.Length)
