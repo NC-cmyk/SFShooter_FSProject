@@ -10,9 +10,11 @@ public class BossAI : EnemyAI
     [SerializeField] Transform[] summonPositions;
     [SerializeField] Transform[] bulletPositions;
     [SerializeField] GameObject[] enemyList;
+    [SerializeField] GameObject shield;
 
     [Header("--- Boss Stats ---")]
     [Range(5, 10)] [SerializeField] int summonCooldown;
+    [Range(10, 15)] [SerializeField] int shieldTimer;
     [Range(1, 10)] [SerializeField] int attackRate;
     [Range(10, 45)] [SerializeField] int attackFOV;
 
@@ -26,6 +28,8 @@ public class BossAI : EnemyAI
 
     bool isSummoning;
     bool isAttacking;
+    bool shieldCoolingDown;
+    bool summoned; // boss has resummoned enemies and restored shield
 
     // Start is called before the first frame update
     protected override void Start()
@@ -33,15 +37,19 @@ public class BossAI : EnemyAI
         base.Start();
         startSpeed = getAgent().speed;
         maxHP = getHP();
+        shield.SetActive(false);
         GameManager.instance.bossActive = true;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
+        if (!gettingDestroyed)
+        {
+            base.Update();
 
-        if (playerInRange && !canSeePlayer()) { }
+            if (playerInRange && !canSeePlayer()) { }
+        }
     }
 
     protected override bool canSeePlayer()
@@ -53,9 +61,13 @@ public class BossAI : EnemyAI
             if(!isAttacking)
                 faceTarget();
 
-            if(angleToPlayer < attackFOV && !isSummoning && !isAttacking && minionCount == 0)
+            if(!summoned && !isSummoning && !isAttacking && minionCount == 0)
             {
                 StartCoroutine(summon());
+            }
+            else if (summoned && minionCount == 0 && !shieldCoolingDown)
+            {
+                StartCoroutine(shieldCooldown());
             }
             
             if(angleToPlayer < attackFOV && !isAttacking && !getAnimator().GetBool("isSummoning"))
@@ -74,6 +86,10 @@ public class BossAI : EnemyAI
         getAgent().speed = 0;
         yield return new WaitForSeconds(1);
 
+        // restore shield
+        shield.SetActive(true);
+
+        // summon enemies
         int enemyNdx = Random.Range(0, 2);
 
         GameObject enemy = enemyList[enemyNdx];
@@ -83,6 +99,9 @@ public class BossAI : EnemyAI
             Instantiate(enemy, summonPositions[i].transform.position, summonPositions[i].transform.rotation);
             minionCount++;
         }
+
+        // prevents boss from summoning right away if minions are dead
+        summoned = true;
 
         getAnimator().SetBool("isSummoning", false);
         getAgent().speed = startSpeed;
@@ -114,20 +133,54 @@ public class BossAI : EnemyAI
 
     public override void takeDamage(int amount)
     {
-        getAudSource().PlayOneShot(getHurtSound(), getHurtVolume());
-        setHP(getHP() - amount);
-
-        GameManager.instance.bossHPBar.fillAmount = (float)getHP() / maxHP;
-
-        if(getHP() <= 0)
+        if (!getAnimator().GetBool("isDead"))
         {
-            GameManager.instance.bossActive = false;
-            Destroy(gameObject);
+            if(!getAnimator().GetBool("isAttacking") && !getAnimator().GetBool("isSummoning"))
+            {
+                getAnimator().SetTrigger("Hit");
+            }
+
+            base.takeDamage(amount);
+
+            GameManager.instance.bossHPBar.fillAmount = (float)getHP() / maxHP;
+
+            if (getHP() <= 0)
+            {
+                GameManager.instance.bossActive = false;
+                gettingDestroyed = true;
+
+                StartCoroutine(die());
+            }
         }
     }
 
     public void updateMinionCount(int amount)
     {
         minionCount += amount;
+    }
+
+    IEnumerator die()
+    {
+        getAnimator().SetBool("isDead", true);
+
+        // prevent enemy from moving
+        getAgent().isStopped = true;
+
+        yield return new WaitForSeconds(2);
+
+        Destroy(gameObject);
+    }
+
+    IEnumerator shieldCooldown()
+    {
+        shieldCoolingDown = true;
+        shield.SetActive(false);
+
+        yield return new WaitForSeconds(shieldTimer);
+
+        // allows boss to resummon enemies and put shield back up
+        summoned = false;
+
+        shieldCoolingDown = false;
     }
 }

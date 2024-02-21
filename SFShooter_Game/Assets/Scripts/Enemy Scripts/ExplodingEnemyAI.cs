@@ -23,7 +23,6 @@ public class ExplodingEnemyAI : EnemyAI
 
     float startSpeed;
     bool isExploding;
-    bool isHit;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -77,7 +76,7 @@ public class ExplodingEnemyAI : EnemyAI
     {
         if (!getAnimator().GetBool("isDead"))
         {
-            if (!isHit && !isExploding)
+            if (!isExploding)
             {
                 StartCoroutine(hit());
             }
@@ -142,14 +141,12 @@ public class ExplodingEnemyAI : EnemyAI
 
     IEnumerator hit()
     {
-        isHit = true;
         getAgent().speed = 0;
         getAnimator().SetTrigger("Hit");
 
         yield return new WaitForSeconds(0.15f);
 
         getAgent().speed = startSpeed;
-        isHit = false;
     }
 
     IEnumerator die()

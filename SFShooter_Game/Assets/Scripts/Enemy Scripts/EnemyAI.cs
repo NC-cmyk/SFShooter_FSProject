@@ -165,12 +165,9 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
 
     protected int getHP() { return HP; }
-    protected void setHP(int amount) { HP = amount; }
     protected Renderer getModel() { return model; }
     protected NavMeshAgent getAgent() { return agent; }
     protected Transform getHeadPos() { return headPos; }
     protected Animator getAnimator() { return animator; }
     protected AudioSource getAudSource() { return audSource; }
-    protected AudioClip getHurtSound() { return hurtSound; }
-    protected float getHurtVolume() { return hurtSoundVol; }
 }
