@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6756938583776747456}
   - component: {fileID: 1456814385549911763}
   - component: {fileID: 7272205671738050821}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Tower (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,12 +134,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210871067523714061}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34993577, y: 0.6144469, z: -0.6144469, w: 0.34993577}
-  m_LocalPosition: {x: -17.029, y: 2.68, z: 12.102}
-  m_LocalScale: {x: 1.05, y: 0.63000035, z: 1.1666669}
+  m_LocalRotation: {x: 0.707062, y: 0.00796333, z: -0.00796333, w: 0.707062}
+  m_LocalPosition: {x: 0.007576987, y: 0.27200004, z: 0.35745883}
+  m_LocalScale: {x: 0.26249993, y: 0.15750004, z: 0.46666673}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3706566747909067151}
+  m_Father: {fileID: 167878219451798071}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -120.676}
 --- !u!114 &7405204345022879279
 MonoBehaviour:
@@ -10253,7 +10253,7 @@ GameObject:
   - component: {fileID: 7317467468785205930}
   - component: {fileID: 1007897958712413432}
   - component: {fileID: 8432317663187693093}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10273,6 +10273,7 @@ Transform:
   m_LocalScale: {x: 4, y: 2.5, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7541262232696404610}
   - {fileID: 8022595650216905524}
   m_Father: {fileID: 3706566747909067151}
   m_LocalEulerAnglesHint: {x: 0, y: 119.385, z: 0}
@@ -10582,7 +10583,7 @@ GameObject:
   - component: {fileID: 2514378050816732479}
   - component: {fileID: 2446594435397525358}
   - component: {fileID: 2584457892400383507}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Tower (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10866,7 +10867,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1918791041497399553}
-  - {fileID: 7541262232696404610}
   - {fileID: 167878219451798071}
   - {fileID: 4499120839353352929}
   - {fileID: 8315042984265645129}
@@ -11049,7 +11049,7 @@ GameObject:
   - component: {fileID: 6620028330825546114}
   - component: {fileID: 8870581877684717424}
   - component: {fileID: 654007195553055837}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Tower (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
