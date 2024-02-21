@@ -72,7 +72,7 @@ public class RangedEnemyAI : EnemyAI
     public override void takeDamage(int amount)
     {
         // ranged enemy shouldnt actually take damage
-        if (!getAnimator().GetBool("isStunned"))
+        if (!getAnimator().GetBool("isStunned") && !getAnimator().GetBool("isShutdown"))
         {
             StartCoroutine(flashStun());
             StartCoroutine(stun());

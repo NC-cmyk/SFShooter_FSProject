@@ -13,6 +13,9 @@ public class Container : MonoBehaviour
     {
         closedEgg.SetActive(false);
         openEgg.SetActive(true);
-        eggBurst.Play();
+        if (!eggBurst.isPlaying)
+        {
+            eggBurst.Play();
+        }
     }
 }

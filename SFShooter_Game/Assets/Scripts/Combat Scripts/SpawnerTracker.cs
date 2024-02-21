@@ -15,6 +15,7 @@ public class SpawnerTracker : MonoBehaviour
     int enemyCount;
     bool countAssigned;
     bool scrapCollected;
+    Container containerScript;
 
     //audioSource.PlayOneShot(scrapCollectSound, collectSoundVol); --- This is the line of code to play the collection sound. I have no idea where to put it to make it work though
 
@@ -22,6 +23,7 @@ public class SpawnerTracker : MonoBehaviour
     protected virtual void Start()
     {
         countAssigned = false;
+        containerScript = container.GetComponent<Container>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class SpawnerTracker : MonoBehaviour
             enemyCount = trackerTransform.childCount;
             if(enemyCount <= 0)
             {
-                container.SetActive(false);
+                containerScript.openContainer();
             }
 
             if(scrap == null)

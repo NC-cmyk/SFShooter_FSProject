@@ -69,16 +69,19 @@ public class MeleeEnemyAI : EnemyAI
 
     public override void takeDamage(int amount)
     {
-        if (!isAttacking)
+        if (!getAnimator().GetBool("isDead"))
         {
-            getAnimator().SetTrigger("Hit");
-        }
+            if (!isAttacking)
+            {
+                getAnimator().SetTrigger("Hit");
+            }
 
-        base.takeDamage(amount);
+            base.takeDamage(amount);
 
-        if (getHP() < 1 && !getAnimator().GetBool("isDead"))
-        {
-            StartCoroutine(die());
+            if (getHP() < 1)
+            {
+                StartCoroutine(die());
+            }
         }
     }
 

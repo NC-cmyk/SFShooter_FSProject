@@ -75,20 +75,23 @@ public class ExplodingEnemyAI : EnemyAI
 
     public override void takeDamage(int amount)
     {
-        if (!isHit && !isExploding)
+        if (!getAnimator().GetBool("isDead"))
         {
-            StartCoroutine(hit());
-        }
+            if (!isHit && !isExploding)
+            {
+                StartCoroutine(hit());
+            }
 
-        base.takeDamage(amount);
+            base.takeDamage(amount);
 
-        if (getHP() < 1 && !getAnimator().GetBool("isDead") && !isExploding)
-        {
-            StartCoroutine(die());
-        }
-        else if(getHP() < 1 && !getAnimator().GetBool("isDead"))
-        {
-            Destroy(gameObject);
+            if (getHP() < 1 && !isExploding)
+            {
+                StartCoroutine(die());
+            }
+            else if (getHP() < 1)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
