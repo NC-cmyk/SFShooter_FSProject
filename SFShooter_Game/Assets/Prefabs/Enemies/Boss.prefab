@@ -735,7 +735,7 @@ MonoBehaviour:
   shield: {fileID: 5983667803598370264}
   summonCooldown: 10
   shieldTimer: 10
-  attackRate: 3
+  attackRate: 5
   attackFOV: 30
   shootSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
   soundVolume: 0.1

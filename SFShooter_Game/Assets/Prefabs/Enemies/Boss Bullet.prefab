@@ -50,10 +50,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2874312660458451786}
-  dmgAmount: 4
+  dmgAmount: 2
   speed: 15
   destroyTime: 5
   knockbackDist: 8
+  rotateSpeed: 2
 --- !u!33 &2980613390443579256
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -250,7 +251,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0

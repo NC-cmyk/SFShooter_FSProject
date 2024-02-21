@@ -38,7 +38,6 @@ public class BossAI : EnemyAI
         startSpeed = getAgent().speed;
         maxHP = getHP();
         shield.SetActive(false);
-        GameManager.instance.bossActive = true;
     }
 
     // Update is called once per frame
@@ -48,7 +47,11 @@ public class BossAI : EnemyAI
         {
             base.Update();
 
-            if (playerInRange && !canSeePlayer()) { }
+            if (playerInRange)
+            {
+                GameManager.instance.bossActive = true;
+                canSeePlayer();
+            }
         }
     }
 
