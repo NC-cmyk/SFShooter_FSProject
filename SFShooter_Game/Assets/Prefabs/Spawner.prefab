@@ -596,7 +596,7 @@ MonoBehaviour:
   - {fileID: 7250917926439305680}
   spawnerTrkr: {fileID: 7571247451908227112}
   spawnSmoke: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
-  numToSpawn: 2
+  numToSpawn: 3
   timeBetweenSpawns: 0
   randomSpawn: 0
 --- !u!135 &8681865767380784844

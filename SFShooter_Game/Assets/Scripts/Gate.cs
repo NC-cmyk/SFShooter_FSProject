@@ -15,18 +15,41 @@ public class Gate : MonoBehaviour
      * You probably forgot to fill the Spawner Tracker list.
      */
 
+    [Header("--- Gate Stats ---")]
+    [Range(3, 5)] [SerializeField] int gateSpeed; // how fast the gate lowers or rises
+
     [Header("--- Gate Components ---")]
     [Header("DONT FORGET TO FILL SPAWNER TRACKER LIST")]
     [SerializeField] GameObject[] spawnerTrackers;
+    [SerializeField] Renderer model;
+    [SerializeField] Material openMat;
 
     bool isCounting;
+    bool lowerDown;
+    bool spawnerDone;
+    float ogY;
+
+    private void Start()
+    {
+        ogY = transform.position.y;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isCounting)
+        if (!isCounting && !spawnerDone)
         {
             checkCount();
+        }
+
+        if (lowerDown)
+        {
+            model.material = openMat;
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, -ogY, Time.deltaTime * gateSpeed), transform.position.z);
+        }
+        else if (!lowerDown)
+        {
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, ogY, Time.deltaTime * gateSpeed), transform.position.z);
         }
     }
 
@@ -62,9 +85,18 @@ public class Gate : MonoBehaviour
 
         if(scrap == listSize)
         {
-            Destroy(gameObject);
+            spawnerDone = true;
+            lowerDown = true;
         }
 
         isCounting = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            lowerDown = false;
+        }
     }
 }
