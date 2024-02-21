@@ -447,8 +447,8 @@ GameObject:
   m_Name: Egg_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5196238079979951654
 Transform:
@@ -595,8 +595,8 @@ MonoBehaviour:
   - {fileID: 1555629604729739476}
   - {fileID: 7250917926439305680}
   spawnerTrkr: {fileID: 7571247451908227112}
-  spawnSmoke: {fileID: 6813416509558619124, guid: 3b7f2c753d435d647a80f1f047a113e3, type: 3}
-  numToSpawn: 3
+  spawnSmoke: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
+  numToSpawn: 2
   timeBetweenSpawns: 0
   randomSpawn: 0
 --- !u!135 &8681865767380784844

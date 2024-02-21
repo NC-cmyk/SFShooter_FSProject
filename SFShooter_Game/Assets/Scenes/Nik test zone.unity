@@ -756,22 +756,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 6149460009639910071, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6674892478168238425, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: numToSpawn
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7504646276846466029, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7504646277327417457, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2746,10 +2730,6 @@ PrefabInstance:
     - target: {fileID: 8997210272619195589, guid: 0b51589a898217e49ab940f8e648dbe3, type: 3}
       propertyPath: m_Name
       value: Ranged Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997210272619195589, guid: 0b51589a898217e49ab940f8e648dbe3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
