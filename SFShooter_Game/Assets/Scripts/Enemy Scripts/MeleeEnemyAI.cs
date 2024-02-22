@@ -113,20 +113,28 @@ public class MeleeEnemyAI : EnemyAI
         // when attacking, make hitbox active
         chargeHitbox.enabled = !chargeHitbox.enabled;
 
+        // prevents enemy from stopping prematurely
         getAgent().stoppingDistance = 0;
+
+        // makes enemy faster
         getAgent().acceleration = 20;
         getAgent().speed = 15;
+
+        // enemy should not be able to turn while charging
         getAgent().angularSpeed = 0;
 
         yield return new WaitForSeconds(1);
 
+        // restore hitbox to original state
         chargeHitbox.GetComponent<MeleeHitbox>().hit = false;
         chargeHitbox.enabled = !chargeHitbox.enabled;
 
+        // restore enemy's agent stats
         getAgent().stoppingDistance = stoppingDistOrig;
         getAgent().acceleration = startAccel;
         getAgent().speed = startSpeed;
         getAgent().angularSpeed = startAngSpeed;
+
         getAnimator().SetBool("isAttacking", false);
 
         yield return new WaitForSeconds(attackRate);

@@ -22,9 +22,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioClip hurtSound;
-    [Range(0, 1)][SerializeField] float hurtSoundVol;
     [SerializeField] AudioClip deathSound;
-    [Range(0, 1)][SerializeField] float deathSoundVol;
 
     protected bool playerInRange;
     protected Vector3 playerDir; // player direction
@@ -117,7 +115,13 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     public virtual void takeDamage(int amount)
     {
-        audSource.PlayOneShot(hurtSound, hurtSoundVol);
+        // hurt sound effect
+        if (!audSource.isPlaying)
+        {
+            audSource.clip = hurtSound;
+            audSource.Play();
+        }
+
         HP -= amount;
         agent.SetDestination(GameManager.instance.player.transform.position);
         StartCoroutine(flashRed());
@@ -134,7 +138,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     IEnumerator playDeathSound()
     {
-        audSource.PlayOneShot(deathSound, deathSoundVol);
+        if (!audSource.isPlaying)
+        {
+            audSource.clip = deathSound;
+            audSource.Play();
+        }
+
         yield return new WaitForSeconds(deathSound.length);
     }
 

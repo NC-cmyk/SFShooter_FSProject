@@ -17,9 +17,7 @@ public class ExplodingEnemyAI : EnemyAI
     [Range(20, 50)] [SerializeField] int explosionKB; // knockback
 
     [Header("----- Audio Clips -----")]
-    [SerializeField] AudioSource eEnemyAudSource;
     [SerializeField] AudioClip eEnemyAttackSound;
-    [Range(0, 1)][SerializeField] float attackSoundVol;
 
     float startSpeed;
     bool isExploding;
@@ -121,7 +119,14 @@ public class ExplodingEnemyAI : EnemyAI
         }
 
         Instantiate(explosion, transform.position, transform.rotation);
-        eEnemyAudSource.PlayOneShot(eEnemyAttackSound, attackSoundVol);
+
+        // explosion sfx
+        if (!getAudSource().isPlaying)
+        {
+            getAudSource().clip = eEnemyAttackSound;
+            getAudSource().Play();
+        }
+
         yield return new WaitForSeconds(0.3f);
         takeDamage(getHP());
     }

@@ -16,7 +16,6 @@ public class RangedEnemyAI : EnemyAI
 
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioClip rEnemyAttackSound;
-    [Range(0, 1)][SerializeField] float attackSoundVol;
     [SerializeField] AudioClip rebootSFX;
 
     bool isShooting;
@@ -52,8 +51,10 @@ public class RangedEnemyAI : EnemyAI
 
     IEnumerator shoot()
     {
-        getAudSource().PlayOneShot(rEnemyAttackSound, attackSoundVol);
         isShooting = true;
+
+        // shoot sfx
+        getAudSource().PlayOneShot(rEnemyAttackSound);
 
         getAnimator().SetTrigger("Attack");
         Instantiate(bullet, shootPos.position, transform.rotation);

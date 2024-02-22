@@ -54,8 +54,8 @@ MonoBehaviour:
   model: {fileID: 6281863966345170459}
   openMat: {fileID: 2100000, guid: decaf4d5c5f83bc4a9026799577d989e, type: 2}
   audSource: {fileID: -2363189094196472675}
-  gateClose: {fileID: 0}
-  gateOpen: {fileID: 0}
+  gateClose: {fileID: 8300000, guid: f071455d9d6ec874db7139b98939930f, type: 3}
+  gateOpen: {fileID: 8300000, guid: cce3884296d9a4145b1f400261554315, type: 3}
 --- !u!33 &7868739332151634545
 MeshFilter:
   m_ObjectHideFlags: 0

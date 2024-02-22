@@ -12,7 +12,6 @@ public class MeleeHitbox : MonoBehaviour
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioSource mEnemyAudSource;
     [SerializeField] AudioClip mEnemyAttackSound;
-    [Range(0, 1)][SerializeField] float attackSoundVol;
 
     public bool hit; // the player got hit so the damage should not stack
 
@@ -23,7 +22,7 @@ public class MeleeHitbox : MonoBehaviour
             hit = true;
 
             // should only play when the enemy actualy hits the player
-            mEnemyAudSource.PlayOneShot(mEnemyAttackSound, attackSoundVol);
+            mEnemyAudSource.PlayOneShot(mEnemyAttackSound);
 
             other.GetComponent<IDamage>().takeDamage(damage);
 

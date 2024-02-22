@@ -2682,6 +2682,7 @@ MonoBehaviour:
   stunTime: 0
   rEnemyAttackSound: {fileID: 0}
   attackSoundVol: 0
+  rebootSFX: {fileID: 0}
 --- !u!4 &1388844240578154352
 Transform:
   m_ObjectHideFlags: 0

@@ -20,7 +20,6 @@ public class BossAI : EnemyAI
 
     [Header("--- Audio Clips ---")]
     [SerializeField] AudioClip shootSound;
-    [Range(0, 1)] [SerializeField] float soundVolume;
 
     float startSpeed;
     int minionCount;
@@ -122,7 +121,7 @@ public class BossAI : EnemyAI
 
         for (int i = 0; i < bulletPositions.Length; i++)
         {
-            getAudSource().PlayOneShot(shootSound, soundVolume);
+            getAudSource().PlayOneShot(shootSound);
             Instantiate(bullet, bulletPositions[i].transform.position, bulletPositions[i].transform.rotation);
             yield return new WaitForSeconds(0.2f);
         }
