@@ -72,7 +72,7 @@ MonoBehaviour:
   shootFOV: 10
   stunTime: 10
   rEnemyAttackSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
-  attackSoundVol: 0.1
+  attackSoundVol: 0.5
   rebootSFX: {fileID: 8300000, guid: 9596a03523718cc4c94c3cc7829942aa, type: 3}
 --- !u!95 &5583500838884208670
 Animator:
@@ -168,7 +168,7 @@ AudioSource:
   m_GameObject: {fileID: 185187020223341304}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3092872826543099185, guid: 4fe00d904bb08c143810a4d998005556, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5

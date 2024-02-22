@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ee5cdfd4e630948b9dd967d8f5c1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newGameLevel: Level 1
+  _newGameLevel: Introduction Level
   levelToLoad: 
   noSavedGameDialog: {fileID: 0}
