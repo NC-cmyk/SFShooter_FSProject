@@ -713,7 +713,7 @@ MonoBehaviour:
   animTransSpeed: 5
   roamDistance: 5
   roamPauseTimer: 1
-  hurtSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
+  hurtSound: {fileID: 8300000, guid: 6f1ee607b09a7324d8a80fa0f59e2a3c, type: 3}
   hurtSoundVol: 0.25
   deathSound: {fileID: 8300000, guid: 0095526b2e3eb21408f6f1b989ff492b, type: 3}
   deathSoundVol: 0.5

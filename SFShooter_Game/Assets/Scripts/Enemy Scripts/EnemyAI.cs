@@ -170,4 +170,5 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected Transform getHeadPos() { return headPos; }
     protected Animator getAnimator() { return animator; }
     protected AudioSource getAudSource() { return audSource; }
+    protected AudioClip getHurtSFX() { return hurtSound; }
 }

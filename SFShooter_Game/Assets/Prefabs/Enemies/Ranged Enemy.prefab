@@ -62,7 +62,7 @@ MonoBehaviour:
   animTransSpeed: 5
   roamDistance: 15
   roamPauseTimer: 0
-  hurtSound: {fileID: 8300000, guid: ccc3f1284ace0334f99151eb03bff7ae, type: 3}
+  hurtSound: {fileID: 8300000, guid: 953c3dbf8fcfde2438e97a995162f7b2, type: 3}
   hurtSoundVol: 0.5
   deathSound: {fileID: 8300000, guid: ca833b87a55229140880a0a641116ff4, type: 3}
   deathSoundVol: 0.5
@@ -71,9 +71,9 @@ MonoBehaviour:
   shootRate: 0.75
   shootFOV: 10
   stunTime: 10
-  rEnemyAudSource: {fileID: -7541541124411862835}
   rEnemyAttackSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
   attackSoundVol: 0.1
+  rebootSFX: {fileID: 8300000, guid: 9596a03523718cc4c94c3cc7829942aa, type: 3}
 --- !u!95 &5583500838884208670
 Animator:
   serializedVersion: 5
@@ -171,7 +171,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

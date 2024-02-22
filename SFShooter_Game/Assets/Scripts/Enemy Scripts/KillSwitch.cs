@@ -6,6 +6,7 @@ public class KillSwitch : MonoBehaviour, IDamage
 {
     [Header("--- Kill Switch Components ---")]
     [SerializeField] Renderer model;
+    [SerializeField] AudioSource audSource;
 
     bool hit;
 
@@ -16,17 +17,12 @@ public class KillSwitch : MonoBehaviour, IDamage
         model.material.color = Color.green;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void takeDamage(int damage)
     {
         // doesnt actually take damage, this is just to register that it was hit
         if (!hit)
         {
+            audSource.Play();
             model.material.color = Color.red;
             hit = true;
         }

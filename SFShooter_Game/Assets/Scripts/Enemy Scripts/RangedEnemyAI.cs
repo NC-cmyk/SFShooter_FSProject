@@ -15,9 +15,9 @@ public class RangedEnemyAI : EnemyAI
     [Range(5, 15)] [SerializeField] int stunTime;
 
     [Header("----- Audio Clips -----")]
-    [SerializeField] AudioSource rEnemyAudSource;
     [SerializeField] AudioClip rEnemyAttackSound;
     [Range(0, 1)][SerializeField] float attackSoundVol;
+    [SerializeField] AudioClip rebootSFX;
 
     bool isShooting;
     bool isShutdown;
@@ -52,7 +52,7 @@ public class RangedEnemyAI : EnemyAI
 
     IEnumerator shoot()
     {
-        rEnemyAudSource.PlayOneShot(rEnemyAttackSound, attackSoundVol);
+        getAudSource().PlayOneShot(rEnemyAttackSound, attackSoundVol);
         isShooting = true;
 
         getAnimator().SetTrigger("Attack");
@@ -65,7 +65,10 @@ public class RangedEnemyAI : EnemyAI
     IEnumerator stun()
     {
         getAnimator().SetBool("isStunned", true);
+
         yield return new WaitForSeconds(stunTime);
+
+        getAudSource().PlayOneShot(rebootSFX, getAudSource().volume);
         getAnimator().SetBool("isStunned", false);
     }
 
@@ -74,6 +77,7 @@ public class RangedEnemyAI : EnemyAI
         // ranged enemy shouldnt actually take damage
         if (!getAnimator().GetBool("isStunned") && !getAnimator().GetBool("isShutdown"))
         {
+            getAudSource().PlayOneShot(getHurtSFX(), getAudSource().volume);
             StartCoroutine(flashStun());
             StartCoroutine(stun());
         }
