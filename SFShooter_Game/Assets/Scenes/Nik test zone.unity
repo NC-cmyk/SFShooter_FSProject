@@ -1218,10 +1218,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Melee Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2091844730632455156, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.750001
@@ -1261,14 +1257,6 @@ PrefabInstance:
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6484781976875662193, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: walkSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 3a5909813acf2bf4bb431daeff3004e5, type: 3}
-    - target: {fileID: 6484781976875662193, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: walkVolume
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1714,18 +1702,15 @@ MonoBehaviour:
   roamDistance: 0
   roamPauseTimer: 0
   hurtSound: {fileID: 0}
-  hurtSoundVol: 0
   deathSound: {fileID: 0}
-  deathSoundVol: 0
+  walkSound: {fileID: 0}
   explodeTrigger: {fileID: 995092461}
   explosion: {fileID: 1515964989}
   explodeDmg: 3
   explodeTimer: 3
   sightDistance: 0
   explosionKB: 0
-  eEnemyAudSource: {fileID: 0}
   eEnemyAttackSound: {fileID: 0}
-  attackSoundVol: 0
 --- !u!4 &1067439139
 Transform:
   m_ObjectHideFlags: 0
@@ -2672,16 +2657,14 @@ MonoBehaviour:
   roamDistance: 0
   roamPauseTimer: 0
   hurtSound: {fileID: 0}
-  hurtSoundVol: 0
   deathSound: {fileID: 0}
-  deathSoundVol: 0
+  walkSound: {fileID: 0}
   shootPos: {fileID: 5171134907660229303}
   bullet: {fileID: 1696085562031869504, guid: bc6bbc29f6939304ba424bcd4be7e09d, type: 3}
   shootRate: 1
   shootFOV: 0
   stunTime: 0
   rEnemyAttackSound: {fileID: 0}
-  attackSoundVol: 0
   rebootSFX: {fileID: 0}
 --- !u!4 &1388844240578154352
 Transform:
@@ -2798,7 +2781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997210272619195589, guid: 0b51589a898217e49ab940f8e648dbe3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3043,15 +3026,15 @@ MonoBehaviour:
   roamDistance: 0
   roamPauseTimer: 0
   hurtSound: {fileID: 0}
-  hurtSoundVol: 0
   deathSound: {fileID: 0}
-  deathSoundVol: 0
+  walkSound: {fileID: 0}
   attackRate: 1
   attackFOV: 0
   sightDistance: 0
   chargeDistance: 0
   chargeHitbox: {fileID: 0}
   chargeSmoke: {fileID: 0}
+  chargeWarningSFX: {fileID: 0}
 --- !u!1 &9015210775902201382
 GameObject:
   m_ObjectHideFlags: 0

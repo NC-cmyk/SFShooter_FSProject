@@ -484,22 +484,22 @@ MonoBehaviour:
   animator: {fileID: 1018124777784349444}
   headPos: {fileID: 2165316098943202912}
   audSource: {fileID: 3145265203358708852}
-  HP: 4
+  HP: 5
   fov: 150
   rotateSpeed: 10
   animTransSpeed: 5
   roamDistance: 15
   roamPauseTimer: 2
   hurtSound: {fileID: 8300000, guid: e1ca11dc736d94a45940df60425389ed, type: 3}
-  hurtSoundVol: 0.5
   deathSound: {fileID: 8300000, guid: 0095526b2e3eb21408f6f1b989ff492b, type: 3}
-  deathSoundVol: 0.5
+  walkSound: {fileID: 8300000, guid: 1e5dae12e89553a448afd44a4da213de, type: 3}
   attackRate: 3
-  attackFOV: 3
+  attackFOV: 7
   sightDistance: 8
   chargeDistance: 20
   chargeHitbox: {fileID: 5581574367080942114}
   chargeSmoke: {fileID: 5905695311610273851}
+  chargeWarningSFX: {fileID: 8300000, guid: 94ae745cf69025d4393a356d2cc3ec95, type: 3}
 --- !u!95 &1018124777784349444
 Animator:
   serializedVersion: 5
@@ -595,7 +595,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3092872826543099185, guid: 4fe00d904bb08c143810a4d998005556, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1e5dae12e89553a448afd44a4da213de, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6406,7 +6406,6 @@ MonoBehaviour:
   knockbackDistance: 45
   mEnemyAudSource: {fileID: 3145265203358708852}
   mEnemyAttackSound: {fileID: 8300000, guid: 609464804a94e564aa50c5d7d336fe62, type: 3}
-  attackSoundVol: 0.5
   hit: 0
 --- !u!65 &5581574367080942114
 BoxCollider:

@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioClip hurtSound;
     [SerializeField] AudioClip deathSound;
+    [SerializeField] AudioClip walkSound;
 
     protected bool playerInRange;
     protected Vector3 playerDir; // player direction
@@ -36,6 +37,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        // default audio clip should be walking audio clip
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -100,6 +102,13 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (agent.remainingDistance < 0.05f && !destChosen)
         {
             destChosen = true;
+
+            // stop walking sfx
+            if (agent.isStopped)
+            {
+                audSource.Stop();
+            }
+
             yield return new WaitForSeconds(roamPauseTimer);
 
             Vector3 randomPos = Random.insideUnitSphere * roamDistance;
@@ -109,6 +118,12 @@ public class EnemyAI : MonoBehaviour, IDamage
             NavMesh.SamplePosition(randomPos, out hit, roamDistance, 1);
             agent.SetDestination(hit.position);
 
+            // play walking sfx
+            if (!audSource.isPlaying)
+            {
+                audSource.Play();
+            }
+
             destChosen = false;
         }
     }
@@ -116,11 +131,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     public virtual void takeDamage(int amount)
     {
         // hurt sound effect
-        if (!audSource.isPlaying)
-        {
-            audSource.clip = hurtSound;
-            audSource.Play();
-        }
+        audSource.PlayOneShot(hurtSound);
 
         HP -= amount;
         agent.SetDestination(GameManager.instance.player.transform.position);
@@ -138,11 +149,13 @@ public class EnemyAI : MonoBehaviour, IDamage
     }
     IEnumerator playDeathSound()
     {
-        if (!audSource.isPlaying)
+        // stop any other sounds that are playing
+        if (audSource.isPlaying)
         {
-            audSource.clip = deathSound;
-            audSource.Play();
+            audSource.Stop();
         }
+        audSource.clip = deathSound;
+        audSource.Play();
 
         yield return new WaitForSeconds(deathSound.length);
     }

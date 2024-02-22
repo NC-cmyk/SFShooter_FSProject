@@ -714,9 +714,8 @@ MonoBehaviour:
   roamDistance: 5
   roamPauseTimer: 1
   hurtSound: {fileID: 8300000, guid: 6f1ee607b09a7324d8a80fa0f59e2a3c, type: 3}
-  hurtSoundVol: 0.25
   deathSound: {fileID: 8300000, guid: 0095526b2e3eb21408f6f1b989ff492b, type: 3}
-  deathSoundVol: 0.5
+  walkSound: {fileID: 0}
   bullet: {fileID: 4901379677281285336, guid: 23c29a67261b36c42a69c9dfd0b93dcc, type: 3}
   summonPositions:
   - {fileID: 6001200984778589547}
@@ -730,7 +729,7 @@ MonoBehaviour:
   - {fileID: 8902462747544745585}
   - {fileID: 7990946151995326758}
   enemyList:
-  - {fileID: 2091844730632455156, guid: 1e17e71bddda5854d9ce2c8ceff3904b, type: 3}
+  - {fileID: 2091844730632455156, guid: 8341e7f4f02ee0445ae2c7f2b8d762e5, type: 3}
   - {fileID: 2794674092905077148, guid: aacf2d5840391a2479ae45eab2f647f9, type: 3}
   shield: {fileID: 5983667803598370264}
   summonCooldown: 10
@@ -738,7 +737,6 @@ MonoBehaviour:
   attackRate: 5
   attackFOV: 30
   shootSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
-  soundVolume: 0.1
 --- !u!195 &6468601673642668056
 NavMeshAgent:
   m_ObjectHideFlags: 0

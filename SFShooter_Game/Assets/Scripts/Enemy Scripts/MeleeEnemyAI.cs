@@ -7,13 +7,16 @@ public class MeleeEnemyAI : EnemyAI
     [Header("MELEE ENEMY DAMAGE IN MELEE HITBOX GAMEOBJECT")]
     [Header("--- Melee Enemy Stats ---")]
     [Range(3, 8)] [SerializeField] int attackRate;
-    [Range(3, 5)] [SerializeField] int attackFOV; // field of vision for attacking
+    [Range(5, 10)] [SerializeField] int attackFOV; // field of vision for attacking
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
     [Range(15, 25)] [SerializeField] int chargeDistance; // minimum amount of distance for enemy to start charging
 
     [Header("--- Melee Enemy Components ---")]
     [SerializeField] BoxCollider chargeHitbox;
     [SerializeField] ParticleSystem chargeSmoke;
+
+    [Header("--- Melee Enemy Audio ---")]
+    [SerializeField] AudioClip chargeWarningSFX;
 
     float startAccel; // starting acceleration
     float startSpeed;
@@ -36,6 +39,12 @@ public class MeleeEnemyAI : EnemyAI
 
         if (!gettingDestroyed)
         {
+            // roam does not start right away, so audio should stop if enemy is stopped
+            if (getAgent().remainingDistance < 0.05f)
+            {
+                getAudSource().Stop();
+            }
+
             if (playerInRange && !canSeePlayer())
             {
                 StartCoroutine(roam());
@@ -106,9 +115,22 @@ public class MeleeEnemyAI : EnemyAI
     IEnumerator attack()
     {
         isAttacking = true;
-        chargeSmoke.Play();
         getAnimator().SetBool("isAttacking", true);
+
+        // small time period to get the charging animation started
         yield return new WaitForSeconds(0.3f);
+
+        // stop walking sfx if its playing
+        if (getAudSource().isPlaying)
+        {
+            getAudSource().Stop();
+        }
+
+        // charge warning sfx
+        getAudSource().PlayOneShot(chargeWarningSFX);
+
+        // charge smoke vfx
+        chargeSmoke.Play();
 
         // when attacking, make hitbox active
         chargeHitbox.enabled = !chargeHitbox.enabled;
@@ -134,6 +156,12 @@ public class MeleeEnemyAI : EnemyAI
         getAgent().acceleration = startAccel;
         getAgent().speed = startSpeed;
         getAgent().angularSpeed = startAngSpeed;
+
+        // if enemy is still moving, walking should resume
+        if (!getAgent().isStopped)
+        {
+            getAudSource().PlayDelayed(2);
+        }
 
         getAnimator().SetBool("isAttacking", false);
 
