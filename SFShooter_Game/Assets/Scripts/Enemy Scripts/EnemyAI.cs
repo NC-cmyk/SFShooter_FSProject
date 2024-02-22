@@ -34,6 +34,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected float stoppingDistOrig; // stopping distance original
     protected bool gettingDestroyed; // prevent agent from setting destination
 
+    bool isDying; // prevent death sound from being interrupted
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -144,11 +146,16 @@ public class EnemyAI : MonoBehaviour, IDamage
                 GameManager.instance.bossScript.updateMinionCount(-1);
             }
 
-            StartCoroutine(playDeathSound());
+            if (!isDying)
+            {
+                StartCoroutine(playDeathSound());
+            }
         }
     }
     IEnumerator playDeathSound()
     {
+        isDying = true;
+
         // stop any other sounds that are playing
         if (audSource.isPlaying)
         {

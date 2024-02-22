@@ -121,11 +121,7 @@ public class ExplodingEnemyAI : EnemyAI
         Instantiate(explosion, transform.position, transform.rotation);
 
         // explosion sfx
-        if (!getAudSource().isPlaying)
-        {
-            getAudSource().clip = eEnemyAttackSound;
-            getAudSource().Play();
-        }
+        getAudSource().PlayOneShot(eEnemyAttackSound);
 
         yield return new WaitForSeconds(0.3f);
         takeDamage(getHP());

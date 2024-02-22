@@ -19,7 +19,8 @@ public class BossAI : EnemyAI
     [Range(10, 45)] [SerializeField] int attackFOV;
 
     [Header("--- Audio Clips ---")]
-    [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip summonSound;
 
     float startSpeed;
     int minionCount;
@@ -29,6 +30,7 @@ public class BossAI : EnemyAI
     bool isAttacking;
     bool shieldCoolingDown;
     bool summoned; // boss has resummoned enemies and restored shield
+    bool isWalking;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -50,6 +52,11 @@ public class BossAI : EnemyAI
             {
                 GameManager.instance.bossActive = true;
                 canSeePlayer();
+
+                if (!isWalking && getAgent().speed > 0)
+                {
+                    StartCoroutine(playWalkSound());
+                }
             }
         }
     }
@@ -85,7 +92,15 @@ public class BossAI : EnemyAI
     {
         isSummoning = true;
         getAnimator().SetBool("isSummoning", isSummoning);
+
+        // stop moving (+ stop walk sfx)
         getAgent().speed = 0;
+        isWalking = false;
+        getAudSource().Stop();
+
+        // play summoning sound
+        getAudSource().PlayOneShot(summonSound);
+
         yield return new WaitForSeconds(1);
 
         // restore shield
@@ -116,12 +131,17 @@ public class BossAI : EnemyAI
     {
         isAttacking = true;
         getAnimator().SetBool("isAttacking", isAttacking);
+
+        // stop moving (+ stop walk sfx)
         getAgent().speed = 0;
+        isWalking = false;
+        getAudSource().Stop();
+
         yield return new WaitForSeconds(1);
 
         for (int i = 0; i < bulletPositions.Length; i++)
         {
-            getAudSource().PlayOneShot(shootSound);
+            getAudSource().PlayOneShot(attackSound);
             Instantiate(bullet, bulletPositions[i].transform.position, bulletPositions[i].transform.rotation);
             yield return new WaitForSeconds(0.2f);
         }
@@ -184,5 +204,14 @@ public class BossAI : EnemyAI
         summoned = false;
 
         shieldCoolingDown = false;
+    }
+
+    IEnumerator playWalkSound()
+    {
+        // boss enemy is a special case with no roam to activate walking sfx
+        isWalking = true;
+        getAudSource().Play();
+        yield return new WaitForSeconds(getAudSource().clip.length);
+        isWalking = false;
     }
 }
