@@ -24,6 +24,11 @@ public class Gate : MonoBehaviour
     [SerializeField] Renderer model;
     [SerializeField] Material openMat;
 
+    [Header("--- Gate Audio ---")]
+    [SerializeField] AudioSource audSource;
+    [SerializeField] AudioClip gateClose;
+    [SerializeField] AudioClip gateOpen;
+
     bool isCounting;
     bool lowerDown;
     bool spawnerDone;
@@ -86,6 +91,11 @@ public class Gate : MonoBehaviour
         if(scrap == listSize)
         {
             spawnerDone = true;
+
+            // audio play for gate open
+            audSource.clip = gateOpen;
+            if (!audSource.isPlaying) { audSource.Play(); }
+
             lowerDown = true;
         }
 
@@ -96,6 +106,10 @@ public class Gate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // audio play for gate close
+            audSource.clip = gateClose;
+            if (!audSource.isPlaying) { audSource.Play(); }
+
             lowerDown = false;
         }
     }
