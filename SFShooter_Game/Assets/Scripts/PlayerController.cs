@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     [Header("----- Gun Stats-----")]
     [SerializeField] public int shootDamage;
-    [SerializeField] public float shootRate;
+    [Range(0, 1)] [SerializeField] public float shootRate;
     [SerializeField] int shootDistance;
 
     [Header("----- Audio Clips -----")]
