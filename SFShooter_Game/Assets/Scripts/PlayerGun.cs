@@ -32,11 +32,6 @@ public class PlayerGun : MonoBehaviour
             float angle = Mathf.LerpAngle(transform.localEulerAngles.z, ogRotation.z, Time.deltaTime * 5);
             transform.localEulerAngles = new Vector3(ogRotation.x, ogRotation.y, angle);
         }
-
-        //if(!isShooting && ogRotation != transform.localEulerAngles)
-        //{
-        //    transform.localEulerAngles = ogRotation;
-        //}
     }
 
     IEnumerator shoot()
