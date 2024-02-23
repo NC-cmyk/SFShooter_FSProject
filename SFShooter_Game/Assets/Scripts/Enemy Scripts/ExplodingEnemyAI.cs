@@ -18,6 +18,8 @@ public class ExplodingEnemyAI : EnemyAI
 
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioClip eEnemyAttackSound;
+    [SerializeField] AudioClip chargingSFX;
+    [SerializeField] AudioClip tickingSFX;
 
     float startSpeed;
     bool isExploding;
@@ -58,6 +60,11 @@ public class ExplodingEnemyAI : EnemyAI
             // enemy should rotate to face player
             if (getAgent().remainingDistance < sightDistance)
                 faceTarget();
+            else if(!getAudSource().isPlaying && !isExploding)
+            {
+                // walking sfx should still play if enemy isnt charging towards player yet
+                getAudSource().Play();
+            }
 
             if (explodeTrigger.GetComponent<ExplodeTrigger>().getInRange() && !isExploding)
             {
@@ -98,10 +105,28 @@ public class ExplodingEnemyAI : EnemyAI
         getAgent().acceleration = 25;
         getAgent().speed = 25;
         getAgent().stoppingDistance = 0;
+
+        // play charging sfx
+        if (getAudSource().isPlaying)
+        {
+            getAudSource().Stop();
+            getAudSource().clip = chargingSFX;
+            getAudSource().Play();
+        }
+        else if (!getAudSource().isPlaying)
+        {
+            getAudSource().clip = chargingSFX;
+            getAudSource().Play();
+        }
+
         yield return new WaitForSeconds(2.5f);
 
+        // charging stops so sfx should too
+        getAudSource().Stop();
+
+        // enemy stands still and starts ticking
         getAgent().speed = 0;
-        StartCoroutine(flashWarning());
+        StartCoroutine(explodeWarning());
         yield return new WaitForSeconds(explodeTimer);
 
         IDamage dmg = explodeTrigger.GetComponent<ExplodeTrigger>().getDmg();
@@ -127,16 +152,20 @@ public class ExplodingEnemyAI : EnemyAI
         takeDamage(getHP());
     }
 
-    IEnumerator flashWarning()
+    IEnumerator explodeWarning()
     {
         Color ogColor = getModel().material.color;
+
+        // start ticking sfx
+        getAudSource().clip = tickingSFX;
+        getAudSource().Play();
 
         while (isExploding)
         {
             getModel().material.color = Color.yellow;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             getModel().material.color = ogColor;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

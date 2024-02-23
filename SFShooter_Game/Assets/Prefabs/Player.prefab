@@ -210,6 +210,8 @@ MonoBehaviour:
   winSoundVol: 0.5
   playerJumpSound: {fileID: 8300000, guid: 7db2e9d7d3ed2fd4c8e7e928c5e5252d, type: 3}
   jumpSoundVol: 0.5
+  scrapCollectedSound: {fileID: 8300000, guid: 6f1ee607b09a7324d8a80fa0f59e2a3c, type: 3}
+  scrapCollectedSoundVol: 0.1
 --- !u!33 &7387118874165750527
 MeshFilter:
   m_ObjectHideFlags: 0

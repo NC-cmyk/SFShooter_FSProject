@@ -106,7 +106,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             destChosen = true;
 
             // stop walking sfx
-            if (agent.isStopped)
+            if (destChosen)
             {
                 audSource.Stop();
             }

@@ -714,7 +714,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9455738
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -722,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.40808
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -758,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6149460009639910071, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1228,7 +1228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.750001
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1236,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.75
+      value: 9.6
       objectReference: {fileID: 0}
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1719,6 +1719,8 @@ MonoBehaviour:
   sightDistance: 0
   explosionKB: 0
   eEnemyAttackSound: {fileID: 0}
+  chargingSFX: {fileID: 0}
+  tickingSFX: {fileID: 0}
 --- !u!4 &1067439139
 Transform:
   m_ObjectHideFlags: 0
@@ -2397,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2613789793406230700, guid: d787575eafc61d84694095be55015440, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

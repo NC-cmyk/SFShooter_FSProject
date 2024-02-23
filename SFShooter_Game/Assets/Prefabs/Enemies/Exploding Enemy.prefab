@@ -473,18 +473,17 @@ MonoBehaviour:
   roamDistance: 12
   roamPauseTimer: 3
   hurtSound: {fileID: 8300000, guid: 15aa95272dcab694c98114dae295544a, type: 3}
-  hurtSoundVol: 0.5
-  deathSound: {fileID: 8300000, guid: cb56ea71e5b3c254d892384fa8a48f91, type: 3}
-  deathSoundVol: 0.5
+  deathSound: {fileID: 8300000, guid: ffbf27160a5c4b84697f0c243af11bce, type: 3}
+  walkSound: {fileID: 8300000, guid: 8ec51d58676e20e48a954ef6a6925af5, type: 3}
   explodeTrigger: {fileID: 8607289843962090594}
   explosion: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   explodeDmg: 4
   explodeTimer: 1
   sightDistance: 8
   explosionKB: 20
-  eEnemyAudSource: {fileID: -7150301645641341337}
   eEnemyAttackSound: {fileID: 8300000, guid: 56a2b50ae5480db44a8e48310e48b051, type: 3}
-  attackSoundVol: 0.5
+  chargingSFX: {fileID: 8300000, guid: f57d5d47a22614544a81aef322beac10, type: 3}
+  tickingSFX: {fileID: 8300000, guid: acfb0b97ccf97a345acdfe930e5cdca3, type: 3}
 --- !u!95 &5292767899717435565
 Animator:
   serializedVersion: 5
@@ -580,9 +579,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3092872826543099185, guid: 4fe00d904bb08c143810a4d998005556, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8ec51d58676e20e48a954ef6a6925af5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -370,9 +370,6 @@ MonoBehaviour:
   trackerTransform: {fileID: 1918791041497399553}
   container: {fileID: 4313253938249101499}
   scrap: {fileID: 9119201089030525557}
-  audioSource: {fileID: 0}
-  scrapCollectSound: {fileID: 0}
-  collectSoundVol: 0
   killSwitch: {fileID: 1210871067523714061}
 --- !u!1 &1471025017829451513
 GameObject:
@@ -11157,7 +11154,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9119201089030525557}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300002, guid: 8a21beecbe9996346a001b84ad557fd9, type: 3}
 --- !u!23 &2941146588494158793
 MeshRenderer:
   m_ObjectHideFlags: 0
