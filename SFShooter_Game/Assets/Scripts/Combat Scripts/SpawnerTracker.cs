@@ -20,6 +20,7 @@ public class SpawnerTracker : MonoBehaviour
     {
         countAssigned = false;
         containerScript = container.GetComponent<Container>();
+        scrap.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +32,11 @@ public class SpawnerTracker : MonoBehaviour
             if(enemyCount <= 0)
             {
                 containerScript.openContainer();
+                if(scrap != null)
+                {
+                    scrap.SetActive(true);
+                }
+                
             }
 
             if(scrap == null)
