@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [Range(0, 1)][SerializeField] public float winSoundVol;
     [SerializeField] AudioClip playerJumpSound;
     [Range(0, 1)][SerializeField] float jumpSoundVol;
+    [SerializeField] AudioClip scrapCollectedSound;
+    [Range(0, 1)][SerializeField] float scrapCollectedSoundVol;
 
     Vector3 playerVelocity;
     Vector3 move;
@@ -184,6 +186,13 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         GameManager.instance.playerDamageFlash.SetActive(true);
         yield return new WaitForSeconds(.1f);
         GameManager.instance.playerDamageFlash.SetActive(false);
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("Scrap"))
+        {
+            audSource.PlayOneShot(scrapCollectedSound, scrapCollectedSoundVol);
+        }
     }
 }
 

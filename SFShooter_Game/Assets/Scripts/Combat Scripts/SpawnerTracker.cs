@@ -8,17 +8,13 @@ public class SpawnerTracker : MonoBehaviour
     [SerializeField] Transform trackerTransform;
     [SerializeField] GameObject container; // container that holds the scrap
     [SerializeField] GameObject scrap;
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip scrapCollectSound;
-    [Range(0f, 1f)] [SerializeField] float collectSoundVol;
 
     int enemyCount;
     bool countAssigned;
     bool scrapCollected;
     Container containerScript;
 
-    //audioSource.PlayOneShot(scrapCollectSound, collectSoundVol); --- This is the line of code to play the collection sound. I have no idea where to put it to make it work though
-
+    
     // Start is called before the first frame update
     protected virtual void Start()
     {
