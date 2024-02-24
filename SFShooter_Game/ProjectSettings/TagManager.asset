@@ -8,6 +8,9 @@ TagManager:
   - Scrap
   - Minion
   - Boss
+  - Health Pack
+  - Damage Boost
+  - Speed Boost
   layers:
   - Default
   - TransparentFX

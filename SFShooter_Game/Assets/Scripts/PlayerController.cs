@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [SerializeField] int HP;
     [SerializeField] int shieldHP;
     [SerializeField] int shieldTimer;
+    [SerializeField] int healthPackAmount;
+    [SerializeField] float dmgBoostTime;
+    [SerializeField] float dmgBoostMultiplier;
+    [SerializeField] float speedBoostTime;
+    [SerializeField] float speedBoostMultiplier;
 
     [Header("----- Movement -----")]
     [SerializeField] float playerSpeed;
@@ -193,6 +198,28 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         {
             audSource.PlayOneShot(scrapCollectedSound, scrapCollectedSoundVol);
         }
+        if(col.CompareTag("Health Pack"))
+        {
+            HP += healthPackAmount;
+        }
+        if(col.CompareTag("Damage Boost"))
+        {
+            DamagePowerUp();
+        }
+        if(col.CompareTag("Speed Boost"))
+        {
+            SpeedPowerUp();
+        }
+    }
+    IEnumerator DamagePowerUp()
+    {
+        
+        yield return new WaitForSeconds(dmgBoostTime);
+    }
+    IEnumerator SpeedPowerUp()
+    {
+
+        yield return new WaitForSeconds(speedBoostTime);
     }
 }
 
