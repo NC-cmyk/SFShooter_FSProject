@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamage, IPhysics
 {
+    public static PlayerController instance;
     [SerializeField] CharacterController controller;
     [SerializeField] public AudioSource audSource;
     
     [Header("----- Player Stats -----")]
-    [SerializeField] int HP;
+    [SerializeField] public int HP;
     [SerializeField] int shieldHP;
     [SerializeField] int shieldTimer;
-    [SerializeField] int healthPackAmount;
-    [SerializeField] float dmgBoostTime;
-    [SerializeField] float dmgBoostMultiplier;
-    [SerializeField] float speedBoostTime;
-    [SerializeField] float speedBoostMultiplier;
 
     [Header("----- Movement -----")]
-    [SerializeField] float playerSpeed;
+    [SerializeField] public float playerSpeed;
     [Range(1, 2)] [SerializeField] float sprintModifier;
     [SerializeField] float jumpHeight;
     [SerializeField] float jumpTimer;
@@ -55,6 +51,11 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     bool isShooting;
     float sprint;
     bool playingSteps;
+
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -198,28 +199,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         {
             audSource.PlayOneShot(scrapCollectedSound, scrapCollectedSoundVol);
         }
-        if(col.CompareTag("Health Pack"))
-        {
-            HP += healthPackAmount;
-        }
-        if(col.CompareTag("Damage Boost"))
-        {
-            DamagePowerUp();
-        }
-        if(col.CompareTag("Speed Boost"))
-        {
-            SpeedPowerUp();
-        }
-    }
-    IEnumerator DamagePowerUp()
-    {
-        
-        yield return new WaitForSeconds(dmgBoostTime);
-    }
-    IEnumerator SpeedPowerUp()
-    {
-
-        yield return new WaitForSeconds(speedBoostTime);
     }
 }
 

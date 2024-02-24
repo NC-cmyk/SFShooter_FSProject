@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUps : MonoBehaviour
+public class HealthPack : MonoBehaviour
 {
+    [SerializeField] int healthPackAmount;
+
     bool goUp, isSwitching;
     float ogY, offsetY;
 
@@ -45,5 +47,14 @@ public class PowerUps : MonoBehaviour
         goUp = !goUp;
 
         isSwitching = false;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Health Pack Collected");
+            PlayerController.instance.HP += healthPackAmount;
+            Destroy(gameObject);
+        }
     }
 }
