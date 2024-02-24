@@ -54,12 +54,12 @@ public class SpeedBoost : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Speed Boost Collected");
-            SpeedPowerUp();
-            Destroy(gameObject);
+            StartCoroutine(SpeedPowerUp());
         }
     }
-    IEnumerator SpeedPowerUp()
+    public IEnumerator SpeedPowerUp()
     {
+        Destroy(this.gameObject);
         float orig = PlayerController.instance.playerSpeed;
         PlayerController.instance.playerSpeed = PlayerController.instance.playerSpeed + (PlayerController.instance.playerSpeed * speedBoostMultiplier);
         yield return new WaitForSeconds(speedBoostTime);

@@ -54,15 +54,21 @@ public class DamageBoost : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Damage Boost Collected");
-            DamagePowerUp();
-            Destroy(gameObject);
+            this.StartCoroutine(DMGPowerUp());
         }
     }
-    IEnumerator DamagePowerUp()
+    IEnumerator DMGPowerUp()
     {
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        Destroy(this.gameObject);
+        Debug.Log("Object Destroyed");
         int orig = PlayerController.instance.shootDamage;
+        Debug.Log("Orig Damage Saved");
         PlayerController.instance.shootDamage += dmgBoostAmount;
+        Debug.Log("New DMG Saved");
         yield return new WaitForSeconds(dmgBoostTime);
         PlayerController.instance.shootDamage = orig;
+        Debug.Log("IEnum End");
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }

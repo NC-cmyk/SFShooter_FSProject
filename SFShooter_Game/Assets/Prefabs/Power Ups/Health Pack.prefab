@@ -115,14 +115,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5672416591742434630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33298f1c6dbb43a44a2e8b80fcd3900e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7eb33988fcc318244a6a5005681e87b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthPackAmount: 2
-  dmgBoostTime: 0
-  dmgBoostAmount: 0
-  speedBoostTime: 0
-  speedBoostMultiplier: 0
 --- !u!1 &5672416593029594367
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,11 +161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5672416593029594367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33298f1c6dbb43a44a2e8b80fcd3900e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7eb33988fcc318244a6a5005681e87b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPackAmount: 0
-  dmgBoostTime: 0
-  dmgBoostAmount: 0
-  speedBoostTime: 0
-  speedBoostMultiplier: 0
+  healthPackAmount: 2

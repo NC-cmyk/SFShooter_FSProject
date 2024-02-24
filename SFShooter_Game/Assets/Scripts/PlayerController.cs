@@ -187,7 +187,8 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         GameManager.instance.shieldHPBar.fillAmount = (float)shieldHP / shieldHPmax;
     }
 
-    IEnumerator flashDamage(){
+    IEnumerator flashDamage()
+    {
         // show damage flash
         GameManager.instance.playerDamageFlash.SetActive(true);
         yield return new WaitForSeconds(.1f);

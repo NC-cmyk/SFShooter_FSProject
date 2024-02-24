@@ -53,8 +53,9 @@ public class HealthPack : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Health Pack Collected");
-            PlayerController.instance.HP += healthPackAmount;
             Destroy(gameObject);
+            PlayerController.instance.HP += healthPackAmount;
         }
     }
+
 }
