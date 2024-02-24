@@ -13,7 +13,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private TMP_Text volumeTextvalue;
     [SerializeField] private TMP_Text volumeSFXTextvalue;
     [SerializeField] private float defaultVolume = 1.0f;
-   
+    [SerializeField] private float SFXdefaultVolume = 1.0f;
 
 
 
@@ -44,11 +44,11 @@ public class VolumeSettings : MonoBehaviour
 
     public void SetSFXVolume()
     {
-        float volume = SFXSlider.value;
-        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("SFXVolume", volume);
-        //AudioListener.volume = volume;
-        volumeSFXTextvalue.text = volume.ToString("0.0");
+        float SFXvolume = SFXSlider.value;
+        audioMixer.SetFloat("SFX", Mathf.Log10(SFXvolume) * 20);
+        PlayerPrefs.SetFloat("SFXVolume", SFXvolume);
+        AudioListener.volume = SFXvolume;
+        volumeSFXTextvalue.text = SFXvolume.ToString("0.0");
     }
 
     public void LoadVolume()
@@ -67,9 +67,11 @@ public class VolumeSettings : MonoBehaviour
         if(MenuType == "Audio")
         {
             AudioListener.volume = defaultVolume;
-            soundSlider.value= defaultVolume;
-            SFXSlider.value= defaultVolume;
+            AudioListener.volume = SFXdefaultVolume;
+            soundSlider.value = defaultVolume;
+            SFXSlider.value= SFXdefaultVolume;
             volumeTextvalue.text = defaultVolume.ToString("0.0");
+            volumeSFXTextvalue.text = SFXdefaultVolume.ToString("0.0");
             LoadVolume();
         }
     }
