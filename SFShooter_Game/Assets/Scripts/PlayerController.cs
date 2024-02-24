@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
             audSource.PlayOneShot(playerJumpSound, jumpSoundVol);
             jumpCount++;
 
-            if(jumpCount == 2){
+            if(jumpCount == 1){
                 StartCoroutine(jumpResetTimer());
             }
         }
