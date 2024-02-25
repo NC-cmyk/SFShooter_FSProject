@@ -5841,8 +5841,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6674892478168238425, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: numToSpawn
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6674892478168238425, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: timeBetweenSpawns
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674892478168238425, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674892478168238425, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 2794674092905077148, guid: c42ec38f6175f9540a7f090725cfbbf2, type: 3}
     - target: {fileID: 6938280921162546916, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.91
