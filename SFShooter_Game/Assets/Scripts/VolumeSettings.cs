@@ -38,7 +38,6 @@ public class VolumeSettings : MonoBehaviour
         float volume = soundSlider.value;
         audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("musicVolume", volume);
-        AudioListener.volume = volume;
         volumeTextvalue.text = volume.ToString("0.0");
     }
 
@@ -47,7 +46,6 @@ public class VolumeSettings : MonoBehaviour
         float SFXvolume = SFXSlider.value;
         audioMixer.SetFloat("SFX", Mathf.Log10(SFXvolume) * 20);
         PlayerPrefs.SetFloat("SFXVolume", SFXvolume);
-        AudioListener.volume = SFXvolume;
         volumeSFXTextvalue.text = SFXvolume.ToString("0.0");
     }
 
@@ -55,8 +53,6 @@ public class VolumeSettings : MonoBehaviour
     {
         soundSlider.value = PlayerPrefs.GetFloat("musicVolume");
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-        PlayerPrefs.SetFloat("musicVolume", AudioListener.volume);
-        PlayerPrefs.SetFloat("SFXVolume", AudioListener.volume);
         StartCoroutine(ConfirmationLoadBox());
         SetMusicVolume();
         SetSFXVolume();
@@ -66,8 +62,6 @@ public class VolumeSettings : MonoBehaviour
     {
         if(MenuType == "Audio")
         {
-            AudioListener.volume = defaultVolume;
-            AudioListener.volume = SFXdefaultVolume;
             soundSlider.value = defaultVolume;
             SFXSlider.value= SFXdefaultVolume;
             volumeTextvalue.text = defaultVolume.ToString("0.0");
