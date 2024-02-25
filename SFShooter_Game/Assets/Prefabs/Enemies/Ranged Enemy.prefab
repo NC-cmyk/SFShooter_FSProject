@@ -63,16 +63,14 @@ MonoBehaviour:
   roamDistance: 15
   roamPauseTimer: 0
   hurtSound: {fileID: 8300000, guid: 953c3dbf8fcfde2438e97a995162f7b2, type: 3}
-  hurtSoundVol: 0.5
   deathSound: {fileID: 8300000, guid: ca833b87a55229140880a0a641116ff4, type: 3}
-  deathSoundVol: 0.5
+  walkSound: {fileID: 0}
   shootPos: {fileID: 4657209602085654692}
   bullet: {fileID: 1696085562031869504, guid: bc6bbc29f6939304ba424bcd4be7e09d, type: 3}
   shootRate: 0.75
   shootFOV: 10
   stunTime: 10
   rEnemyAttackSound: {fileID: 8300000, guid: 2ae7bd7d41beb18449a40f4831121b54, type: 3}
-  attackSoundVol: 0.5
   rebootSFX: {fileID: 8300000, guid: 9596a03523718cc4c94c3cc7829942aa, type: 3}
 --- !u!95 &5583500838884208670
 Animator:
@@ -171,7 +169,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3092872826543099185, guid: 4fe00d904bb08c143810a4d998005556, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
