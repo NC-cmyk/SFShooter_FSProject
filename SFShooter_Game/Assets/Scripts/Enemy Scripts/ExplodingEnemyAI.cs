@@ -195,8 +195,18 @@ public class ExplodingEnemyAI : EnemyAI
 
         if (itemDrop < 25)
         {
-            int chosenDrop = Random.Range(0, 2);
-            Instantiate(powerups[chosenDrop], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.Euler(270, 0, 0));
+            int chosenDrop = Random.Range(0, 100);
+            if(chosenDrop < 100 && chosenDrop > 67)
+            {
+                Instantiate(powerups[0], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.Euler(270, 0, 0));
+            }else if(chosenDrop < 67 && chosenDrop > 34)
+            {
+                Instantiate(powerups[1], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.Euler(270, 0, 0));
+            }
+            else if(chosenDrop < 34)
+            {
+                Instantiate(powerups[2], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.Euler(270, 0, 0));
+            }
         }
 
         Destroy(gameObject);
