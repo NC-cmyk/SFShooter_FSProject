@@ -112,7 +112,7 @@ public class MeleeEnemyAI : EnemyAI
 
         int itemDrop = Random.Range(0, 49);
 
-        if(itemDrop < 25)
+        if(itemDrop < 15)
         {
         int chosenDrop = Random.Range(0, 100);
             if (chosenDrop < 100 && chosenDrop > 67)

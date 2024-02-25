@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     bool isShooting;
     float sprint;
     bool playingSteps;
+    public bool isPowerUpCoroutineRunning;
 
     void Awake()
     {
@@ -193,6 +194,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     }
     public IEnumerator Damage(float sec, int dmgBoost, GameObject obj)
     {
+        isPowerUpCoroutineRunning = true;
         audSource.PlayOneShot(powerupSound);
         int orig = shootDamage;
         shootDamage += dmgBoost;
@@ -202,9 +204,11 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         shootDamage = orig;
         audSource.PlayOneShot(powerdownSound);
         Destroy(obj);
+        isPowerUpCoroutineRunning = false;
     }
     public IEnumerator SpeedPowerUp(float sec, float multiplier, GameObject obj)
     {
+        isPowerUpCoroutineRunning = true;
         audSource.PlayOneShot(powerupSound);
         float orig = playerSpeed;
         float camOrig = cam.fieldOfView;
@@ -215,6 +219,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         cam.fieldOfView = camOrig;
         audSource.PlayOneShot(powerdownSound);
         Destroy(obj);
+        isPowerUpCoroutineRunning = false;
     }
     private void OnTriggerEnter(Collider col)
     {

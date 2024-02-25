@@ -8,7 +8,7 @@ public class SpeedBoost : MonoBehaviour
     [Range(1,2)] [SerializeField] float speedBoostMultiplier;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerController.instance.isPowerUpCoroutineRunning)
         {
             Debug.Log("Speed Boost Collected");
             StartCoroutine(PlayerController.instance.SpeedPowerUp(speedBoostTime, speedBoostMultiplier, this.gameObject));

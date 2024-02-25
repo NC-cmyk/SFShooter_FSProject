@@ -193,7 +193,7 @@ public class ExplodingEnemyAI : EnemyAI
 
         int itemDrop = Random.Range(0, 49);
 
-        if (itemDrop < 25)
+        if (itemDrop < 18)
         {
             int chosenDrop = Random.Range(0, 100);
             if(chosenDrop < 100 && chosenDrop > 67)
