@@ -4098,7 +4098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ShipWerck
+  m_text: Scrapwreck
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2111884708e298245b9b4b395b46caf3, type: 2}
   m_sharedMaterial: {fileID: 8324088289087272035, guid: 2111884708e298245b9b4b395b46caf3, type: 2}
@@ -4161,7 +4161,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -36.503265, y: 0, z: 0, w: 0}
+  m_margin: {x: -145.81168, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15323,6 +15323,10 @@ PrefabInstance:
       propertyPath: fullScreenToggle
       value: 
       objectReference: {fileID: 222708769}
+    - target: {fileID: 8628579995756757776, guid: df51588e1dc469d4aa7cdb5f3fee5bbc, type: 3}
+      propertyPath: defaultbrightness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8628579995756757776, guid: df51588e1dc469d4aa7cdb5f3fee5bbc, type: 3}
       propertyPath: noSavedGameDialog
       value: 
