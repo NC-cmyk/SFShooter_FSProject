@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 2662812250682498961}
   - component: {fileID: 6650074055877955278}
   - component: {fileID: 8385890197181385561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -920,19 +920,12 @@ MonoBehaviour:
   shootRate: 0.5
   shootDistance: 25
   playerHurtSound: {fileID: 8300000, guid: 5f8dff092d031d645a40cf4cfa3e9f8f, type: 3}
-  hurtSoundVol: 0.5
   playerDeathSound: {fileID: 8300000, guid: fde40bbb8dafd164893d06b0c87eba07, type: 3}
-  deathSoundVol: 0.5
   playerShootSound: {fileID: 8300000, guid: 079087f3a36ef95488b3c10700288a10, type: 3}
-  shootSoundVol: 0.5
   playerWinSound: {fileID: 8300000, guid: 9f0d953d2ef244147ba951e765f25d71, type: 3}
-  winSoundVol: 0.5
   playerJumpSound: {fileID: 8300000, guid: 7db2e9d7d3ed2fd4c8e7e928c5e5252d, type: 3}
-  jumpSoundVol: 0.5
   scrapCollectedSound: {fileID: 8300000, guid: 6f1ee607b09a7324d8a80fa0f59e2a3c, type: 3}
-  scrapCollectedSoundVol: 0.1
   powerupSound: {fileID: 8300000, guid: 37179c518100b3142b7cb86dc6be76e4, type: 3}
-  powerUpDownSoundVol: 0.5
   powerdownSound: {fileID: 8300000, guid: cc8648bdd61fe7a40a80624af7abd014, type: 3}
 --- !u!33 &7387118874165750527
 MeshFilter:
