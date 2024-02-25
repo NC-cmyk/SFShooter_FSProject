@@ -14,6 +14,7 @@ public class MeleeEnemyAI : EnemyAI
     [Header("--- Melee Enemy Components ---")]
     [SerializeField] BoxCollider chargeHitbox;
     [SerializeField] ParticleSystem chargeSmoke;
+    [SerializeField] GameObject[] powerups;
 
     [Header("--- Melee Enemy Audio ---")]
     [SerializeField] AudioClip chargeWarningSFX;
@@ -108,6 +109,14 @@ public class MeleeEnemyAI : EnemyAI
         StopCoroutine(roam());
 
         yield return new WaitForSeconds(2);
+
+        int itemDrop = Random.Range(0, 49);
+
+        if(itemDrop < 25)
+        {
+        int chosenDrop = Random.Range(0, 2);
+        Instantiate(powerups[chosenDrop], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.Euler(270,0,0));
+        }
 
         Destroy(gameObject);
     }

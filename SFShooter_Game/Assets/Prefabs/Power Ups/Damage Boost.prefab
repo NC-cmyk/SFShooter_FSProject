@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0391e1c6d2e30164aad3023797fb5a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgBoostTime: 5
-  dmgBoostAmount: 12
+  dmgBoostTime: 8
+  dmgBoostAmount: 1
 --- !u!1 &7475340531379887566
 GameObject:
   m_ObjectHideFlags: 0
