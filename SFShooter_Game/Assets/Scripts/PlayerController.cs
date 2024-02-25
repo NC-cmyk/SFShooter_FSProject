@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [Range(0, 1)][SerializeField] float jumpSoundVol;
     [SerializeField] AudioClip scrapCollectedSound;
     [Range(0, 1)][SerializeField] float scrapCollectedSoundVol;
+    [SerializeField] public AudioClip powerupSound;
+    [Range(0, 1)][SerializeField] public float powerUpDownSoundVol;
+    [SerializeField] AudioClip powerdownSound;
 
     Vector3 playerVelocity;
     Vector3 move;
@@ -197,25 +200,27 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     }
     public IEnumerator Damage(float sec, int dmgBoost, GameObject obj)
     {
-        UnityEngine.Debug.Log("DMG Boost Time:" + sec);
+        audSource.PlayOneShot(powerupSound, powerUpDownSoundVol);
         int orig = shootDamage;
         shootDamage += dmgBoost;
         Debug.Log("Orig:" + orig);
         Debug.Log("IEnum entered");
         yield return new WaitForSecondsRealtime(sec);
         shootDamage = orig;
-        Debug.Log("Success!");
+        audSource.PlayOneShot(powerdownSound, powerUpDownSoundVol);
         Destroy(obj);
     }
     public IEnumerator SpeedPowerUp(float sec, float multiplier, GameObject obj)
     {
+        audSource.PlayOneShot(powerupSound, powerUpDownSoundVol);
         float orig = playerSpeed;
         float camOrig = cam.fieldOfView;
         playerSpeed *= multiplier;
         cam.fieldOfView = 80;
         yield return new WaitForSeconds(sec);
         playerSpeed = orig;
-        cam.fieldOfView = camOrig;  
+        cam.fieldOfView = camOrig;
+        audSource.PlayOneShot(powerdownSound, powerUpDownSoundVol);
         Destroy(obj);
     }
     private void OnTriggerEnter(Collider col)

@@ -905,6 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3853735748416245315}
+  cam: {fileID: 0}
   audSource: {fileID: 8385890197181385561}
   HP: 5
   shieldHP: 3
@@ -930,6 +931,9 @@ MonoBehaviour:
   jumpSoundVol: 0.5
   scrapCollectedSound: {fileID: 8300000, guid: 6f1ee607b09a7324d8a80fa0f59e2a3c, type: 3}
   scrapCollectedSoundVol: 0.1
+  powerupSound: {fileID: 8300000, guid: 37179c518100b3142b7cb86dc6be76e4, type: 3}
+  powerUpDownSoundVol: 0.5
+  powerdownSound: {fileID: 8300000, guid: cc8648bdd61fe7a40a80624af7abd014, type: 3}
 --- !u!33 &7387118874165750527
 MeshFilter:
   m_ObjectHideFlags: 0

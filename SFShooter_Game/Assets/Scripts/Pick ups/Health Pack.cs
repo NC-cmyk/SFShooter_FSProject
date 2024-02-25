@@ -11,6 +11,7 @@ public class HealthPack : MonoBehaviour
         {
             Debug.Log("Health Pack Collected");
             Destroy(gameObject);
+            PlayerController.instance.audSource.PlayOneShot(PlayerController.instance.powerupSound, PlayerController.instance.powerUpDownSoundVol);
             PlayerController.instance.HP += healthPackAmount;
         }
     }
