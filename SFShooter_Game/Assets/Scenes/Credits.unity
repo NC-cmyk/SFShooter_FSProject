@@ -345,10 +345,10 @@ MonoBehaviour:
   m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   headerColor: {r: 0, g: 0, b: 1, a: 1}
   nameColor: {r: 1, g: 1, b: 1, a: 1}
-  headerSize: 35
-  nameSize: 25
-  scrollSpeed: 10
-  screenSpaceInDivisions: 8
+  headerSize: 65
+  nameSize: 35
+  scrollSpeed: 0.5
+  screenSpaceInDivisions: 20
 --- !u!114 &1964797269
 MonoBehaviour:
   m_ObjectHideFlags: 0

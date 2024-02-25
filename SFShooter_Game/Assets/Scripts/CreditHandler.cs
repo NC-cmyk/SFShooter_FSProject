@@ -81,7 +81,7 @@ public class CreditsHandler : MonoBehaviour
         string[] linesFromfile = theList.text.Split("\n"[0]);
         foreach (string line in linesFromfile)
         {
-            string firstCharacter = line.Substring(0, 1);
+            string firstCharacter = line.Substring(0, Mathf.Min(1, line.Length));
             bool isIgnore = firstCharacter.Equals("#");
             bool isHeader = firstCharacter.Equals("!");
             if (isIgnore)
