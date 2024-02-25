@@ -19,7 +19,7 @@ public class LoadPrefabs : MonoBehaviour
     [Header("Brightness Settings")]
     [SerializeField] private TMP_Text brightnessTextValue = null;
     [SerializeField] private Slider brightnessSilder = null;
-    [SerializeField] private int defaultbrightness = 1;
+    //[SerializeField] private int defaultbrightness = 1;
 
     [Header("Quality Level Settings")]
     [SerializeField] private TMP_Dropdown qualityDropdown;
@@ -31,7 +31,7 @@ public class LoadPrefabs : MonoBehaviour
     [Header("Sensitivity Settings")]
     [SerializeField] private TMP_Text SensTextValue = null;
     [SerializeField] private Slider SensSilder = null;
-    [SerializeField] private int defaultsens = 5;
+    //[SerializeField] private int defaultsens = 5;
 
     [Header("Invert Y Settings")]
     [SerializeField] private Toggle invertToggle = null;

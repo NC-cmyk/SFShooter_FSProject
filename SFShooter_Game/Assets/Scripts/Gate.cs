@@ -17,6 +17,7 @@ public class Gate : MonoBehaviour
 
     [Header("--- Gate Stats ---")]
     [Range(3, 5)] [SerializeField] int gateSpeed; // how fast the gate lowers or rises
+    [SerializeField] bool bossGate;
 
     [Header("--- Gate Components ---")]
     [Header("DONT FORGET TO FILL SPAWNER TRACKER LIST")]
@@ -47,9 +48,20 @@ public class Gate : MonoBehaviour
             checkCount();
         }
 
+        if (bossGate && spawnerDone)
+        {
+            if (GameManager.instance.bossActive)
+            {
+                lowerDown = false;
+            }
+            else if(!GameManager.instance.bossActive)
+            {
+                lowerDown = true;
+            }
+        }
+
         if (lowerDown)
         {
-            model.material = openMat;
             transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, -ogY, Time.deltaTime * gateSpeed), transform.position.z);
         }
         else if (!lowerDown)
@@ -92,11 +104,17 @@ public class Gate : MonoBehaviour
         {
             spawnerDone = true;
 
-            // audio play for gate open
-            audSource.clip = gateOpen;
-            if (!audSource.isPlaying) { audSource.Play(); }
+            if (!bossGate)
+            {
+                // material change
+                model.material = openMat;
 
-            lowerDown = true;
+                // audio play for gate open
+                audSource.clip = gateOpen;
+                if (!audSource.isPlaying) { audSource.Play(); }
+
+                lowerDown = true;
+            }
         }
 
         isCounting = false;
@@ -104,7 +122,7 @@ public class Gate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !bossGate)
         {
             // audio play for gate close
             audSource.clip = gateClose;
