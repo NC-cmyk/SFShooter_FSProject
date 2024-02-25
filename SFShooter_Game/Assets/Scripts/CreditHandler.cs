@@ -23,7 +23,7 @@ public class CreditsHandler : MonoBehaviour
     List<List<string>> titles = new List<List<string>>();
     List<GameObject> creditsTexts = new List<GameObject>();
 
-    // Start is called before the first frame update
+    // Start is cal led before the first frame update
     void Start()
     {
         Vector3 lastPosition = new Vector3(Screen.width * 0.5f, 0, 0);
@@ -100,17 +100,13 @@ public class CreditsHandler : MonoBehaviour
                     titles.Add(new List<string>());
                     newStart = false;
                 }
-                if(titles.Count > 0)
-                {
-                    titles[titles.Count - 1].Add(line);
-                }
+                titles[titles.Count - 1].Add(line);
             }
         }
 
-
         if (m_Font == null)
         {
-            m_Font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+            m_Font = Resources.GetBuiltinResource(typeof(Font), "LiberationSana SDF") as Font;
         }
     }
 
@@ -129,6 +125,5 @@ public class CreditsHandler : MonoBehaviour
                 }
             }
         }
-
     }
 }
