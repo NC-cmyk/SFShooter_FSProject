@@ -1,0 +1,18 @@
+#these do nothing denote comments
+!Game Designers
+Darius Pair
+Connor Proffit
+Nikole Chua
+!Special Mentions Designer
+Tyree Miller
+!Music Designer
+
+!Game Level Designer
+
+!Player & Enemey Designer
+
+!Graphic Designer
+
+!Sound 
+
+!Background Art/Enemy Art/
