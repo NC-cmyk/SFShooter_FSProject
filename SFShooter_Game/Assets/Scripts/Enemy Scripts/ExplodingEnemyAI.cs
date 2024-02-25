@@ -9,6 +9,7 @@ public class ExplodingEnemyAI : EnemyAI
     [Header("--- Exploding Enemy Components ---")]
     [SerializeField] Collider explodeTrigger;
     [SerializeField] GameObject explosion;
+    [SerializeField] GameObject[] powerups;
 
     [Header("--- Exploding Enemy Stats ---")]
     [Range(3, 10)] [SerializeField] int explodeDmg;
@@ -189,6 +190,14 @@ public class ExplodingEnemyAI : EnemyAI
         getAgent().isStopped = true;
 
         yield return new WaitForSeconds(1.2f);
+
+        int itemDrop = Random.Range(0, 49);
+
+        if (itemDrop < 25)
+        {
+            int chosenDrop = Random.Range(0, 2);
+            Instantiate(powerups[chosenDrop], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z), Quaternion.Euler(270, 0, 0));
+        }
 
         Destroy(gameObject);
     }

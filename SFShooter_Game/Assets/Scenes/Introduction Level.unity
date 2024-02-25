@@ -2406,6 +2406,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4712166925399734, guid: f6045a15e1065124680c92c504c8d7ea, type: 3}
   m_PrefabInstance: {fileID: 681354539}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &692856919 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7019179078330615245, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+  m_PrefabInstance: {fileID: 2130353402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &774870883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6256,6 +6261,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 692856919}
     - target: {fileID: 5765279621164704454, guid: 217a6a4623df7e84385453a497d0fee3, type: 3}
       propertyPath: shootDamage
       value: 1

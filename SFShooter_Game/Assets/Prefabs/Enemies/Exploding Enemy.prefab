@@ -477,6 +477,10 @@ MonoBehaviour:
   walkSound: {fileID: 8300000, guid: 8ec51d58676e20e48a954ef6a6925af5, type: 3}
   explodeTrigger: {fileID: 8607289843962090594}
   explosion: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  powerups:
+  - {fileID: 7475340531379887566, guid: f09d1939ef75a29459738f0f039f1dfc, type: 3}
+  - {fileID: 5672416593029594367, guid: 94ce38b2e2fd9ef4d8186c52c9475b01, type: 3}
+  - {fileID: 8675985045912274417, guid: fbeaeb854def75c40914d2a595456c14, type: 3}
   explodeDmg: 4
   explodeTimer: 1
   sightDistance: 8
