@@ -6,13 +6,28 @@ Nikole Chua
 !Special Mentions Designer
 Tyree Miller
 !Music Designer
-
+Darius Pair
 !Game Level Designer
-
+Nikole Chua
+Connor Proffit
 !Player & Enemey Designer
-
+Nikole Chua
 !Graphic Designer
-
+Darius Pair
+Nikole Chua
 !Sound 
-
-!Background Art/Enemy Art/
+Darius Pair
+Connor Proffit
+Nikole Chua
+!Game Art
+Darius Pair
+Connor Proffit
+Nikole Chua
+!Inspiration 
+Kirby Series
+Hollow Knight
+Astoneer
+No Man's Sky
+The Witcher 3: Wild Hunt
+!Game Idea 
+Scrapwreck is a 3D First Person Shooter where your spaceship has crash landed on an alien planet and you must use the available resources that you find to repair while also fighting off hordes of alien enemies.
