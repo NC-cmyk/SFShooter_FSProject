@@ -499,6 +499,10 @@ MonoBehaviour:
   chargeDistance: 20
   chargeHitbox: {fileID: 5581574367080942114}
   chargeSmoke: {fileID: 5905695311610273851}
+  powerups:
+  - {fileID: 7475340531379887566, guid: f09d1939ef75a29459738f0f039f1dfc, type: 3}
+  - {fileID: 5672416593029594367, guid: 94ce38b2e2fd9ef4d8186c52c9475b01, type: 3}
+  - {fileID: 8675985045912274417, guid: fbeaeb854def75c40914d2a595456c14, type: 3}
   chargeWarningSFX: {fileID: 8300000, guid: 94ae745cf69025d4393a356d2cc3ec95, type: 3}
 --- !u!95 &1018124777784349444
 Animator:
