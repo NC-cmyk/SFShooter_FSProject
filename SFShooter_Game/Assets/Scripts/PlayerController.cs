@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 {
     public static PlayerController instance;
     [SerializeField] CharacterController controller;
+    public Camera cam;
     [SerializeField] public AudioSource audSource;
     
     [Header("----- Player Stats -----")]
@@ -193,6 +194,29 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         GameManager.instance.playerDamageFlash.SetActive(true);
         yield return new WaitForSeconds(.1f);
         GameManager.instance.playerDamageFlash.SetActive(false);
+    }
+    public IEnumerator Damage(float sec, int dmgBoost, GameObject obj)
+    {
+        UnityEngine.Debug.Log("DMG Boost Time:" + sec);
+        int orig = shootDamage;
+        shootDamage += dmgBoost;
+        Debug.Log("Orig:" + orig);
+        Debug.Log("IEnum entered");
+        yield return new WaitForSecondsRealtime(sec);
+        shootDamage = orig;
+        Debug.Log("Success!");
+        Destroy(obj);
+    }
+    public IEnumerator SpeedPowerUp(float sec, float multiplier, GameObject obj)
+    {
+        float orig = playerSpeed;
+        float camOrig = cam.fieldOfView;
+        playerSpeed *= multiplier;
+        cam.fieldOfView = 80;
+        yield return new WaitForSeconds(sec);
+        playerSpeed = orig;
+        cam.fieldOfView = camOrig;  
+        Destroy(obj);
     }
     private void OnTriggerEnter(Collider col)
     {
