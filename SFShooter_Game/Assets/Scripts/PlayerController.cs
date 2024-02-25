@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
             sprint = 1;
         }
 
-        move = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
+        move = (Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward).normalized;
 
         controller.Move(move * playerSpeed * sprint * Time.deltaTime);
 
