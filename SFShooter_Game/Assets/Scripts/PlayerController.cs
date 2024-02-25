@@ -29,19 +29,12 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioClip playerHurtSound;
-    [Range(0, 1)][SerializeField] float hurtSoundVol;
     [SerializeField] AudioClip playerDeathSound;
-    [Range(0, 1)][SerializeField] float deathSoundVol;
     [SerializeField] AudioClip playerShootSound;
-    [Range(0, 1)][SerializeField] float shootSoundVol;
     [SerializeField] public AudioClip playerWinSound;
-    [Range(0, 1)][SerializeField] public float winSoundVol;
     [SerializeField] AudioClip playerJumpSound;
-    [Range(0, 1)][SerializeField] float jumpSoundVol;
     [SerializeField] AudioClip scrapCollectedSound;
-    [Range(0, 1)][SerializeField] float scrapCollectedSoundVol;
     [SerializeField] public AudioClip powerupSound;
-    [Range(0, 1)][SerializeField] public float powerUpDownSoundVol;
     [SerializeField] AudioClip powerdownSound;
 
     Vector3 playerVelocity;
@@ -103,7 +96,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
         if(Input.GetButtonDown("Jump") && jumpCount < jumpMax){
             playerVelocity.y = jumpHeight;
-            audSource.PlayOneShot(playerJumpSound, jumpSoundVol);
+            audSource.PlayOneShot(playerJumpSound);
             jumpCount++;
 
             if(jumpCount == 1){
@@ -118,7 +111,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     IEnumerator shoot(){
         isShooting = true;
 
-        audSource.PlayOneShot(playerShootSound, shootSoundVol);
+        audSource.PlayOneShot(playerShootSound);
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance)){
             IDamage damage = hit.collider.GetComponent<IDamage>();
@@ -147,7 +140,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
     public void takeDamage(int amount)
     {
-        audSource.PlayOneShot(playerHurtSound, hurtSoundVol);
+        audSource.PlayOneShot(playerHurtSound);
         StartCoroutine(flashDamage());
 
         if (shieldHP <= 0 || amount < 0){
@@ -160,7 +153,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         }
 
         if(HP <= 0){
-            audSource.PlayOneShot(playerDeathSound, deathSoundVol);
+            audSource.PlayOneShot(playerDeathSound);
             // This is where the player dies, Game over screen
             GameManager.instance.youLose();
         }
@@ -200,19 +193,19 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     }
     public IEnumerator Damage(float sec, int dmgBoost, GameObject obj)
     {
-        audSource.PlayOneShot(powerupSound, powerUpDownSoundVol);
+        audSource.PlayOneShot(powerupSound);
         int orig = shootDamage;
         shootDamage += dmgBoost;
         Debug.Log("Orig:" + orig);
         Debug.Log("IEnum entered");
         yield return new WaitForSecondsRealtime(sec);
         shootDamage = orig;
-        audSource.PlayOneShot(powerdownSound, powerUpDownSoundVol);
+        audSource.PlayOneShot(powerdownSound);
         Destroy(obj);
     }
     public IEnumerator SpeedPowerUp(float sec, float multiplier, GameObject obj)
     {
-        audSource.PlayOneShot(powerupSound, powerUpDownSoundVol);
+        audSource.PlayOneShot(powerupSound);
         float orig = playerSpeed;
         float camOrig = cam.fieldOfView;
         playerSpeed *= multiplier;
@@ -220,14 +213,14 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         yield return new WaitForSeconds(sec);
         playerSpeed = orig;
         cam.fieldOfView = camOrig;
-        audSource.PlayOneShot(powerdownSound, powerUpDownSoundVol);
+        audSource.PlayOneShot(powerdownSound);
         Destroy(obj);
     }
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Scrap"))
         {
-            audSource.PlayOneShot(scrapCollectedSound, scrapCollectedSoundVol);
+            audSource.PlayOneShot(scrapCollectedSound);
         }
     }
 }
