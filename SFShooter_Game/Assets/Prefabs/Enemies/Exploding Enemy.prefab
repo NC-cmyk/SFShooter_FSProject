@@ -484,7 +484,7 @@ MonoBehaviour:
   explodeDmg: 4
   explodeTimer: 1
   sightDistance: 8
-  explosionKB: 20
+  explosionKB: 21
   eEnemyAttackSound: {fileID: 8300000, guid: 56a2b50ae5480db44a8e48310e48b051, type: 3}
   chargingSFX: {fileID: 8300000, guid: f57d5d47a22614544a81aef322beac10, type: 3}
   tickingSFX: {fileID: 8300000, guid: acfb0b97ccf97a345acdfe930e5cdca3, type: 3}

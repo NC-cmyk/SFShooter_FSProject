@@ -1714,6 +1714,7 @@ MonoBehaviour:
   walkSound: {fileID: 0}
   explodeTrigger: {fileID: 995092461}
   explosion: {fileID: 1515964989}
+  powerups: []
   explodeDmg: 3
   explodeTimer: 3
   sightDistance: 0
@@ -2399,7 +2400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2613789793406230700, guid: d787575eafc61d84694095be55015440, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2799,7 +2800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997210272619195589, guid: 0b51589a898217e49ab940f8e648dbe3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3052,6 +3053,7 @@ MonoBehaviour:
   chargeDistance: 0
   chargeHitbox: {fileID: 0}
   chargeSmoke: {fileID: 0}
+  powerups: []
   chargeWarningSFX: {fileID: 0}
 --- !u!1 &9015210775902201382
 GameObject:

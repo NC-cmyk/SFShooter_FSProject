@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [SerializeField] public float playerSpeed;
     [Range(1, 2)] [SerializeField] float sprintModifier;
     [SerializeField] float jumpHeight;
-    [SerializeField] float jumpTimer;
     [SerializeField] float gravity;
     [SerializeField] int knockbackResolve;
 
@@ -43,11 +42,8 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     int shieldHPmax;
     int HPmax;
     bool groundedPlayer;
-    int jumpMax = 2;
-    int jumpCount;
     bool isShooting;
     float sprint;
-    bool playingSteps;
     public bool isPowerUpCoroutineRunning;
 
     void Awake()
@@ -80,10 +76,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
         groundedPlayer = controller.isGrounded;
 
-        if(groundedPlayer){
-            jumpCount = 0;
-        }
-
         if(Input.GetButton("Sprint")){
             sprint = sprintModifier;
         }
@@ -95,14 +87,9 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
         controller.Move(move * playerSpeed * sprint * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && jumpCount < jumpMax){
+        if(Input.GetButtonDown("Jump") && groundedPlayer){
             playerVelocity.y = jumpHeight;
             audSource.PlayOneShot(playerJumpSound);
-            jumpCount++;
-
-            if(jumpCount == 1){
-                StartCoroutine(jumpResetTimer());
-            }
         }
 
         playerVelocity.y += gravity * Time.deltaTime;
@@ -124,13 +111,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
-    }
-
-    IEnumerator jumpResetTimer(){
-        jumpMax = 1;
-        yield return new WaitForSeconds(jumpTimer);
-        jumpMax = 2;
-
     }
 
     IEnumerator shieldCharger(){

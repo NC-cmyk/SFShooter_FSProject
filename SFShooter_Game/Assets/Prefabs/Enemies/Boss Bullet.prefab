@@ -53,8 +53,7 @@ MonoBehaviour:
   dmgAmount: 2
   speed: 15
   destroyTime: 5
-  knockbackDist: 8
-  rotateSpeed: 2
+  knockbackDist: 15
 --- !u!33 &2980613390443579256
 MeshFilter:
   m_ObjectHideFlags: 0

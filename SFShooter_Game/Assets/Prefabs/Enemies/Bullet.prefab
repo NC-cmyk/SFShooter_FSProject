@@ -51,7 +51,7 @@ MonoBehaviour:
   dmgAmount: 1
   speed: 40
   destroyTime: 3
-  knockbackDist: 8
+  knockbackDist: 10
 --- !u!135 &2819897696287536679
 SphereCollider:
   m_ObjectHideFlags: 0
