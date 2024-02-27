@@ -50,6 +50,12 @@ public class MainMenuController : MonoBehaviour
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
+        // if the player went back to the main menu from the game
+        if (AudioListener.pause)
+        {
+            AudioListener.pause = false;
+        }
+
         List<string> options = new List<string>();
 
         int currentResolutionIndex = 0;
@@ -77,17 +83,21 @@ public class MainMenuController : MonoBehaviour
 
     public void NewGameDialogYes()
     {
-        SceneManager.LoadScene(_newGameLevel);
+        // just to make sure
+        PlayerPrefs.DeleteKey("SavedLevel");
+
+        StartCoroutine(loadScene(_newGameLevel));
     }
 
     public void LoadGameDialogYes()
     {
-        if (PlayerPrefs.HasKey("SavedLevel"))
+        bool hasSavedLevel = PlayerPrefs.HasKey("SavedLevel");
+        if (hasSavedLevel)
         {
             levelToLoad = PlayerPrefs.GetString("SavedLevel");
-            SceneManager.LoadScene(levelToLoad);
+            StartCoroutine(loadScene(levelToLoad));
         }
-        else
+        else if(!hasSavedLevel)
         {
             noSavedGameDialog.SetActive(true);
         }
@@ -174,6 +184,18 @@ public class MainMenuController : MonoBehaviour
         PlayerPrefs.SetInt("masterfullscreen", (_isfullscreen ? 1 : 0));
         Screen.fullScreen = _isfullscreen;
 
+    }
+
+    IEnumerator loadScene(string scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        GameManager.instance.playerScript.respawn();
     }
 }
 

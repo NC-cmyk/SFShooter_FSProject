@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
         playerScript = player.GetComponent<PlayerController>();
         playerSpawnPosition = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
+        if (Time.timeScale == 0)
+        {
+            UnpausedState();
+        }
+
         scrapTracker = ScrapTracker.instance;
     }
 
@@ -74,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void PausedState()
     {
-        isPaused = !isPaused;
+        isPaused = true;
         AudioListener.pause = true;
         Time.timeScale = 0;
         Cursor.visible = true;
@@ -83,13 +88,18 @@ public class GameManager : MonoBehaviour
 
     public void UnpausedState()
     {
-        isPaused = !isPaused;
+        isPaused = false;
         AudioListener.pause = false;
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        activeMenu.SetActive(false);
-        activeMenu = null;
+
+        // active menu does not exist when loading back into the game
+        if (activeMenu != null)
+        {
+            activeMenu.SetActive(false);
+            activeMenu = null;
+        }
     }
     public void GameGoalComplete()
     {
@@ -98,6 +108,7 @@ public class GameManager : MonoBehaviour
         activeMenu = winMenu;
         activeMenu.SetActive(true);
     }
+
     public void youLose(){
         PausedState();
         activeMenu = loseMenu;

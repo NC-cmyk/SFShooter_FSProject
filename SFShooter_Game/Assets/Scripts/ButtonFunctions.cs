@@ -20,10 +20,20 @@ public class ButtonFunctions : MonoBehaviour
         Application.Quit();
     }
 
+    public void returnMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void respawnplayer()
     {
         GameManager.instance.playerScript.respawn();
         GameManager.instance.UnpausedState(); 
+    }
+
+    public void saveCurrentLevel()
+    {
+        PlayerPrefs.SetString("SavedLevel", SceneManager.GetActiveScene().name);
     }
 }
 

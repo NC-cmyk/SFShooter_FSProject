@@ -38,8 +38,6 @@ public class LevelSwap : MonoBehaviour
         }
 
         GameManager.instance.playerScript.respawn();
-        // However doing this would require the player needing a way to retain their upgrades
-        // If upgrades are still getting implemented
     }
     void YouWonTheGame()
     {

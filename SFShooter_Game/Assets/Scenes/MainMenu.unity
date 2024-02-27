@@ -2396,12 +2396,10 @@ MonoBehaviour:
   SFXSlider: {fileID: 1504223937}
   brightnessTextValue: {fileID: 1394624456}
   brightnessSilder: {fileID: 915496415}
-  defaultbrightness: 1
   qualityDropdown: {fileID: 1805887494}
   fullScreenToggle: {fileID: 222708769}
   SensTextValue: {fileID: 405476663}
   SensSilder: {fileID: 838411327}
-  defaultsens: 5
   invertToggle: {fileID: 1938122098}
 --- !u!4 &436421573
 Transform:
@@ -7185,7 +7183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1155714181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15359,6 +15357,10 @@ PrefabInstance:
     - target: {fileID: 199888693941907966, guid: cc860f30e19bc3e4497f77c18edc0376, type: 3}
       propertyPath: m_Name
       value: BackgroundMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 199888693941907966, guid: cc860f30e19bc3e4497f77c18edc0376, type: 3}
+      propertyPath: m_TagString
+      value: Background Music
       objectReference: {fileID: 0}
     - target: {fileID: 5123548792727519399, guid: cc860f30e19bc3e4497f77c18edc0376, type: 3}
       propertyPath: m_Volume
