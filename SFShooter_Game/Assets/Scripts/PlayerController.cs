@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     int HPmax;
     bool groundedPlayer;
     bool isShooting;
+    bool shieldRecharging;
     float sprint;
     public bool isPowerUpCoroutineRunning;
 
@@ -64,6 +65,12 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         if(Input.GetButton("Shoot") && !isShooting && !GameManager.instance.isPaused)
         {
             StartCoroutine(shoot());
+        }
+
+        if (shieldRecharging)
+        {
+            shieldHP = Mathf.Lerp(shieldHP, shieldHPmax, Time.deltaTime * 5);
+            updatePlayerUI();
         }
         
         movement();
@@ -115,7 +122,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     IEnumerator shieldCharger(){
 
         yield return new WaitForSeconds(shieldTimer);
-        shieldHP = Mathf.Lerp(shieldHP, shieldHPmax, Time.deltaTime * 5);
+        shieldRecharging = true;
     }
 
     public void takeDamage(int amount)
@@ -128,7 +135,10 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         }
         else{
             shieldHP -= amount;
+
+            // if player is attacked while their shield is recharging, the charging process should be interrupted
             StopCoroutine(shieldCharger());
+            shieldRecharging = false;
             StartCoroutine(shieldCharger());
         }
 
