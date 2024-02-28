@@ -9,12 +9,21 @@ public class CameraController : MonoBehaviour
     [SerializeField] int lockVerticalMax;
     
     float xRotation;
+    bool invertY;
     
     // Start is called before the first frame update
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (PlayerPrefs.HasKey("masterInvert"))
+        {
+            if(PlayerPrefs.GetInt("masterInvert") == 1)
+            {
+                invertY = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -23,7 +32,14 @@ public class CameraController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
         
-        xRotation -= mouseY;
+        if (invertY)
+        {
+            xRotation += mouseY;
+        }
+        else
+        {
+            xRotation -= mouseY;
+        }
         
         xRotation = Mathf.Clamp(xRotation, lockVerticalMin, lockVerticalMax);
 
