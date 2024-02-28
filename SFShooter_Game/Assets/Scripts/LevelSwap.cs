@@ -36,8 +36,6 @@ public class LevelSwap : MonoBehaviour
         {
             yield return null;
         }
-
-        GameManager.instance.playerScript.respawn();
     }
     void YouWonTheGame()
     {

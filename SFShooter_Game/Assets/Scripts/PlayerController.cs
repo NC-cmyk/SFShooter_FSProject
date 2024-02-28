@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
 
         groundedPlayer = controller.isGrounded;
 
-        if(Input.GetButton("Sprint")){
+        if (Input.GetButton("Sprint")){
             sprint = sprintModifier;
         }
         else{
@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         }
 
         playerVelocity.y += gravity * Time.deltaTime;
+
         controller.Move((playerVelocity + knockback) * Time.deltaTime);
     }
 
