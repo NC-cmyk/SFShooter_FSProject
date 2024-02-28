@@ -4,31 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using TMPro;
+using System.Globalization;
+using UnityEngine.Rendering;
+
 public class VolumeSettings : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private Slider soundSlider = null;
-    [SerializeField] private Slider SFXSlider = null;
-    [SerializeField] private GameObject confirmationPrompt = null;
+    [SerializeField] private Slider soundSlider;
+    [SerializeField] private Slider SFXSlider;
     [SerializeField] private TMP_Text volumeTextvalue;
     [SerializeField] private TMP_Text volumeSFXTextvalue;
-    [SerializeField] private float defaultVolume = 1.0f;
-    [SerializeField] private float SFXdefaultVolume = 1.0f;
 
-
-
+    float defaultVolume;
+    float defaultSFXVolume;
 
     public void Start()
     {
-        if (PlayerPrefs.HasKey("musicVolume"))
+        // default volumes
+        defaultVolume = 1.0f;
+        defaultSFXVolume = 1.0f;
+
+        if (PlayerPrefs.HasKey("musicVolume") || PlayerPrefs.HasKey("SFXVolume"))
         {
             LoadVolume();
-            StartCoroutine(ConfirmationLoadBox());
         }
         else
         {
-            SetMusicVolume();
-            SetSFXVolume();
+            volumeDefaults();
         }
        
     }
@@ -38,7 +40,7 @@ public class VolumeSettings : MonoBehaviour
         float volume = soundSlider.value;
         audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("musicVolume", volume);
-        volumeTextvalue.text = volume.ToString("0.0");
+        volumeTextvalue.text = volume.ToString("p0", CultureInfo.InvariantCulture);
     }
 
     public void SetSFXVolume()
@@ -46,34 +48,26 @@ public class VolumeSettings : MonoBehaviour
         float SFXvolume = SFXSlider.value;
         audioMixer.SetFloat("SFX", Mathf.Log10(SFXvolume) * 20);
         PlayerPrefs.SetFloat("SFXVolume", SFXvolume);
-        volumeSFXTextvalue.text = SFXvolume.ToString("0.0");
+        volumeSFXTextvalue.text = SFXvolume.ToString("p0", CultureInfo.InvariantCulture);
     }
 
     public void LoadVolume()
     {
-        soundSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-        StartCoroutine(ConfirmationLoadBox());
-        SetMusicVolume();
-        SetSFXVolume();
+        float musicVol = PlayerPrefs.GetFloat("musicVolume");
+        audioMixer.SetFloat("Music", Mathf.Log10(musicVol) * 20);
+        soundSlider.value = musicVol;
+        volumeTextvalue.text = musicVol.ToString("p0", CultureInfo.InvariantCulture);
+
+        float sfxVol = PlayerPrefs.GetFloat("SFXVolume");
+        audioMixer.SetFloat("SFX", Mathf.Log10(sfxVol) * 20);
+        SFXSlider.value = sfxVol;
+        volumeSFXTextvalue.text = sfxVol.ToString("p0", CultureInfo.InvariantCulture);
     }
 
-    public void ResetButton(string MenuType)
+    public void volumeDefaults()
     {
-        if(MenuType == "Audio")
-        {
-            soundSlider.value = defaultVolume;
-            SFXSlider.value= SFXdefaultVolume;
-            volumeTextvalue.text = defaultVolume.ToString("0.0");
-            volumeSFXTextvalue.text = SFXdefaultVolume.ToString("0.0");
-            LoadVolume();
-        }
-    }
-
-    public IEnumerator ConfirmationLoadBox()
-    {
-       confirmationPrompt.SetActive(true);
-       yield return new WaitForSeconds(2);
-       confirmationPrompt.SetActive(false);
+        PlayerPrefs.SetFloat("musicVolume", defaultVolume);
+        PlayerPrefs.SetFloat("SFXVolume", defaultSFXVolume);
+        LoadVolume();
     }
 }       
