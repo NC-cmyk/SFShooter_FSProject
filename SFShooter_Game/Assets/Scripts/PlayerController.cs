@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     
     [Header("----- Player Stats -----")]
     [SerializeField] public int HP;
-    [SerializeField] int shieldHP;
+    [SerializeField] float shieldHP;
     [SerializeField] int shieldTimer;
 
     [Header("----- Movement -----")]
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     Vector3 playerVelocity;
     Vector3 move;
     Vector3 knockback;
-    int shieldHPmax;
+    float shieldHPmax;
     int HPmax;
     bool groundedPlayer;
     bool isShooting;
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     IEnumerator shieldCharger(){
 
         yield return new WaitForSeconds(shieldTimer);
-        shieldHP = shieldHPmax;
+        shieldHP = Mathf.Lerp(shieldHP, shieldHPmax, Time.deltaTime * 5);
     }
 
     public void takeDamage(int amount)
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     public void updatePlayerUI(){
         // update hp bar from GameManager
         GameManager.instance.playerHPBar.fillAmount = (float)HP / HPmax;
-        GameManager.instance.shieldHPBar.fillAmount = (float)shieldHP / shieldHPmax;
+        GameManager.instance.shieldHPBar.fillAmount = shieldHP / shieldHPmax;
     }
 
     IEnumerator flashDamage()
