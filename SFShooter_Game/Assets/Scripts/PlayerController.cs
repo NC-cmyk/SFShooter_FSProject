@@ -176,8 +176,6 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
         audSource.PlayOneShot(powerupSound);
         int orig = shootDamage;
         shootDamage += dmgBoost;
-        Debug.Log("Orig:" + orig);
-        Debug.Log("IEnum entered");
         yield return new WaitForSecondsRealtime(sec);
         shootDamage = orig;
         audSource.PlayOneShot(powerdownSound);
