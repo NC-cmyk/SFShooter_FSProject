@@ -10,10 +10,9 @@ public class DamageBoost : MonoBehaviour
     {
         if (other.CompareTag("Player") && !PlayerController.instance.isPowerUpCoroutineRunning)
         {
-            Debug.Log("Damage Boost Collected");
             StartCoroutine(PlayerController.instance.Damage(dmgBoostTime, dmgBoostAmount, this.gameObject));
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.GetComponent<SphereCollider>().enabled = false;
             
         }
     }

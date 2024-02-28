@@ -97,9 +97,6 @@ public class MeleeEnemyAI : EnemyAI
 
     IEnumerator die()
     {
-        getAnimator().ResetTrigger("Hit");
-        getAnimator().SetBool("isDead", true);
-
         // prevent enemy from moving
         // does allow sliding for if they die while charging though
         gettingDestroyed = true;
@@ -107,6 +104,9 @@ public class MeleeEnemyAI : EnemyAI
         getAgent().angularSpeed = 0;
         getAgent().speed = 0;
         StopCoroutine(roam());
+
+        getAnimator().ResetTrigger("Hit");
+        getAnimator().SetBool("isDead", true);
 
         yield return new WaitForSeconds(2);
 

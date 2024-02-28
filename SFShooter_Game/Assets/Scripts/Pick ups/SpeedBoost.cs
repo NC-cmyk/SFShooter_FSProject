@@ -10,10 +10,9 @@ public class SpeedBoost : MonoBehaviour
     {
         if (other.CompareTag("Player") && !PlayerController.instance.isPowerUpCoroutineRunning)
         {
-            Debug.Log("Speed Boost Collected");
             StartCoroutine(PlayerController.instance.SpeedPowerUp(speedBoostTime, speedBoostMultiplier, this.gameObject));
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.GetComponent<SphereCollider>().enabled = false;
         }
     }
 }
