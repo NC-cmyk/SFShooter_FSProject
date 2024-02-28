@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5672416591742434651}
   - component: {fileID: 5672416591742434628}
   - component: {fileID: 5672416591742434629}
-  - component: {fileID: 5672416591742434650}
   - component: {fileID: 801520004966199128}
+  - component: {fileID: 5212636096818760126}
   m_Layer: 0
   m_Name: Health
   m_TagString: Health Pack
@@ -85,8 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5672416591742434650
-BoxCollider:
+--- !u!114 &801520004966199128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5672416591742434630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb33988fcc318244a6a5005681e87b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPackAmount: 2
+--- !u!135 &5212636096818760126
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,21 +117,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.017919816, y: 0.01791982, z: 0.0058251917}
-  m_Center: {x: 0.000000004656613, y: 0, z: 0}
---- !u!114 &801520004966199128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5672416591742434630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb33988fcc318244a6a5005681e87b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPackAmount: 2
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5672416593029594367
 GameObject:
   m_ObjectHideFlags: 0

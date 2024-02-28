@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8675985045648534634}
   - component: {fileID: 8675985045648534629}
   - component: {fileID: 8675985045648534628}
-  - component: {fileID: 8675985045648534635}
   - component: {fileID: 5182757336118804415}
+  - component: {fileID: 4373582977446701024}
   m_Layer: 0
   m_Name: Speed
   m_TagString: Speed Boost
@@ -85,8 +85,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8675985045648534635
-BoxCollider:
+--- !u!114 &5182757336118804415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675985045648534631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4e0258d15cefb45a0f4d346f3920b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedBoostTime: 10
+  speedBoostMultiplier: 1.75
+--- !u!135 &4373582977446701024
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,22 +118,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.017919814, y: 0.01791982, z: 0.0058251917}
-  m_Center: {x: 0.000000008381903, y: 0.0004305971, z: 0}
---- !u!114 &5182757336118804415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8675985045648534631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4e0258d15cefb45a0f4d346f3920b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBoostTime: 10
-  speedBoostMultiplier: 1.75
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8675985045912274417
 GameObject:
   m_ObjectHideFlags: 0

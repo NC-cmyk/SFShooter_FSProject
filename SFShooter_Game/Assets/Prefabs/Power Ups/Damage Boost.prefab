@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7475340530523324509}
   - component: {fileID: 7475340530523324508}
   - component: {fileID: 7475340530523324507}
-  - component: {fileID: 7475340530523324510}
   - component: {fileID: 8983370331679842205}
+  - component: {fileID: 7260264199204143654}
   m_Layer: 0
   m_Name: Damage
   m_TagString: Damage Boost
@@ -85,8 +85,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7475340530523324510
-BoxCollider:
+--- !u!114 &8983370331679842205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7475340530523324506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0391e1c6d2e30164aad3023797fb5a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgBoostTime: 8
+  dmgBoostAmount: 1
+--- !u!135 &7260264199204143654
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,22 +118,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.017919816, y: 0.01791982, z: 0.0058251917}
-  m_Center: {x: 9.313226e-10, y: -0.0004155157, z: 2.328307e-10}
---- !u!114 &8983370331679842205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7475340530523324506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0391e1c6d2e30164aad3023797fb5a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmgBoostTime: 8
-  dmgBoostAmount: 1
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7475340531379887566
 GameObject:
   m_ObjectHideFlags: 0
