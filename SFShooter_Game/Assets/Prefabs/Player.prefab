@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3853735748416245315}
-  cam: {fileID: 0}
+  cam: {fileID: 7019179078330615245}
   audSource: {fileID: 8385890197181385561}
   HP: 5
   shieldHP: 3
@@ -913,7 +913,6 @@ MonoBehaviour:
   playerSpeed: 7
   sprintModifier: 1.505
   jumpHeight: 15
-  jumpTimer: 5
   gravity: -25
   knockbackResolve: 3
   shootDamage: 1
@@ -927,6 +926,7 @@ MonoBehaviour:
   scrapCollectedSound: {fileID: 8300000, guid: 6f1ee607b09a7324d8a80fa0f59e2a3c, type: 3}
   powerupSound: {fileID: 8300000, guid: 37179c518100b3142b7cb86dc6be76e4, type: 3}
   powerdownSound: {fileID: 8300000, guid: cc8648bdd61fe7a40a80624af7abd014, type: 3}
+  isPowerUpCoroutineRunning: 0
 --- !u!33 &7387118874165750527
 MeshFilter:
   m_ObjectHideFlags: 0

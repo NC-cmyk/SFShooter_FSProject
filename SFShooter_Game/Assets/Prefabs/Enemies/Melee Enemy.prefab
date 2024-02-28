@@ -445,6 +445,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5613988604198247423}
   - {fileID: 2404454415686818475}
   - {fileID: 4783814290182229260}
   - {fileID: 2266092456268705370}
@@ -463,7 +464,6 @@ Transform:
   - {fileID: 6767084289921796713}
   - {fileID: 9066937116518158229}
   - {fileID: 94708728574049422}
-  - {fileID: 5613988604198247423}
   - {fileID: 5663348102520882239}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -497,7 +497,7 @@ MonoBehaviour:
   attackFOV: 7
   sightDistance: 8
   chargeDistance: 20
-  chargeHitbox: {fileID: 5581574367080942114}
+  chargeHitbox: {fileID: 8170543472293734989}
   chargeSmoke: {fileID: 5905695311610273851}
   powerups:
   - {fileID: 7475340531379887566, guid: f09d1939ef75a29459738f0f039f1dfc, type: 3}
@@ -6378,7 +6378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5613988604198247423
 Transform:
   m_ObjectHideFlags: 0
@@ -6428,7 +6428,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}

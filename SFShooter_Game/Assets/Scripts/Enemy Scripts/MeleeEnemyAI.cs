@@ -12,7 +12,7 @@ public class MeleeEnemyAI : EnemyAI
     [Range(15, 25)] [SerializeField] int chargeDistance; // minimum amount of distance for enemy to start charging
 
     [Header("--- Melee Enemy Components ---")]
-    [SerializeField] BoxCollider chargeHitbox;
+    [SerializeField] GameObject chargeHitbox;
     [SerializeField] ParticleSystem chargeSmoke;
     [SerializeField] GameObject[] powerups;
 
@@ -153,7 +153,7 @@ public class MeleeEnemyAI : EnemyAI
         chargeSmoke.Play();
 
         // when attacking, make hitbox active
-        chargeHitbox.enabled = !chargeHitbox.enabled;
+        chargeHitbox.SetActive(true);
 
         // prevents enemy from stopping prematurely
         getAgent().stoppingDistance = 0;
@@ -169,7 +169,7 @@ public class MeleeEnemyAI : EnemyAI
 
         // restore hitbox to original state
         chargeHitbox.GetComponent<MeleeHitbox>().hit = false;
-        chargeHitbox.enabled = !chargeHitbox.enabled;
+        chargeHitbox.SetActive(false);
 
         // restore enemy's agent stats
         getAgent().stoppingDistance = stoppingDistOrig;
@@ -192,6 +192,6 @@ public class MeleeEnemyAI : EnemyAI
     void stopAttacking()
     {
         StopCoroutine(attack());
-        chargeHitbox.enabled = false;
+        chargeHitbox.SetActive(false);
     }
 }
