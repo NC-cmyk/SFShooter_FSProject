@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioSource menuSFX;
 
     [Header("--- Level Scenes ---")]
+    public GameObject loadingScreen;
     public string[] sceneNames;
 
     [Header("--- Player Components ---")]

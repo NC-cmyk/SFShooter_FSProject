@@ -346,7 +346,7 @@ MonoBehaviour:
   headerColor: {r: 0, g: 0, b: 1, a: 1}
   nameColor: {r: 1, g: 1, b: 1, a: 1}
   headerSize: 65
-  nameSize: 35
+  nameSize: 50
   scrollSpeed: 0.5
   screenSpaceInDivisions: 20
 --- !u!114 &1964797269
