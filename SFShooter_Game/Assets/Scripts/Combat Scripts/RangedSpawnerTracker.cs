@@ -5,15 +5,23 @@ using UnityEngine;
 public class RangedSpawnerTracker : SpawnerTracker
 {
     [Header("--- Ranged Spawner Tracker Components ---")]
-    [SerializeField] GameObject killSwitch;
+    [SerializeField] GameObject[] killSwitches;
 
+    GameObject realKillSwitch;
     KillSwitch killSwScript;
+
+    private void Awake()
+    {
+        int ksIndex = Random.Range(0, killSwitches.Length);
+        realKillSwitch = killSwitches[ksIndex];
+        killSwScript = realKillSwitch.GetComponent<KillSwitch>();
+        killSwScript.setRealSwitch(true);
+    }
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        killSwScript = killSwitch.GetComponent<KillSwitch>();
     }
 
     // Update is called once per frame

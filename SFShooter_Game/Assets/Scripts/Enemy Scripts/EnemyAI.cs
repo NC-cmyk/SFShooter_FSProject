@@ -132,13 +132,17 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     public virtual void takeDamage(int amount)
     {
-        // hurt sound effect
-        audSource.PlayOneShot(hurtSound);
+        if (!isDying)
+        {
+            // hurt sound effect
+            audSource.PlayOneShot(hurtSound);
 
-        HP -= amount;
-        agent.SetDestination(GameManager.instance.player.transform.position);
-        StartCoroutine(flashRed());
+            HP -= amount;
+            agent.SetDestination(GameManager.instance.player.transform.position);
+            StartCoroutine(flashRed());
+        }
 
+        // enemy is defeated
         if (HP <= 0)
         {
             if(gameObject.tag == "Minion")
@@ -200,4 +204,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     protected Animator getAnimator() { return animator; }
     protected AudioSource getAudSource() { return audSource; }
     protected AudioClip getHurtSFX() { return hurtSound; }
+    protected int getRotateSpeed() { return rotateSpeed; }
+    protected void setRotateSpeed(int newSpeed) { rotateSpeed = newSpeed; }
 }

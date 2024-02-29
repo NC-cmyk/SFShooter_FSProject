@@ -466,9 +466,9 @@ MonoBehaviour:
   animator: {fileID: 5292767899717435565}
   headPos: {fileID: 2172522274052699752}
   audSource: {fileID: -7150301645641341337}
-  HP: 3
-  fov: 180
-  rotateSpeed: 8
+  HP: 5
+  fov: 70
+  rotateSpeed: 10
   animTransSpeed: 5
   roamDistance: 12
   roamPauseTimer: 3
@@ -484,7 +484,7 @@ MonoBehaviour:
   explodeDmg: 4
   explodeTimer: 1
   sightDistance: 8
-  explosionKB: 20
+  explosionKB: 21
   eEnemyAttackSound: {fileID: 8300000, guid: 56a2b50ae5480db44a8e48310e48b051, type: 3}
   chargingSFX: {fileID: 8300000, guid: f57d5d47a22614544a81aef322beac10, type: 3}
   tickingSFX: {fileID: 8300000, guid: acfb0b97ccf97a345acdfe930e5cdca3, type: 3}
@@ -519,10 +519,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.8
-  m_Speed: 8.5
-  m_Acceleration: 10
+  m_Speed: 10
+  m_Acceleration: 15
   avoidancePriority: 50
-  m_AngularSpeed: 300
+  m_AngularSpeed: 720
   m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

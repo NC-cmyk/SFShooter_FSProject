@@ -9,6 +9,7 @@ public class KillSwitch : MonoBehaviour, IDamage
     [SerializeField] AudioSource audSource;
 
     bool hit;
+    bool realSwitch;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +23,23 @@ public class KillSwitch : MonoBehaviour, IDamage
         // doesnt actually take damage, this is just to register that it was hit
         if (!hit)
         {
-            audSource.Play();
             model.material.color = Color.red;
             hit = true;
+        }
+
+        if (realSwitch)
+        {
+            audSource.Play();
         }
     }
 
     public bool getHit()
     {
         return hit;
+    }
+
+    public void setRealSwitch(bool isReal)
+    {
+        realSwitch = isReal;
     }
 }
