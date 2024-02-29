@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] int sensitivity;
     [SerializeField] int lockVerticalMin;
     [SerializeField] int lockVerticalMax;
-    
+
+    int sensitivity;
     float xRotation;
     bool invertY;
     
@@ -17,8 +17,23 @@ public class CameraController : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        // check if masterInvert key exists
+        if (PlayerPrefs.HasKey("MasterSens"))
+        {
+            // set camera sensitivity to MasterSens if it does
+            sensitivity = PlayerPrefs.GetInt("MasterSens");
+        }
+        else
+        {
+            // if it doesnt, set sensitivity to 100
+            sensitivity = 100;
+            // NOTE: not likely that it doesnt exist but just in case
+        }
+
+        // check if masterInvert key exists
         if (PlayerPrefs.HasKey("masterInvert"))
         {
+            // if its 1, then set invertY to true, otherwise it defaults to false
             if(PlayerPrefs.GetInt("masterInvert") == 1)
             {
                 invertY = true;
