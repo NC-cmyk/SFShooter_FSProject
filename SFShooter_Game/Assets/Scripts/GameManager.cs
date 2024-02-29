@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         AudioListener.pause = true;
         Time.timeScale = 0;
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void UnpausedState()
