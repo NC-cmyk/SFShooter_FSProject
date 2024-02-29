@@ -10,7 +10,10 @@ Darius Pair
 !Game Level Designer
 Nikole Chua
 Connor Proffit
-!Player & Enemey Designer
+!Player Designer
+Tyree Miller
+Connor Proffit
+!Enemy Designer
 Nikole Chua
 !Graphic Designer
 Darius Pair
@@ -23,6 +26,15 @@ Nikole Chua
 Darius Pair
 Connor Proffit
 Nikole Chua
+!Assets Used
+Fuga spiders with destructible eggs and Mummy by Bizulka on assetstore.unity.com
+Meshtint Free Polygonal Metalon by Meshtint Studio on assetstore.unity.com
+Lowpoly Sci-Fi buildings set by karboosx on assetstore.unity.com
+Mini Legion Lich PBR HP Polyart by Dungeon Mason on assetstore.unity.com
+Mobile Force Field by Isle of Assets on assetstore.unity.com
+SciFi Enemies and Vehicles by Popup Asylum on assetstore.unity.com
+Simple Particles FX : Toon Effects by Indian Ocean Assets on assetstore.unity.com
+World Materials Free by Avionx on assetstore.unity.com
 !Inspiration 
 Kirby Series
 Hollow Knight

@@ -34,8 +34,11 @@ public class LevelSwap : MonoBehaviour
 
         while(!asyncLoad.isDone)
         {
+            GameManager.instance.loadingScreen.SetActive(true);
             yield return null;
         }
+
+        GameManager.instance.loadingScreen.SetActive(false);
     }
     void YouWonTheGame()
     {
