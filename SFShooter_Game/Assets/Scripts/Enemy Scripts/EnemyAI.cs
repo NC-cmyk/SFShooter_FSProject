@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Header("--- General Stats ---")]
     [SerializeField] int HP;
     [Range(20, 180)] [SerializeField] int fov; // field of view
-    [Range(1, 10)] [SerializeField] int rotateSpeed;
+    [Range(1, 20)] [SerializeField] int rotateSpeed;
     [Range(1, 10)] [SerializeField] int animTransSpeed;
     [Range(5, 20)] [SerializeField] int roamDistance;
     [Range(1, 5)] [SerializeField] int roamPauseTimer;

@@ -103,7 +103,7 @@ public class ExplodingEnemyAI : EnemyAI
     IEnumerator explode()
     {
         isExploding = true;
-        getAgent().acceleration = 25;
+        getAgent().acceleration = 30;
         getAgent().speed = 25;
         getAgent().stoppingDistance = 0;
 

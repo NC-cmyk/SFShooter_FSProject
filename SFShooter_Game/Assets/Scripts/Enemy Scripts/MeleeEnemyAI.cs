@@ -63,7 +63,6 @@ public class MeleeEnemyAI : EnemyAI
 
         if (!isAttacking && canSee)
         {
-            //&& !getAnimator().GetBool("isAttacking")
             StopCoroutine(roam());
 
             // enemy should rotate to face player
