@@ -7,14 +7,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("--- Menus ---")]
     [SerializeField] GameObject activeMenu;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject loseMenu;
-    [SerializeField] GameObject bossHP;
+    [SerializeField] AudioSource menuSFX;
 
+    [Header("--- Level Scenes ---")]
     public string[] sceneNames;
 
+    [Header("--- Player Components ---")]
     public PlayerController playerScript;
     public GameObject player;
     public Image playerHPBar;
@@ -22,15 +25,17 @@ public class GameManager : MonoBehaviour
     public GameObject playerDamageFlash;
     public GameObject playerSpawnPosition;
 
+    [Header("--- Scrap Tracker ---")]
     public ScrapTracker scrapTracker;
 
-    
+    [Header("--- Boss Components ---")]
+    [SerializeField] GameObject bossHP;
     public GameObject boss;
     public BossAI bossScript;
     public Image bossHPBar;
     public bool bossActive;
 
-
+    [Header("--- Pause State ---")]
     public bool isPaused;
     
     //Awake used to initialize the game manager first 
@@ -50,6 +55,9 @@ public class GameManager : MonoBehaviour
         }
 
         scrapTracker = ScrapTracker.instance;
+
+        // so menu sfx can still play
+        menuSFX.ignoreListenerPause = true;
     }
 
     void Update() 
