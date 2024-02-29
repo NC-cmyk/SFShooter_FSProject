@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 624017835198903490}
   - component: {fileID: 8628579995756757776}
+  - component: {fileID: 6560787277536123869}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -47,3 +48,31 @@ MonoBehaviour:
   _newGameLevel: Introduction Level
   levelToLoad: 
   noSavedGameDialog: {fileID: 0}
+  SensTextValue: {fileID: 0}
+  SensSilder: {fileID: 0}
+  defaultsens: 5
+  maincontrollerSens: 5
+  invertToggle: {fileID: 0}
+  brightnessTextValue: {fileID: 0}
+  brightnessSilder: {fileID: 0}
+  defaultbrightness: 1
+  qualityDropdown: {fileID: 0}
+  fullScreenToggle: {fileID: 0}
+  resolutionDropdown: {fileID: 0}
+--- !u!114 &6560787277536123869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187992293859737346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2987af961a00e4baf71a942c8cdf12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 4fe00d904bb08c143810a4d998005556, type: 2}
+  soundSlider: {fileID: 0}
+  SFXSlider: {fileID: 0}
+  volumeTextvalue: {fileID: 0}
+  volumeSFXTextvalue: {fileID: 0}
