@@ -31,6 +31,7 @@ public class Settings : MonoBehaviour
     [Header("--- Graphics Components ---")]
     [SerializeField] TMP_Text brightnessTextVal;
     [SerializeField] Slider brightnessSlider;
+    [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] TMP_Dropdown qualityDropdown;
     [SerializeField] Toggle fullscreenToggle;
 
@@ -38,13 +39,10 @@ public class Settings : MonoBehaviour
     int qualityLevel;
     bool isFullscreen;
     float brightnessLevel;
+    Resolution[] resolutions; // resolutions list
 
     // graphics defaults
     int defaultBrightness;
-
-    [Header("- Resolutions Components -")]
-    [SerializeField] TMP_Dropdown resolutionDropdown;
-    Resolution[] resolutions; // resolutions list
 
     private void Awake()
     {
