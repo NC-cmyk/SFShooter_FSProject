@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using TMPro;
 using System.Globalization;
 using UnityEngine.Rendering;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Settings : MonoBehaviour
 {
@@ -130,6 +131,7 @@ public class Settings : MonoBehaviour
             float localBrightness = PlayerPrefs.GetInt("masterbrightness");
             brightnessTextVal.text = localBrightness.ToString("0.0");
             brightnessSlider.value = localBrightness;
+            brightnessSlider.value = Screen.brightness; 
         }
     }
 
@@ -246,6 +248,8 @@ public class Settings : MonoBehaviour
     {
         brightnessLevel = brightness;
         brightnessTextVal.text = brightness.ToString("0.0");
+        // Update the Screen brightness when the slider value changes
+        Screen.brightness = brightness; 
     }
     public void SetFullscreen(bool isfullscreen)
     {
