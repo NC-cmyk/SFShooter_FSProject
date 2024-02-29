@@ -6,7 +6,7 @@ public class MeleeEnemyAI : EnemyAI
 {
     [Header("MELEE ENEMY DAMAGE IN MELEE HITBOX GAMEOBJECT")]
     [Header("--- Melee Enemy Stats ---")]
-    [Range(3, 8)] [SerializeField] int attackRate;
+    [Range(2, 8)] [SerializeField] int attackRate;
     [Range(5, 10)] [SerializeField] int attackFOV; // field of vision for attacking
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
     [Range(15, 25)] [SerializeField] int chargeDistance; // minimum amount of distance for enemy to start charging
@@ -61,7 +61,7 @@ public class MeleeEnemyAI : EnemyAI
     {
         bool canSee = base.canSeePlayer();
 
-        if (!isAttacking && canSee)
+        if (!getAnimator().GetBool("isAttacking") && canSee)
         {
             StopCoroutine(roam());
 
@@ -69,7 +69,7 @@ public class MeleeEnemyAI : EnemyAI
             if (getAgent().remainingDistance < sightDistance)
                 faceTarget();
 
-            if (angleToPlayer < attackFOV && getAgent().remainingDistance < chargeDistance)
+            if (angleToPlayer < attackFOV && getAgent().remainingDistance < chargeDistance && !isAttacking)
                 StartCoroutine(attack());
         }
 
@@ -78,7 +78,7 @@ public class MeleeEnemyAI : EnemyAI
 
     public override void takeDamage(int amount)
     {
-        if (!getAnimator().GetBool("isDead"))
+        if (!gettingDestroyed)
         {
             if (!isAttacking)
             {
@@ -101,6 +101,7 @@ public class MeleeEnemyAI : EnemyAI
         gettingDestroyed = true;
         stopAttacking();
         getAgent().angularSpeed = 0;
+        setRotateSpeed(0);
         getAgent().speed = 0;
         StopCoroutine(roam());
 
@@ -158,8 +159,8 @@ public class MeleeEnemyAI : EnemyAI
         getAgent().stoppingDistance = 0;
 
         // makes enemy faster
-        getAgent().acceleration = 20;
-        getAgent().speed = 15;
+        getAgent().acceleration = 30;
+        getAgent().speed = 20;
 
         // enemy should not be able to turn while charging
         getAgent().angularSpeed = 0;

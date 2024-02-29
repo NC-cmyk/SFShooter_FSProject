@@ -103,8 +103,8 @@ public class ExplodingEnemyAI : EnemyAI
     IEnumerator explode()
     {
         isExploding = true;
-        getAgent().acceleration = 30;
-        getAgent().speed = 25;
+        getAgent().acceleration = 40;
+        getAgent().speed = 30;
         getAgent().stoppingDistance = 0;
 
         // play charging sfx
