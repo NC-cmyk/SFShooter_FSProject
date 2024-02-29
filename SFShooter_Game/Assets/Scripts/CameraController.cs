@@ -44,6 +44,22 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // == check if gameplay settings has been updated ==
+        if(sensitivity != PlayerPrefs.GetInt("MasterSens"))
+        {
+            sensitivity = PlayerPrefs.GetInt("MasterSens");
+        }
+
+        if(PlayerPrefs.GetInt("masterInvert") == 1)
+        {
+            invertY = true;
+        }
+        else
+        {
+            invertY = false;
+        }
+
+        // == movement of the camera ==
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
         
