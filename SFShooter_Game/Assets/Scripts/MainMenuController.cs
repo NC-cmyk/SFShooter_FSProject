@@ -43,6 +43,11 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+    public void goToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void ExitButton()
     {
         Application.Quit();

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 //Build your Credits.txt with an ! to denote headers, # to denote comments, everything else will be considered a name.
@@ -124,6 +125,11 @@ public class CreditsHandler : MonoBehaviour
                     creditsTexts[i] = null;
                 }
             }
+        }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

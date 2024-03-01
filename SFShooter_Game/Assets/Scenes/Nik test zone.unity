@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exploding Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2794674092905077148, guid: c42ec38f6175f9540a7f090725cfbbf2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4278556709292704046, guid: c42ec38f6175f9540a7f090725cfbbf2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.0917635
@@ -1253,22 +1249,6 @@ PrefabInstance:
     - target: {fileID: 3323697395800499833, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5581574367080942114, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: m_Size.z
-      value: 4.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5581574367080942114, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: m_Center.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5581574367080942114, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: m_Center.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170543472293734989, guid: 15e42a3a264f5ac44859cbffa4316c8e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
