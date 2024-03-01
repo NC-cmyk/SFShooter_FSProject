@@ -185,9 +185,11 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     {
         isPowerUpCoroutineRunning = true;
         audSource.PlayOneShot(powerupSound);
+        GameManager.instance.damageBoostIcon.SetActive(true);
         int orig = shootDamage;
         shootDamage += dmgBoost;
         yield return new WaitForSecondsRealtime(sec);
+        GameManager.instance.damageBoostIcon.SetActive(false);
         shootDamage = orig;
         audSource.PlayOneShot(powerdownSound);
         Destroy(obj);
@@ -197,11 +199,13 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     {
         isPowerUpCoroutineRunning = true;
         audSource.PlayOneShot(powerupSound);
+        GameManager.instance.speedBoostIcon.SetActive(true);
         float orig = playerSpeed;
         float camOrig = cam.fieldOfView;
         playerSpeed *= multiplier;
         cam.fieldOfView = 80;
         yield return new WaitForSeconds(sec);
+        GameManager.instance.speedBoostIcon.SetActive(false);
         playerSpeed = orig;
         cam.fieldOfView = camOrig;
         audSource.PlayOneShot(powerdownSound);

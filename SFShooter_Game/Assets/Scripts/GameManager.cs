@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public Image shieldHPBar;
     public GameObject playerDamageFlash;
     public GameObject playerSpawnPosition;
+    public GameObject damageBoostIcon;
+    public GameObject speedBoostIcon;
 
     [Header("--- Scrap Tracker ---")]
     public ScrapTracker scrapTracker;
