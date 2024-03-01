@@ -13,7 +13,7 @@ public class ExplodingEnemyAI : EnemyAI
 
     [Header("--- Exploding Enemy Stats ---")]
     [Range(3, 10)] [SerializeField] int explodeDmg;
-    [Range(1, 5)] [SerializeField] int explodeTimer;
+    [Range(0, 3)] [SerializeField] float explodeTimer;
     [Range(4, 10)] [SerializeField] int sightDistance; // for rotating because melee stopping distance is too small for the enemy to track the player with
     [Range(20, 50)] [SerializeField] int explosionKB; // knockback
 
