@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
     [SerializeField] public int shootDamage;
     [Range(0, 1)] [SerializeField] public float shootRate;
     [SerializeField] int shootDistance;
+    [SerializeField] ParticleSystem shootEffect;
 
     [Header("----- Audio Clips -----")]
     [SerializeField] AudioClip playerHurtSound;
@@ -113,6 +114,8 @@ public class PlayerController : MonoBehaviour, IDamage, IPhysics
             if(hit.transform != transform && damage != null){
                 damage.takeDamage(shootDamage);
             }
+
+            Instantiate(shootEffect, hit.point, hit.transform.rotation);
         }
 
         yield return new WaitForSeconds(shootRate);

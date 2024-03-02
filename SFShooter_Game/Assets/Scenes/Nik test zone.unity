@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exploding Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2794674092905077148, guid: c42ec38f6175f9540a7f090725cfbbf2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4278556709292704046, guid: c42ec38f6175f9540a7f090725cfbbf2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.0917635
@@ -3064,6 +3068,7 @@ MonoBehaviour:
   sightDistance: 0
   chargeDistance: 0
   chargeHitbox: {fileID: 0}
+  chargeSmokePos: {fileID: 0}
   chargeSmoke: {fileID: 0}
   powerups: []
   chargeWarningSFX: {fileID: 0}

@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b551046e4218c49bb271033d586ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 150
   lockVerticalMin: -90
   lockVerticalMax: 90
 --- !u!20 &7019179078330615245
@@ -918,6 +917,7 @@ MonoBehaviour:
   shootDamage: 1
   shootRate: 0.5
   shootDistance: 25
+  shootEffect: {fileID: 5024009746357069192, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
   playerHurtSound: {fileID: 8300000, guid: 5f8dff092d031d645a40cf4cfa3e9f8f, type: 3}
   playerDeathSound: {fileID: 8300000, guid: fde40bbb8dafd164893d06b0c87eba07, type: 3}
   playerShootSound: {fileID: 8300000, guid: 079087f3a36ef95488b3c10700288a10, type: 3}

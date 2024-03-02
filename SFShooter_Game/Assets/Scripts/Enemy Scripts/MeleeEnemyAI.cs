@@ -13,6 +13,7 @@ public class MeleeEnemyAI : EnemyAI
 
     [Header("--- Melee Enemy Components ---")]
     [SerializeField] GameObject chargeHitbox;
+    [SerializeField] Transform chargeSmokePos;
     [SerializeField] ParticleSystem chargeSmoke;
     [SerializeField] GameObject[] powerups;
 
@@ -150,7 +151,7 @@ public class MeleeEnemyAI : EnemyAI
         getAudSource().PlayOneShot(chargeWarningSFX);
 
         // charge smoke vfx
-        chargeSmoke.Play();
+        Instantiate(chargeSmoke, chargeSmokePos.position, chargeSmokePos.rotation);
 
         // when attacking, make hitbox active
         chargeHitbox.SetActive(true);
