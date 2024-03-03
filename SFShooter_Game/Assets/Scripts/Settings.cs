@@ -30,8 +30,6 @@ public class Settings : MonoBehaviour
     float defaultSFXVolume;
 
     [Header("--- Graphics Components ---")]
-    [SerializeField] TMP_Text brightnessTextVal;
-    [SerializeField] Slider brightnessSlider;
     [SerializeField] TMP_Dropdown resolutionDropdown;
     [SerializeField] TMP_Dropdown qualityDropdown;
     [SerializeField] Toggle fullscreenToggle;
@@ -124,14 +122,6 @@ public class Settings : MonoBehaviour
                 Screen.fullScreen = false;
                 fullscreenToggle.isOn = false;
             }
-        }
-
-        if (PlayerPrefs.HasKey("masterbrightness"))
-        {
-            float localBrightness = PlayerPrefs.GetInt("masterbrightness");
-            brightnessTextVal.text = localBrightness.ToString("0.0");
-            brightnessSlider.value = localBrightness;
-            brightnessSlider.value = Screen.brightness; 
         }
     }
 
@@ -244,13 +234,6 @@ public class Settings : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetBrightness(float brightness)
-    {
-        brightnessLevel = brightness;
-        brightnessTextVal.text = brightness.ToString("0.0");
-        // Update the Screen brightness when the slider value changes
-        Screen.brightness = brightness; 
-    }
     public void SetFullscreen(bool isfullscreen)
     {
         isFullscreen = isfullscreen;
@@ -274,10 +257,6 @@ public class Settings : MonoBehaviour
 
     public void graphicsDefaults()
     {
-        //Reset brightness value
-        brightnessSlider.value = defaultBrightness;
-        brightnessTextVal.text = defaultBrightness.ToString("0.0");
-
         // reset quality
         qualityDropdown.value = 1;
         QualitySettings.SetQualityLevel(1);
