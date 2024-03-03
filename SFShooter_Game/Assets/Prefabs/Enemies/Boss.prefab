@@ -729,8 +729,8 @@ MonoBehaviour:
   - {fileID: 8902462747544745585}
   - {fileID: 7990946151995326758}
   enemyList:
-  - {fileID: 2091844730632455156, guid: 73e5486730eb3b140b2ebd3f618a37f9, type: 3}
-  - {fileID: 2794674092905077148, guid: fe7e08bd67193d14db0dd96c0aa4167b, type: 3}
+  - {fileID: 2091844730632455156, guid: e43de51e90588da46be0940ab7ef0af7, type: 3}
+  - {fileID: 2794674092905077148, guid: aa268ae5990b8bf43868e9311dc72c69, type: 3}
   shield: {fileID: 5983667803598370264}
   summonCooldown: 10
   shieldTimer: 10
