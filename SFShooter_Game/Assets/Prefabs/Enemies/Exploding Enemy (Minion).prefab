@@ -466,7 +466,7 @@ MonoBehaviour:
   animator: {fileID: 5292767899717435565}
   headPos: {fileID: 2172522274052699752}
   audSource: {fileID: -7150301645641341337}
-  HP: 3
+  HP: 4
   fov: 180
   rotateSpeed: 10
   animTransSpeed: 5
