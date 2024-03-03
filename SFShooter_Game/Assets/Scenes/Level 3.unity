@@ -1171,6 +1171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boundary Cylinder (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8585745213017076302, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1776,6 +1780,10 @@ PrefabInstance:
     - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Name
       value: Boundary Cylinder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8585745213017076302, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Enabled
@@ -2824,6 +2832,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 962459807}
     m_Modifications:
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -45.904755
@@ -4251,6 +4267,10 @@ PrefabInstance:
     - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Name
       value: Boundary Cylinder (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8585745213017076302, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Enabled
@@ -6259,6 +6279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boundary Cylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8585745213017076302, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -6604,6 +6628,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 962459807}
     m_Modifications:
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.595245
@@ -6919,6 +6951,10 @@ PrefabInstance:
     - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Name
       value: Boundary Cylinder (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8585745213017076302, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Enabled
@@ -10427,6 +10463,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 962459807}
     m_Modifications:
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -53.404755
@@ -12491,6 +12535,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 962459807}
     m_Modifications:
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.404754
@@ -14382,6 +14434,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 962459807}
     m_Modifications:
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484759976350214690, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5703443861006951751, guid: e77caad0a5eb1ca4b9ab97dbe3db3d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54.595245
@@ -15904,6 +15964,10 @@ PrefabInstance:
     - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Name
       value: Boundary Cylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556372491234571520, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8585745213017076302, guid: ddb8bded6d92a2f4f88cc2000e970232, type: 3}
       propertyPath: m_Enabled
