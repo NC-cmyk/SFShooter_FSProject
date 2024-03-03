@@ -37,11 +37,7 @@ public class Settings : MonoBehaviour
     // graphics values
     int qualityLevel;
     bool isFullscreen;
-    float brightnessLevel;
     Resolution[] resolutions; // resolutions list
-
-    // graphics defaults
-    int defaultBrightness;
 
     private void Awake()
     {
@@ -74,7 +70,6 @@ public class Settings : MonoBehaviour
         defaultSensitivity = 100;
         defaultVolume = 1.0f;
         defaultSFXVolume = 1.0f;
-        defaultBrightness = 1;
 
         // loading gameplay
         if(PlayerPrefs.HasKey("MasterSens") || PlayerPrefs.HasKey("masterInvert"))
@@ -246,13 +241,10 @@ public class Settings : MonoBehaviour
 
     public void GraphicsApply()
     {
-        PlayerPrefs.SetFloat("masterbrightness", brightnessLevel);
-        //Change brightness with int post process 
         PlayerPrefs.SetFloat("masterQuality", qualityLevel);
         QualitySettings.SetQualityLevel(qualityLevel);
         PlayerPrefs.SetInt("masterfullscreen", (isFullscreen ? 1 : 0));
         Screen.fullScreen = isFullscreen;
-
     }
 
     public void graphicsDefaults()
