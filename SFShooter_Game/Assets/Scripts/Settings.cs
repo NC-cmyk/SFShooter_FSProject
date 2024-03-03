@@ -29,52 +29,13 @@ public class Settings : MonoBehaviour
     float defaultVolume;
     float defaultSFXVolume;
 
-    [Header("--- Graphics Components ---")]
-    [SerializeField] TMP_Dropdown resolutionDropdown;
-    [SerializeField] TMP_Dropdown qualityDropdown;
-    [SerializeField] Toggle fullscreenToggle;
-
-    // graphics values
-    int qualityLevel;
-    bool isFullscreen;
-    float brightnessLevel;
-    Resolution[] resolutions; // resolutions list
-
-    // graphics defaults
-    int defaultBrightness;
-
-    private void Awake()
-    {
-        // setting the resolutions list
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
-
-        List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
-
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-    }
-
     public void Start()
     {
         // === default values ===
         defaultSensitivity = 100;
         defaultVolume = 1.0f;
         defaultSFXVolume = 1.0f;
-        defaultBrightness = 1;
+        
 
         // loading gameplay
         if(PlayerPrefs.HasKey("MasterSens") || PlayerPrefs.HasKey("masterInvert"))
@@ -98,30 +59,6 @@ public class Settings : MonoBehaviour
         {
             // if those keys dont exist, load defaults
             volumeDefaults();
-        }
-
-        // loading graphics
-        if (PlayerPrefs.HasKey("masterQuality"))
-        {
-            int localQuality = PlayerPrefs.GetInt("masterQuality");
-            qualityDropdown.value = localQuality;
-            QualitySettings.SetQualityLevel(localQuality);
-        }
-
-        if (PlayerPrefs.HasKey("masterfullscreen"))
-        {
-            int localFullScreen = PlayerPrefs.GetInt("masterfullscreen");
-
-            if (localFullScreen == 1)
-            {
-                Screen.fullScreen = true;
-                fullscreenToggle.isOn = true;
-            }
-            else
-            {
-                Screen.fullScreen = false;
-                fullscreenToggle.isOn = false;
-            }
         }
     }
 
@@ -226,49 +163,5 @@ public class Settings : MonoBehaviour
         // loads the default values
         LoadVolume();
     }
-
-    // ===== GRAPHICS FUNCTIONS =====
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
-
-    public void SetFullscreen(bool isfullscreen)
-    {
-        isFullscreen = isfullscreen;
-    }
-
-    public void SetQuality(int qualityIndex)
-    {
-        qualityLevel = qualityIndex;
-    }
-
-    public void GraphicsApply()
-    {
-        PlayerPrefs.SetFloat("masterbrightness", brightnessLevel);
-        //Change brightness with int post process 
-        PlayerPrefs.SetFloat("masterQuality", qualityLevel);
-        QualitySettings.SetQualityLevel(qualityLevel);
-        PlayerPrefs.SetInt("masterfullscreen", (isFullscreen ? 1 : 0));
-        Screen.fullScreen = isFullscreen;
-
-    }
-
-    public void graphicsDefaults()
-    {
-        // reset quality
-        qualityDropdown.value = 1;
-        QualitySettings.SetQualityLevel(1);
-
-        // reset fullscreen
-        fullscreenToggle.isOn = false;
-        Screen.fullScreen = false;
-
-        // reset resolution
-        Resolution currentResolution = Screen.currentResolution;
-        Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreen);
-        resolutionDropdown.value = resolutions.Length;
-        GraphicsApply();
-    }
+  
 }       
