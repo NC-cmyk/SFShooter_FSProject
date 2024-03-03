@@ -466,8 +466,8 @@ MonoBehaviour:
   animator: {fileID: 5292767899717435565}
   headPos: {fileID: 2172522274052699752}
   audSource: {fileID: -7150301645641341337}
-  HP: 5
-  fov: 70
+  HP: 3
+  fov: 180
   rotateSpeed: 10
   animTransSpeed: 5
   roamDistance: 12
@@ -482,7 +482,7 @@ MonoBehaviour:
   - {fileID: 5672416593029594367, guid: 94ce38b2e2fd9ef4d8186c52c9475b01, type: 3}
   - {fileID: 8675985045912274417, guid: fbeaeb854def75c40914d2a595456c14, type: 3}
   explodeDmg: 4
-  explodeTimer: 1
+  explodeTimer: 0.5
   sightDistance: 8
   explosionKB: 21
   eEnemyAttackSound: {fileID: 8300000, guid: 56a2b50ae5480db44a8e48310e48b051, type: 3}
@@ -1340,7 +1340,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0.25}
 --- !u!1 &7554629553279657938
 GameObject:
